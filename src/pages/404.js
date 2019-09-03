@@ -1,13 +1,28 @@
-import React from 'react'
-import Layout from '../components/Layout'
+import React from 'react';
+import Layout from '../components/Layout';
+import css from '@emotion/css';
 
 const NotFoundPage = () => (
   <Layout>
-    <div>
-      <h1>NOT FOUND</h1>
-      <p>You just hit a route that doesn&#39;t exist... the sadness.</p>
+    <div
+      css={css`
+        margin-top: 36px;
+        text-align: center;
+
+        p {
+          margin-top: 16px;
+        }
+      `}
+    >
+      <h1>
+        ERRO 404{' '}
+        <span role="img" aria-label="emoji pensativo">
+          🤔
+        </span>
+      </h1>
+      <p>A página que você está tentando acessar não existe.</p>
     </div>
   </Layout>
-)
+);
 
-export default NotFoundPage
+export default NotFoundPage;

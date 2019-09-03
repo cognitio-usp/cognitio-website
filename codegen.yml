@@ -1,0 +1,15 @@
+schema: http://localhost:8000/___graphql
+documents:
+  - ./src/templates/**/*.{ts,tsx}
+  - ./node_modules/gatsby-transformer-sharp/src/**/*.js
+generates:
+  src/typings/graphql.ts:
+    plugins:
+      - add: '/* eslint-disable */'
+      - typescript
+      - typescript-operations
+    config:
+      skipTypename: true
+      namingConvention:
+        enumValues: keep
+        transformUnderscore: false

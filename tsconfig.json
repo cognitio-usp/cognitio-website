@@ -1,0 +1,27 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "target": "esnext",
+    "module": "es6",       // specify module code generation
+    "moduleResolution": "node",
+    "jsx": "react",             // use typescript to transpile jsx to js
+    "allowJs": true,            // allow a partial TypeScript and JavaScript codebase
+    "strictNullChecks": true,   // enable strict null checks as a best practice
+    "noImplicitReturns": true,
+    "noImplicitAny": true,
+    // "noUnusedLocals": true,
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "noEmit": true,
+    "keyofStringsOnly": true,
+    "skipLibCheck": true,
+    // "checkJs": true,
+  },
+  "exclude": [
+    "docs",
+    "dist",
+    "resources",
+    "node_modules",
+    "**/node_modules/*",
+  ]
+}

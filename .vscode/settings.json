@@ -1,0 +1,10 @@
+{
+  "search.exclude": {
+    "**/node_modules": true,
+    "**/bower_components": true,
+    "**/docs": true
+  },
+  "eslint.enable": true,
+  "typescript.tsdk": "node_modules\\typescript\\lib",
+  "todo-tree.showTagsFromOpenFilesOnly": false
+}

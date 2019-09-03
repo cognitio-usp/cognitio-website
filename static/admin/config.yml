@@ -1,60 +1,207 @@
-backend:
-  name: git-gateway
-  branch: master
-
 media_folder: static/img
 public_folder: /img
 
+featured: &featured
+  - label: Destacar na página inicial
+    name: featured
+    hint: Use este campo para selecionar se a página está em destaque na página inicial. Se a página mesmo assim não aparecer, selecione uma data mais recente ou desmarque o que ainda está na mesma posição na página inicial. Lembrando que o pode levar alguns minutos para atualizar o site
+    widget: select
+    default: not
+    options:
+      - { label: Sem destaque, value: not }
+      - { label: Destaque Principal, value: '1' }
+      - { label: 2º Destaque, value: '2' }
+      - { label: 3º Destaque, value: '3' }
+
+relatedProjects: &relatedProjects
+  - label: Projetos Relacionados
+    name: relatedProjects
+    widget: relation
+    collection: projects
+    multiple: true
+    required: false
+    searchFields: [projectName]
+    valueField: projectName
+    displayFields: [projectName]
+
 collections:
-  - name: "blog"
-    label: "Blog"
-    folder: "src/pages/blog"
+  - name: blog
+    label: Notícias
+    folder: src/pages/noticias-e-artigos
     create: true
+    identifier_field: blogTitle
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:
-      - {label: "Template Key", name: "templateKey", widget: "hidden", default: "blog-post"}
-      - {label: "Title", name: "title", widget: "string"}
-      - {label: "Publish Date", name: "date", widget: "datetime"}
-      - {label: "Description", name: "description", widget: "text"}
-      - {label: "Featured Post", name: "featuredpost", widget: "boolean"}
-      - {label: "Featured Image", name: "featuredimage", widget: image}
-      - {label: "Body", name: "body", widget: "markdown"}
-      - {label: "Tags", name: "tags", widget: "list"}
+      - {label: Template Key, name: templateKey, widget: hidden, default: blog-post}
+      - {label: Título, name: blogTitle, widget: string}
+      - {label: Autor, name: blogAuthor, widget: string, required: false}
+      - {label: Data de Publicação, name: date, widget: datetime}
+      - {label: Featured Image, name: blogFeaturedImage, widget: image, required: false}
+      - << : *featured
+      - << : *relatedProjects
+      - {label: Texto, name: body, widget: markdown}
 
-  - name: "pages"
-    label: "Pages"
+  - name: activities
+    label: Atividades
+    folder: src/pages/atividades
+    create: true
+    identifier_field: activitieTitle
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - {label: Template Key, name: templateKey, widget: hidden, default: activitie-post}
+      - {label: Título, name: activitieTitle, widget: string}
+      - {label: Data e hora de início, name: date, widget: datetime}
+      - {label: Local, name: activitieLocation, widget: string, required: false}
+      - {label: Tipo de atividade, name: activitieType, widget: string, default: Evento}
+      - << : *featured
+      - << : *relatedProjects
+      - label: Link
+        name: activitieLink
+        widget: object
+        required: false
+        fields:
+          - {label: Rótulo, name: label, widget: string, required: false, default: Inscrições}
+          - {label: Url, name: url, widget: string, required: false}
+      - {label: Descrição, name: body, widget: markdown}
+
+  - name: members
+    label: Membros
+    folder: src/pages/membros
+    create: true
+    identifier_field: memberName
+    slug: "{{slug}}"
+    fields:
+      - {label: Template Key, name: templateKey, widget: hidden, default: member-page}
+      - {label: Nome, name: memberName, widget: string}
+      - {label: Imagem do perfil, name: memberThumb, widget: image, allow_multiple: false, required: false}
+      - {label: Função, name: memberRole, widget: string}
+      - {label: Membro desde, name: memberSince, widget: date, required: false, default: ''}
+      - {label: Membro até, name: memberUntil, widget: date, default: '', hint: Deixe em branco se o membro for atual, required: false}
+      - {label: Email, name: memberEmail, widget: string, required: false}
+      - {label: Link para o Lattes, name: memberLattes, widget: string, required: false}
+      - {label: LinkedIn, name: memberLinkedin, widget: string, required: false}
+      - {label: Bio, name: body, widget: markdown, hint: Fale um pouco sobre o membro..., required: false}
+      - label: Outras informações
+        hint: Use esse campo para adicionar links e outras informações de destaque
+        name: memberOtherInfos
+        widget: list
+        fields:
+          - {label: Título, name: info, widget: string, required: false}
+          - {label: Link, name: url, widget: string, required: false}
+          - {label: Subtítulo, name: label, widget: string, required: false}
+      - label: Link em destaque
+        name: memberFeaturedLink
+        widget: object
+        required: false
+        hint: Esse link ficara em destaque na miniatura do membro na página de membros
+        fields:
+          - {label: Rótulo, name: label, widget: string, required: false}
+          - {label: Url, name: url, widget: string, required: false}
+
+  - name: projects
+    label: Projetos
+    folder: src/pages/projetos
+    create: true
+    identifier_field: projectName
+    slug: "{{slug}}"
+    fields:
+      - {label: Template Key, name: templateKey, widget: hidden, default: project-page}
+      - {label: Nome, name: projectName, widget: string}
+      - {label: Logo do Projeto, name: projectThumb, widget: image, allow_multiple: false, required: false}
+      - {label: Descrição do projeto, name: body, widget: markdown}
+      - {label: Data, name: date, widget: datetime, hint: Este campo é usado apenas para usar como referência na criação dos destaques da página inicial. Apenas o post mais recente de cada posição é selecionado}
+      - {label: Data de Início do Projeto, name: projectStart, widget: date}
+      - {label: Data do Término do Projeto, name: projectEnd, widget: date, hint: Deixe em branco se o projeto não tiver uma data de término definida, required: false}
+      - << : *featured
+      - label: Membros
+        name: projectMembers
+        widget: relation
+        collection: members
+        multiple: true
+        required: false
+        searchFields: [memberName]
+        valueField: memberName
+        displayFields: [memberName]
+      - label: Ex-Membros
+        name: projectFormerMembers
+        widget: relation
+        collection: members
+        multiple: true
+        required: false
+        searchFields: [memberName]
+        valueField: memberName
+        displayFields: [memberName]
+
+  - name: pages
+    label: Páginas
     files:
-      - file: "src/pages/index.md"
-        label: "Landing Page"
-        name: "index"
+      - file: src/pages/index.md
+        label: Página inicial
+        name: index
         fields:
-          - {label: "Template Key", name: "templateKey", widget: "hidden", default: "index-page"}
-          - {label: Title, name: title, widget: string}
-          - {label: Image, name: image, widget: image}
-          - {label: Heading, name: heading, widget: string}
-          - {label: Subheading, name: subheading, widget: string}
-          - {label: Mainpitch, name: mainpitch, widget: object, fields: [{label: Title, name: title, widget: string}, {label: Description, name: description, widget: text}]}
-          - {label: Description, name: description, widget: string}
-          - {label: Intro, name: intro, widget: object, fields: [{label: Heading, name: heading, widget: string}, {label: Description, name: description, widget: text}, {label: Blurbs, name: blurbs, widget: list, fields: [{label: Image, name: image, widget: image}, {label: Text, name: text, widget: text}]}]}
-          - {label: Main, name: main, widget: object, fields: [{label: Heading, name: heading, widget: string}, {label: Description, name: description, widget: text}, {label: Image1, name: image1, widget: object, fields: [{label: Image, name: image, widget: image}, {label: Alt, name: alt, widget: string}]}, {label: Image2, name: image2, widget: object, fields: [{label: Image, name: image, widget: image}, {label: Alt, name: alt, widget: string}]}, {label: Image3, name: image3, widget: object, fields: [{label: Image, name: image, widget: image}, {label: Alt, name: alt, widget: string}]}]}
-      - file: "src/pages/about/index.md"
-        label: "About"
-        name: "about"
+          - {label: Template Key, name: templateKey, widget: hidden, default: index-page}
+          - {label: Descrição, name: description, widget: text}
+      - file: src/pages/sobre/index.md
+        label: Sobre
+        name: about
         fields:
-          - {label: "Template Key", name: "templateKey", widget: "hidden", default: "about-page"}
-          - {label: "Title", name: "title", widget: "string"}
-          - {label: "Body", name: "body", widget: "markdown"}
-      - file: "src/pages/products/index.md"
-        label: "Products Page"
-        name: "products"
+          - {label: Template Key, name: templateKey, widget: hidden, default: about-page}
+          - {label: Descrição, name: description, widget: text}
+          - {label: Histórico, name: history, widget: text, required: false}
+      - file: src/pages/pesquisa/index.md
+        label: Pesquisa
+        name: research
         fields:
-          - {label: "Template Key", name: "templateKey", widget: "hidden", default: "product-page"}
-          - {label: Title, name: title, widget: string}
-          - {label: Image, name: image, widget: image}
-          - {label: Heading, name: heading, widget: string}
-          - {label: Description, name: description, widget: string}
-          - {label: Intro, name: intro, widget: object, fields: [{label: Heading, name: heading, widget: string}, {label: Description, name: description, widget: text}, {label: Blurbs, name: blurbs, widget: list, fields: [{label: Image, name: image, widget: image}, {label: Text, name: text, widget: text}]}]}
-          - {label: Main, name: main, widget: object, fields: [{label: Heading, name: heading, widget: string}, {label: Description, name: description, widget: text}, {label: Image1, name: image1, widget: object, fields: [{label: Image, name: image, widget: image}, {label: Alt, name: alt, widget: string}]}, {label: Image2, name: image2, widget: object, fields: [{label: Image, name: image, widget: image}, {label: Alt, name: alt, widget: string}]}, {label: Image3, name: image3, widget: object, fields: [{label: Image, name: image, widget: image}, {label: Alt, name: alt, widget: string}]}]}
-          - {label: Testimonials, name: testimonials, widget: list, fields: [{label: Quote, name: quote, widget: string}, {label: Author, name: author, widget: string}]}
-          - {label: Full_image, name: full_image, widget: image}
-          - {label: Pricing, name: pricing, widget: object, fields: [{label: Heading, name: heading, widget: string}, {label: Description, name: description, widget: string}, {label: Plans, name: plans, widget: list, fields: [{label: Plan, name: plan, widget: string}, {label: Price, name: price, widget: string}, {label: Description, name: description, widget: string}, {label: Items, name: items, widget: list}]}]}
+          - {label: Template Key, name: templateKey, widget: hidden, default: research-page}
+          - label: Links
+            name: links
+            widget: list
+            fields:
+              - {label: Nome, name: name, widget: string}
+              - {label: Link, name: url, widget: string, default: https://}
+          - label: Artigos
+            name: articles
+            widget: list
+            fields:
+              - {label: Descrição, name: description, widget: text}
+              - label: Links
+                name: links
+                widget: list
+                fields:
+                  - {label: Nome, name: name, widget: string}
+                  - {label: Link, name: url, widget: string, default: https://}
+          - label: Teses
+            name: thesis
+            widget: list
+            fields:
+              - {label: Descrição, name: description, widget: text}
+              - label: Links
+                name: links
+                widget: list
+                fields:
+                  - {label: Nome, name: name, widget: string}
+                  - {label: Link, name: url, widget: string, default: https://}
+          - label: Livros
+            name: books
+            widget: list
+            fields:
+              - {label: Descrição, name: description, widget: text}
+              - label: Links
+                name: links
+                widget: list
+                fields:
+                  - {label: Nome, name: name, widget: string}
+                  - {label: Link, name: url, widget: string, default: https://}
+      - file: src/pages/contato/index.md
+        label: Contato
+        name: contact
+        fields:
+          - {label: Template Key, name: templateKey, widget: hidden, default: contact-page}
+          - label: Contatos
+            name: contacts
+            widget: list
+            fields:
+              - {label: Nome, name: name, widget: string}
+              - {label: Email, name: email, widget: string}
+          - {label: Endereço Linha 1, name: address1, widget: string}
+          - {label: Endereço Linha 2, name: address2, widget: string}

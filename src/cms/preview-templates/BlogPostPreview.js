@@ -1,21 +1,21 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import { BlogPostTemplate } from '../../templates/blog-post'
+import React from 'react';
+import { BlogPostTemplate } from '../../templates/blog-post';
+import moment from 'moment';
 
-const BlogPostPreview = ({ entry, widgetFor }) => (
-  <BlogPostTemplate
-    content={widgetFor('body')}
-    description={entry.getIn(['data', 'description'])}
-    tags={entry.getIn(['data', 'tags'])}
-    title={entry.getIn(['data', 'title'])}
-  />
-)
+const BlogPostPreview = ({ entry, widgetFor, getAsset }) => {
+  const date = moment(entry.getIn(['data', 'date']));
+  const image = entry.getIn(['data', 'blogFeaturedImage']);
 
-BlogPostPreview.propTypes = {
-  entry: PropTypes.shape({
-    getIn: PropTypes.func,
-  }),
-  widgetFor: PropTypes.func,
-}
+  return (
+    <BlogPostTemplate
+      content={widgetFor('body')}
+      featuredImage={getAsset(image)}
+      title={entry.getIn(['data', 'blogTitle'])}
+      author={entry.getIn(['data', 'blogAuthor'])}
+      date={date && date.format('DD/MM/YYYY')}
+      readingTime="# min"
+    />
+  );
+};
 
-export default BlogPostPreview
+export default BlogPostPreview;

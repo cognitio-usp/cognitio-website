@@ -16,4 +16,8 @@ AboutPagePreview.propTypes = {
   widgetFor: PropTypes.func,
 }
 
+// TODO: fix template
+// TODO: create template for research
+// TODO: fix home template
+
 export default AboutPagePreview

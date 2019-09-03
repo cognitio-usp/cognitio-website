@@ -1,14 +1,28 @@
-var proxy = require('http-proxy-middleware')
+const proxy = require('http-proxy-middleware');
+const fsApi = require('netlify-cms-backend-fs/dist/fs/fs-express-api');
 
 module.exports = {
   siteMetadata: {
-    title: 'Gatsby + Netlify CMS Starter',
+    title: 'COGNITIO · USP',
     description:
-      'This repo contains an example business website that is built with Gatsby, and Netlify CMS.It follows the JAMstack architecture by using Git as a single source of truth, and Netlify for continuous deployment, and CDN distribution.',
+      'O grupo Cognitio desenvolve atividades na área da computação cognitiva, tratando desde assuntos relacionados aos princípios e fundamentos da área (com caráter interdisciplinar) até aplicações voltadas a problemas de engenharia. Em termos de aplicações o foco tem sido em mobilidade urbana e inteligência computacional aplicacada a problemas de trânsito.',
   },
   plugins: [
     'gatsby-plugin-react-helmet',
-    'gatsby-plugin-sass',
+    'gatsby-plugin-emotion',
+    'gatsby-plugin-typescript',
+    'gatsby-remark-reading-time',
+    {
+      resolve: 'gatsby-plugin-google-fonts',
+      options: {
+        fonts: [
+          'Nunito Sans:300,400,400i,600,600i',
+          'Roboto:300,400i,400,500', // you can also specify font weights and styles
+          'Roboto Condensed:300,400i,400,500', // you can also specify font weights and styles
+        ],
+        display: 'swap',
+      },
+    },
     {
       // keep as first gatsby-source-filesystem plugin for gatsby image support
       resolve: 'gatsby-source-filesystem',
@@ -64,21 +78,16 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-netlify-cms',
       options: {
-        modulePath: `${__dirname}/src/cms/cms.js`,
+        modulePath: `${__dirname}/src/cms/cms.js`, // Or another path if you don't want to create /src/cms/init.js
+        manualInit: true,
       },
     },
-    {
-      resolve: 'gatsby-plugin-purgecss', // purges all unused/unreferenced css rules
-      options: {
-        develop: true, // Activates purging in npm run develop
-        purgeOnly: ['/all.sass'], // applies purging only on the bulma css file
-      },
-    }, // must be after other CSS plugins
     'gatsby-plugin-netlify', // make sure to keep it last in the array
   ],
   // for avoiding CORS while developing Netlify Functions locally
   // read more: https://www.gatsbyjs.org/docs/api-proxy/#advanced-proxying
   developMiddleware: app => {
+    fsApi(app);
     app.use(
       '/.netlify/functions/',
       proxy({
@@ -86,7 +95,7 @@ module.exports = {
         pathRewrite: {
           '/.netlify/functions/': '',
         },
-      })
-    )
+      }),
+    );
   },
-}
+};
