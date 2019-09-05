@@ -12,6 +12,7 @@ const Title = styled.h1`
   text-transform: uppercase;
   font-size: 42px;
   font-weight: 300;
+  text-align: center;
   text-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
   ${letterSpacing(8)};
 `;

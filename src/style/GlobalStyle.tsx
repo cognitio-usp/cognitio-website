@@ -18,24 +18,20 @@ const reset = css`
   }
 
   html {
-    ${fillContainer};
+    overflow-y: scroll;
   }
 
-  body, #___gatsby, #___gatsby > div {
+  #___gatsby > div {
     position: absolute;
     min-height: 100%;
     width: 100%;
+    padding-bottom: calc(92px + 72px);
   }
 
   body > div {
     font-family: ${fontPrimary};
 
-    > div {
-      padding-bottom: calc(92px + 72px);
-
-    }
-
-    * {
+    > div * {
       transform: translate3d(0, 0, 0);
     }
   }

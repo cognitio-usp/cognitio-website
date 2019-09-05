@@ -18,7 +18,7 @@ const Container = styled.footer`
 const ContentContainer = styled.div`
   ${centerContent};
   justify-content: space-between;
-  width: 100%;
+  width: calc(100% - 20px);
   max-width: 1120px;
   color: ${rgba('#ffffff', 0.64)};
   letter-spacing: 0.04em;

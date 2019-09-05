@@ -11,18 +11,20 @@ import { fontSecondary } from '../style/theme';
 import { IndexPageTemplateQuery } from '../typings/graphql';
 import Projects from '../components/Projects';
 import ActivitiesAndNews from '../components/ActivitiesAndNews';
+import { oc } from 'ts-optchain.macro';
 
 type Props = {
   description?: string | null;
-  mainHighlight: IndexPageTemplateQuery['mainHighlight'];
-  highlight2: IndexPageTemplateQuery['highlight2'];
-  highlight3: IndexPageTemplateQuery['highlight3'];
-  projects: IndexPageTemplateQuery['projects'];
-  posts: IndexPageTemplateQuery['posts'];
+  mainHighlight?: IndexPageTemplateQuery['mainHighlight'];
+  highlight2?: IndexPageTemplateQuery['highlight2'];
+  highlight3?: IndexPageTemplateQuery['highlight3'];
+  projects?: IndexPageTemplateQuery['projects'];
+  posts?: IndexPageTemplateQuery['posts'];
 };
 
 const Description = styled(PlexusContainer)`
   ${centerContentCollum};
+  margin-top: 80px;
   padding-top: 46px;
   padding-bottom: 36px;
 
@@ -54,30 +56,36 @@ export const IndexPageTemplate = ({
       <Button label="Mais sobre o grupo" to="/sobre" />
     </Description>
 
-    <HomeHighlights
-      mainHighlight={mainHighlight}
-      highlight2={highlight2}
-      highlight3={highlight3}
-    />
+    {mainHighlight && highlight2 && highlight3 && (
+      <HomeHighlights
+        mainHighlight={mainHighlight}
+        highlight2={highlight2}
+        highlight3={highlight3}
+      />
+    )}
 
     <Projects moreButton projects={projects} />
 
-    <ActivitiesAndNews moreButton posts={posts} sectionTitle="Atividades e Notícias Recentes" />
+    <ActivitiesAndNews
+      moreButton
+      posts={posts}
+      sectionTitle="Atividades e Notícias Recentes"
+    />
   </>
 );
 
 const IndexPage = ({ data }: { data: IndexPageTemplateQuery }) => {
-  const { frontmatter } = data.markdownRemark!;
+  const description = oc(data).markdownRemark.frontmatter.description();
   const { mainHighlight, highlight2, highlight3, projects, posts } = data;
 
   return (
-    <Layout>
+    <Layout home>
       <Helmet>
         <title>COGNITIO · USP</title>
-        <meta name="description" content={`${frontmatter!.description}`} />
+        <meta name="description" content={`${description}`} />
       </Helmet>
       <IndexPageTemplate
-        description={frontmatter!.description}
+        description={description}
         mainHighlight={mainHighlight}
         highlight2={highlight2}
         highlight3={highlight3}
@@ -105,14 +113,14 @@ export const pageQuery = graphql`
       date(formatString: "DD/MM/YYYY [às] HH:mm", locale: "pt-Br")
       blogFeaturedImage {
         childImageSharp {
-          fluid(maxWidth: 1000, quality: 100) {
+          fluid(maxWidth: 1920, quality: 100) {
             ...GatsbyImageSharpFluid
           }
         }
       }
       projectThumb {
         childImageSharp {
-          fluid(maxWidth: 1000, quality: 100) {
+          fluid(maxWidth: 1920, quality: 100) {
             ...GatsbyImageSharpFluid
           }
         }
@@ -211,7 +219,7 @@ export const pageQuery = graphql`
     projects: allMarkdownRemark(
       limit: 4
       filter: { frontmatter: { templateKey: { eq: "project-page" } } }
-      sort: { fields: [frontmatter___date], order: DESC }
+      sort: { fields: [frontmatter___projectStart], order: DESC }
     ) {
       ...Projects
     }

@@ -9,17 +9,22 @@ import DebugLayout from '../style/DebugLayout';
 import styled from '@emotion/styled';
 import { __DEV__ } from '../utils/isDev';
 
+type Props = {
+  home?: boolean;
+}
+
 const Content = styled.div`
   width: 100%;
   max-width: 2000px;
   margin: 0 auto;
+  margin-top: 72px;
   display: flex;
   align-items: center;
   flex-direction: column;
   flex-wrap: nowrap;
 `;
 
-const TemplateWrapper: FunctionComponent = ({ children }) => {
+const TemplateWrapper: FunctionComponent<Props> = ({ children, home }) => {
   const { title, description } = useSiteMetadata();
 
   return (
@@ -48,23 +53,13 @@ const TemplateWrapper: FunctionComponent = ({ children }) => {
           href={`${withPrefix('/')}img/favicon-16x16.png`}
           sizes="16x16"
         />
-
-        <link
-          rel="mask-icon"
-          href={`${withPrefix('/')}img/safari-pinned-tab.svg`}
-          color="#ff4400"
-        />
         <meta name="theme-color" content="#fff" />
 
         <meta property="og:type" content="business.business" />
         <meta property="og:title" content={title} />
         <meta property="og:url" content="/" />
-        <meta
-          property="og:image"
-          content={`${withPrefix('/')}img/og-image.jpg`}
-        />
       </Helmet>
-      <Navbar />
+      <Navbar home={home} />
       <Content>{children}</Content>
       <Footer />
     </>

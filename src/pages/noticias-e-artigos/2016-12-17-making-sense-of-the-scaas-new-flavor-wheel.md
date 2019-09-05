@@ -1,13 +1,13 @@
 ---
+id: asfewfsdfdg
 templateKey: blog-post
 blogTitle: Teste Blog
-blogAuthor: Lucas Santos
+blogAuthor: Lucas Santoss
 date: 2019-09-02T06:33:25.693Z
-blogFeaturedImage: /img/chemex.jpg
+blogFeaturedImage: /img/blog-index.jpg
 featured: '1'
 relatedProjects:
   - Projeto Mobility
-  - Engenheiros 5.0
 ---
 The SCAA updated the wheel to reflect the finer `nuances` needed to describe flavors more precisely. The new descriptions are more detailed and hence allow cuppers to distinguish between more flavors.
 
@@ -15,7 +15,9 @@ While this is going to be a big change for professional coffee tasters, it means
 
 ## What the updates mean to you
 
-The Specialty Coffee Association of America (SCAA), founded in 1982, is a non-profit trade organization for the specialty coffee industry. With members located in more than 40 countries, SCAA represents every segment of the specialty coffee industry, including:
+The Specialty Coffee Association of America (SCAA), founded in 1982, is a non-profit trade organization for the specialty coffee industry. With members located in more than 40 countries.
+
+SCAA represents every segment of the specialty coffee industry, including:
 
 * producers
 * roasters

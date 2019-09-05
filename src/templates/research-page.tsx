@@ -14,6 +14,7 @@ import { fontSecondary } from '../style/theme';
 import { ResearchPageTemplateQuery } from '../typings/graphql';
 import ResearchCards from '../components/ResearchCards';
 import Helmet from 'react-helmet';
+import { oc } from 'ts-optchain.macro';
 
 type Link = {
   name: string;
@@ -26,30 +27,11 @@ type ResearchCard = {
 };
 
 type Props = {
-  links: Link[];
-  articles: ResearchCard[];
-  thesis: ResearchCard[];
-  books: ResearchCard[];
+  links?: Link[] | null;
+  articles?: ResearchCard[] | null;
+  thesis?: ResearchCard[] | null;
+  books?: ResearchCard[] | null;
 };
-
-const Description = styled(PlexusContainer)`
-  padding: 42px 0;
-  ${centerContentCollum};
-
-  p {
-    margin-top: 28px;
-    width: 100%;
-    max-width: 840px;
-    text-align: center;
-    padding: 0 20px;
-    font-size: 22px;
-    ${letterSpacing(1)};
-    font-weight: 300;
-    line-height: 1.5;
-    color: #fff;
-    font-family: ${fontSecondary};
-  }
-`;
 
 const Link = styled(Button)`
   margin: 8px;
@@ -69,29 +51,32 @@ export const ResearchPageTemplate = ({
 }: Props) => (
   <>
     <PageTitle title="Produção científica" />
+    {links && (
+      <>
+        <SectionHeader label="Links" />
+        {links.map((item, i) => (
+          <LinksContainer key={i}>
+            <Link outline label={item.name} href={item.url} />
+          </LinksContainer>
+        ))}
+      </>
+    )}
 
-    <SectionHeader label="Links" />
-    <LinksContainer>
-      {links.map((item, i) => (
-        <Link key={i} outline label={item.name} href={item.url} />
-      ))}
-    </LinksContainer>
-
-    {articles.length !== 0 && (
+    {articles && articles.length !== 0 && (
       <>
         <SectionHeader label="Artigos" />
         <ResearchCards cards={articles} />
       </>
     )}
 
-    {thesis.length !== 0 && (
+    {thesis && thesis.length !== 0 && (
       <>
         <SectionHeader label="Teses" />
         <ResearchCards cards={thesis} />
       </>
     )}
 
-    {books.length !== 0 && (
+    {books && books.length !== 0 && (
       <>
         <SectionHeader label="Livros" />
         <ResearchCards cards={books} />
@@ -101,7 +86,7 @@ export const ResearchPageTemplate = ({
 );
 
 const ResearchPage = ({ data }: { data: ResearchPageTemplateQuery }) => {
-  const { frontmatter } = data.markdownRemark!;
+  const { frontmatter } = oc(data).markdownRemark() || {};
 
   return (
     <Layout>
@@ -109,10 +94,10 @@ const ResearchPage = ({ data }: { data: ResearchPageTemplateQuery }) => {
         <title>COGNITIO · Produção Científica</title>
       </Helmet>
       <ResearchPageTemplate
-        links={frontmatter!.links!}
-        articles={frontmatter!.articles!}
-        thesis={frontmatter!.thesis!}
-        books={frontmatter!.books!}
+        links={oc(frontmatter).links()}
+        articles={oc(frontmatter).articles()}
+        thesis={oc(frontmatter).thesis()}
+        books={oc(frontmatter).books()}
       />
     </Layout>
   );

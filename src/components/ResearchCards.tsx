@@ -21,6 +21,7 @@ const Card = styled.div`
   padding: 24px 56px;
   margin-bottom: 16px;
   border-radius: 8px;
+  width: calc(100% - 20px);
   max-width: 900px;
   line-height: 1.4;
 

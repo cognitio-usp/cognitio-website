@@ -11,7 +11,7 @@ type Props = {
   label: string;
   className?: string;
   noBottomBorder?: boolean;
-  moreButton?: {
+  moreButton?: false | {
     label: string;
     to?: string;
     href?: string;

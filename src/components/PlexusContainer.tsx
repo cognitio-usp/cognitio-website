@@ -8,6 +8,7 @@ type Props = {
   color?: string;
   height?: number;
   opacity?: number;
+  edgesOpacity?: number;
   orangeBackground?: boolean;
   className?: string;
   background?: string;
@@ -29,6 +30,7 @@ export const Svg = styled.svg`
 
 const PlexusContainer: FunctionComponent<Props> = ({
   opacity = 0.8,
+  edgesOpacity = 0.5,
   children,
   height,
   orangeBackground,
@@ -50,7 +52,7 @@ const PlexusContainer: FunctionComponent<Props> = ({
       preserveAspectRatio="xMidYMid slice"
       opacity={opacity}
     >
-      <g clipPath="url(#clip0)" opacity="0.5">
+      <g clipPath="url(#clip0)" opacity={edgesOpacity}>
         <g opacity="0.15">
           <mask id="a" fill={color}>
             <path d="M1474.75 48.75L1261.6 61.5l-17.1-81" />

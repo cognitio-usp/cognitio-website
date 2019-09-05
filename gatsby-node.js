@@ -1,4 +1,3 @@
-const _ = require('lodash');
 const path = require('path');
 const { createFilePath } = require('gatsby-source-filesystem');
 const { fmImagesToRelative } = require('gatsby-remark-relative-images');
@@ -113,12 +112,13 @@ exports.createSchemaCustomization = ({ actions }) => {
 
     type Frontmatter {
       description: String
+      id: String
       history: String
-      links: [Links!]!
-      books: [ResearchCard!]!
-      thesis: [ResearchCard!]!
-      articles: [ResearchCard!]!
-      contacts: [Contact!]!
+      links: [Links!]
+      books: [ResearchCard!]
+      thesis: [ResearchCard!]
+      articles: [ResearchCard!]
+      contacts: [Contact!]
       address1: String
       address2: String
       memberRole: String
@@ -128,7 +128,9 @@ exports.createSchemaCustomization = ({ actions }) => {
       memberUntil: Date @dateformat
       memberEmail: String
       memberLattes: String
+      isFormerMember: Boolean
       memberLinkedin: String
+      memberType: Int
       memberOtherInfos: [OtherInfos!]
       memberFeaturedLink: FeaturedLink
       projectName: String
@@ -144,9 +146,11 @@ exports.createSchemaCustomization = ({ actions }) => {
       activitieType: String
       activitieLocation: String
       activitieLink: FeaturedLink
-      relatedProjects: [MarkdownRemark!] @link(by: "frontmatter.projectName")
-      projectMembers: [MarkdownRemark!] @link(by: "frontmatter.memberName")
-      projectFormerMembers: [MarkdownRemark!] @link(by: "frontmatter.memberName")
+      relatedProjects: [MarkdownRemark] @link(by: "frontmatter.id")
+      projectMembers: [MarkdownRemark] @link(by: "frontmatter.id")
+      projectFormerMembers: [MarkdownRemark] @link(by: "frontmatter.id")
+      coordinators: [MarkdownRemark] @link(by: "frontmatter.id")
+      formerMembers: [MarkdownRemark] @link(by: "frontmatter.id")
     }
   `;
 

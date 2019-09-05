@@ -15,7 +15,7 @@
     "noEmit": true,
     "keyofStringsOnly": true,
     "skipLibCheck": true,
-    // "checkJs": true,
+    // "checkJs": true
   },
   "exclude": [
     "docs",

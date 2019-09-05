@@ -135,7 +135,7 @@ export const ActivitiePostTemplate = ({
           </Detail>
         )}
       </DetailContainer>
-      {link && (
+      {link && link.url && (
         <Link
           label={link.label || 'ERRO: Rótulo não definido'}
           href={link.url || undefined}
@@ -159,28 +159,34 @@ export const ActivitiePostTemplate = ({
 );
 
 const ActivitiePost = ({ data }: { data: ActivitiePostByIdQuery }) => {
-  const { frontmatter, html, excerpt } = data.markdownRemark!;
+  const { frontmatter, html, excerpt } = oc(data).markdownRemark() || {};
+  const {
+    activitieTitle,
+    activitieType,
+    date,
+    activitieLocation,
+    relatedProjects,
+    activitieLink,
+  } = frontmatter || {};
 
   return (
     <Layout>
       <Helmet titleTemplate="COGNITIO · %s">
-        <title>{`${frontmatter!.activitieTitle}`}</title>
-        <meta name="description" content={`${excerpt}`} />
+        <title>{`${activitieTitle}`}</title>
+        <meta name="description" content={`${excerpt || ''}`} />
       </Helmet>
       <ActivitiePostTemplate
-        title={frontmatter!.activitieTitle}
-        type={frontmatter!.activitieType}
-        datetime={frontmatter!.date}
-        location={frontmatter!.activitieLocation}
+        title={activitieTitle}
+        type={activitieType}
+        datetime={date}
+        location={activitieLocation}
         contentHTML={html}
-        relatedProjects={frontmatter!.relatedProjects}
-        link={frontmatter!.activitieLink}
+        relatedProjects={relatedProjects}
+        link={activitieLink}
       />
     </Layout>
   );
 };
-
-// TODO: add projects
 
 export default ActivitiePost;
 

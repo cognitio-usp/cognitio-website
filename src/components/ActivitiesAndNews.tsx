@@ -13,7 +13,7 @@ import css from '@emotion/css';
 
 type Props = {
   posts?: PostsFragment;
-  moreButton?: true;
+  moreButton?: boolean;
   sectionTitle: string;
 };
 
@@ -25,7 +25,7 @@ const Container = styled.div`
   display: grid;
   gap: 16px;
   align-items: stretch;
-  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
 `;
 
 const Card = styled(Link)`
@@ -39,6 +39,7 @@ const Card = styled(Link)`
   flex-grow: 1;
   overflow: hidden;
   padding: 24px 28px;
+  transition: border-color 160ms;
 
   &:hover {
     border-color: ${colorSecondary};

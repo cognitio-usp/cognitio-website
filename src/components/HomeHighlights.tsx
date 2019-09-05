@@ -1,20 +1,17 @@
-import React from 'react';
-import styled from '@emotion/styled';
-import SectionHeader from './SectionHeader';
-import Button from './Button';
-import {
-  IndexPageTemplateQuery,
-} from '../typings/graphql';
-import { Link } from 'gatsby';
-import PlexusContainer, { Svg } from './PlexusContainer';
 import css from '@emotion/css';
-import { centerContent, fillContainer } from '../style/modifiers';
-import { colorTertiary, colorSecondary, colorPrimary, colorGradient, postTypeTag } from '../style/theme';
-import { rgba } from '@lucasols/utils';
+import styled from '@emotion/styled';
+import { Link } from 'gatsby';
+import React from 'react';
 import { letterSpacing } from '../style/helpers';
-import { getImage } from '../utils/getImage';
-import GatsbyImage from 'gatsby-image';
+import { centerContent, fillContainer } from '../style/modifiers';
+import { colorSecondary } from '../style/theme';
+import { IndexPageTemplateQuery } from '../typings/graphql';
+import Button from './Button';
+import PlexusContainer, { Svg } from './PlexusContainer';
 import PostTypeTag from './PostTypeTag';
+import SectionHeader from './SectionHeader';
+import PreviewCompatibleImage from './PreviewCompatibleImage';
+import { oc } from 'ts-optchain.macro';
 
 type Props = {
   mainHighlight: IndexPageTemplateQuery['mainHighlight'];
@@ -37,16 +34,19 @@ const Highlight = styled(Link)`
   position: relative;
   overflow: hidden;
 
-  p, h1 {
+  p,
+  h1 {
     text-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
   }
 
-  .gatsby-image-wrapper, ${Svg} {
+  .gatsby-image-wrapper,
+  ${Svg} {
     transition: transform 800ms;
   }
 
   &:hover {
-    .gatsby-image-wrapper, ${Svg} {
+    .gatsby-image-wrapper,
+    ${Svg} {
       transform: scale(1.08);
     }
   }
@@ -64,7 +64,7 @@ const ColorOverlay = styled.div<{}>`
   transition: opacity 600ms;
 
   ${Highlight}:hover & {
-    opacity: 0.9;
+    opacity: 0.8;
   }
 `;
 
@@ -139,7 +139,11 @@ const HomeHighlights = ({ mainHighlight, highlight2, highlight3 }: Props) => {
 
   return highlights.length !== 0 ? (
     <>
-      <SectionHeader label="Destaques" noBottomBorder css={{ marginBottom: 0 }} />
+      <SectionHeader
+        label="Destaques"
+        noBottomBorder
+        css={{ marginBottom: 0 }}
+      />
       <Container css={{ gridTemplate: gridTemplate[highlights.length - 1] }}>
         {highlights.map(({ node: { excerpt, fields, frontmatter } }, i) => {
           if (!frontmatter || !fields) return undefined;
@@ -156,17 +160,23 @@ const HomeHighlights = ({ mainHighlight, highlight2, highlight3 }: Props) => {
 
           const postType =
             activitieType || (templateKey && postsType[templateKey]);
-          const thumb = getImage(blogFeaturedImage) || getImage(projectThumb);
+          const thumb =
+            oc(blogFeaturedImage).childImageSharp.fluid()
+            || oc(projectThumb).childImageSharp.fluid();
 
           return (
             <Highlight
               key={i}
-              to={fields.slug!}
+              to={fields.slug || 'ERRO!'}
               css={{ gridRow: i === 0 ? '1 / span 2' : undefined }}
             >
               {thumb && thumb.src ? (
                 <>
-                  <GatsbyImage fluid={thumb} alt="" css={fillContainer} style={{ position: 'absolute' }} />
+                  <PreviewCompatibleImage
+                    imageInfo={thumb}
+                    fillContainer
+                    contain={templateKey === 'project-page'}
+                  />
                   <ColorOverlay />
                 </>
               ) : (

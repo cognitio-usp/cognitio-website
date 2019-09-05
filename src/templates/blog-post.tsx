@@ -83,7 +83,6 @@ export const BlogPostTemplate = ({
             projects={relatedProjects.map(item => ({
               label: oc(item).frontmatter.projectName('ERRO!'),
               toLink: oc(item).fields.slug('ERRO!'),
-              // TODO: change all ! operator to  ts-optchain
             }))}
           />
         )}
@@ -130,8 +129,6 @@ const BlogPost = ({ data }: { data: BlogPostByIdQuery }) => {
     </Layout>
   );
 };
-
-// TODO: add projects
 
 export default BlogPost;
 

@@ -1,18 +1,17 @@
-import React from 'react';
 import styled from '@emotion/styled';
-import SectionHeader from './SectionHeader';
-import { ProjectsFragment } from '../typings/graphql';
-import { Link } from 'gatsby';
-import GatsbyImage, { FluidObject } from 'gatsby-image';
-import { getImage } from '../utils/getImage';
-import { centerContent, centerContentCollum } from '../style/modifiers';
 import { rgba } from '@lucasols/utils';
-import { colorSecondary } from '../style/theme';
-import { ellipsis } from 'polished';
+import { Link } from 'gatsby';
+import React from 'react';
+import { oc } from 'ts-optchain.macro';
 import { letterSpacing } from '../style/helpers';
+import { centerContent, centerContentCollum } from '../style/modifiers';
+import { colorSecondary } from '../style/theme';
+import { ProjectsFragment } from '../typings/graphql';
+import PreviewCompatibleImage from './PreviewCompatibleImage';
+import SectionHeader from './SectionHeader';
 
 type Props = {
-  moreButton?: true;
+  moreButton?: boolean;
   projects?: ProjectsFragment;
 };
 
@@ -30,9 +29,9 @@ const Project = styled(Link)`
   border: 1.5px solid ${rgba(colorSecondary, 0.4)};
   border-radius: 8px;
   transition: 160ms;
-  flex-grow: 0.4;
   overflow: hidden;
   padding: 16px;
+  transition: border-color 160ms;
 
   &:hover {
     border-color: ${colorSecondary};
@@ -46,7 +45,7 @@ const Project = styled(Link)`
   }
 `;
 
-const Image = styled(GatsbyImage)`
+const Image = styled(PreviewCompatibleImage)`
   margin-bottom: 16px;
   height: 140px;
   width: 90%;
@@ -65,16 +64,16 @@ const Projects = ({ moreButton, projects }: Props) => {
       />
       <Container>
         {projects.edges.map((item, i) => {
-          const image = getImage(item.node.frontmatter!.projectThumb);
+          const image = oc(item).node.frontmatter.projectThumb.childImageSharp.fluid();
 
           return (
-            <Project key={i} to={item.node.fields!.slug!}>
-              {image && <Image fluid={image} />}
+            <Project key={i} to={oc(item).node.fields.slug('ERRO!')}>
+              {image && <Image imageInfo={image} />}
               <h1
                 css={{ fontSize: !image ? '28px !important' : undefined }}
-                title={item.node.frontmatter!.projectName || undefined}
+                title={oc(item).node.frontmatter.projectName() || undefined}
               >
-                {item.node.frontmatter!.projectName}
+                {oc(item).node.frontmatter.projectName()}
               </h1>
             </Project>
           );

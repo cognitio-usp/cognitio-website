@@ -7,9 +7,16 @@ import PlexusContainer from '../components/PlexusContainer';
 import SectionHeader from '../components/SectionHeader';
 import { letterSpacing } from '../style/helpers';
 import { centerContentCollum } from '../style/modifiers';
-import { colorPrimary, colorSecondary, colorTertiary, fontSecondary } from '../style/theme';
+import {
+  colorPrimary,
+  colorSecondary,
+  colorTertiary,
+  fontSecondary,
+} from '../style/theme';
 import { ContactPageTemplateQuery } from '../typings/graphql';
 import Helmet from 'react-helmet';
+import { oc } from 'ts-optchain.macro';
+import css from '@emotion/css';
 
 type Contact = {
   name: string;
@@ -17,7 +24,7 @@ type Contact = {
 };
 
 type Props = {
-  contacts: Contact[];
+  contacts?: Contact[] | null;
   address1?: string | null;
   address2?: string | null;
 };
@@ -25,7 +32,7 @@ type Props = {
 const ContactTable = styled.table`
   margin-top: 32px;
   max-width: 800px;
-  width: 100%;
+  width: calc(100% - 20px);
   border-radius: 18px;
   overflow: hidden;
   border-collapse: collapse;
@@ -81,14 +88,15 @@ export const ContactPageTemplate = ({
           <th>Contato</th>
           <th>E-mail</th>
         </tr>
-        {contacts.map((item, i) => (
-          <tr key={i}>
-            <td>{item.name}</td>
-            <td>
-              <a href={`mailto:${item.email}`}>{item.email}</a>
-            </td>
-          </tr>
-        ))}
+        {contacts &&
+          contacts.map((item, i) => (
+            <tr key={i}>
+              <td>{item.name}</td>
+              <td>
+                <a href={`mailto:${item.email}`}>{item.email}</a>
+              </td>
+            </tr>
+          ))}
       </tbody>
     </ContactTable>
 
@@ -104,6 +112,10 @@ export const ContactPageTemplate = ({
       width="600"
       height="450"
       frameBorder="0"
+      css={css`
+        width: calc(100% - 24px);
+        max-width: 600px;
+      `}
       style={{ border: 0 }}
       allowFullScreen
     />
@@ -111,7 +123,8 @@ export const ContactPageTemplate = ({
 );
 
 const ContactPage = ({ data }: { data: ContactPageTemplateQuery }) => {
-  const { frontmatter } = data.markdownRemark!;
+  const { contacts, address1, address2 } =
+    oc(data).markdownRemark.frontmatter() || {};
 
   return (
     <Layout>
@@ -119,9 +132,9 @@ const ContactPage = ({ data }: { data: ContactPageTemplateQuery }) => {
         <title>COGNITIO · Contato</title>
       </Helmet>
       <ContactPageTemplate
-        contacts={frontmatter!.contacts}
-        address1={frontmatter!.address1}
-        address2={frontmatter!.address2}
+        contacts={contacts}
+        address1={address1}
+        address2={address2}
       />
     </Layout>
   );

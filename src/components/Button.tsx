@@ -12,6 +12,7 @@ import { letterSpacing } from '../style/helpers';
 import css from '@emotion/css';
 import Icon, { Icons } from '../components/Icon';
 import { Link } from 'gatsby';
+import { ellipsis } from 'polished';
 
 type Props = {
   label?: string;
@@ -29,8 +30,8 @@ const Container = styled.div`
   position: relative;
 
   display: inline-flex;
-  height: 48px;
-
+  padding: 12px 0;
+  color: #fff;
 
   border-radius: 100px;
 
@@ -47,11 +48,11 @@ const Container = styled.div`
   }
 
   a, button {
+    text-align: center;
     ${centerContent};
     text-transform: uppercase;
     font-size: 20px;
     font-weight: 300;
-    color: #fff;
     padding: 0 26px;
     height: 100%;
     width: 100%;
@@ -63,6 +64,10 @@ const Container = styled.div`
 `;
 
 const filledTypeStyle = css`
+  button {
+    color: #fff;
+  }
+
   &::before {
     background: ${colorGradient()};
   }
@@ -81,8 +86,8 @@ const outlineTypeStyle = css`
 `;
 
 const smallStyle = css`
-  height: 28px;
   font-weight: 400;
+  padding: 6px 0;
 
   a, button {
     font-size: 12px;

@@ -15,8 +15,6 @@ const researchAreasData = [
   { name: 'Neurociência', icon: cognitiveScienceIcon },
 ];
 
-// TODO: create icons for other areas
-
 const Container = styled.div`
   ${centerContent};
   align-items: flex-start;
@@ -26,7 +24,7 @@ const Container = styled.div`
 `;
 
 const ResearchArea = styled.div`
-  margin: 32px;
+  margin: 24px;
   min-width: 240px;
   ${centerContentCollum};
 
@@ -43,23 +41,21 @@ const ResearchArea = styled.div`
 `;
 
 const ResearchAreaIcon = styled.div`
-  ${circle(200)};
+  ${circle(180)};
   background-repeat: no-repeat;
   background-position: center;
   background-color: ${rgba(colorSecondary, 0.08)};
 `;
 
-const ResearchAreas = () => {
-  return (
-    <Container>
-      {researchAreasData.map((item, i) => (
-        <ResearchArea key={i}>
-          <ResearchAreaIcon style={{ backgroundImage: `url(${item.icon})` }} />
-          <div>{item.name}</div>
-        </ResearchArea>
-      ))}
-    </Container>
-  );
-};
+const ResearchAreas = () => (
+  <Container>
+    {researchAreasData.map((item, i) => (
+      <ResearchArea key={i}>
+        <ResearchAreaIcon style={{ backgroundImage: `url(${item.icon})` }} />
+        <div>{item.name}</div>
+      </ResearchArea>
+    ))}
+  </Container>
+);
 
 export default ResearchAreas;

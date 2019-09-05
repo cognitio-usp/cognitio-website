@@ -1,43 +1,56 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import Img from 'gatsby-image';
-import { anyObj } from '@lucasols/utils/dist/typings/utils';
+import Img, { FluidObject } from 'gatsby-image';
+import React, { CSSProperties } from 'react';
+import { ImageSharpFluid } from '../typings/graphql';
 
 type Props = {
-  imageInfo: {
-    alt?: string;
-    childImageSharp: any;
-    image: any;
-    style: anyObj;
-  };
+  imageInfo: ImageSharpFluid | string;
+  className?: string;
+  fillContainer?: boolean;
+  padding?: string;
+  contain?: boolean | null;
 };
 
-const PreviewCompatibleImage = ({ imageInfo }: Props) => {
-  const imageStyle = { borderRadius: '5px' };
-  const { alt = '', childImageSharp, image } = imageInfo;
+const fillContainerStyle: CSSProperties = {
+  height: '100%',
+  width: '100%',
+  position: 'absolute',
+};
 
-  if (!!image && !!image.childImageSharp) {
+const PreviewCompatibleImage = ({
+  imageInfo,
+  className,
+  fillContainer,
+  padding,
+  contain,
+}: Props) => {
+  if (typeof imageInfo === 'string') {
     return (
-      <Img style={imageStyle} fluid={image.childImageSharp.fluid} alt={alt} />
+      <img
+        className={className}
+        style={{
+          ...(fillContainer ? fillContainerStyle : {}),
+          padding,
+          objectFit: contain ? 'contain' : 'cover',
+        }}
+        src={imageInfo}
+        alt=""
+      />
     );
   }
 
-  if (childImageSharp) {
-    return <Img style={imageStyle} fluid={childImageSharp.fluid} alt={alt} />;
-  }
-
-  if (!!image && typeof image === 'string') return <img style={imageStyle} src={image} alt={alt} />;
-
-  return null;
-};
-
-PreviewCompatibleImage.propTypes = {
-  imageInfo: PropTypes.shape({
-    alt: PropTypes.string,
-    childImageSharp: PropTypes.object,
-    image: PropTypes.oneOfType([PropTypes.object, PropTypes.string]).isRequired,
-    style: PropTypes.object,
-  }).isRequired,
+  return (
+    <Img
+      style={{
+        ...(fillContainer ? fillContainerStyle : {}),
+      }}
+      imgStyle={{
+        padding,
+        objectFit: contain ? 'contain' : 'cover',
+      }}
+      className={className}
+      fluid={imageInfo as FluidObject}
+    />
+  );
 };
 
 export default PreviewCompatibleImage;

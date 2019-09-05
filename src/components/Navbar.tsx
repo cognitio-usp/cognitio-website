@@ -1,19 +1,33 @@
-import React from 'react';
-import { Link } from 'gatsby';
-import Logotype from './Logotype';
 import styled from '@emotion/styled';
-import { centerContent } from '../style/modifiers';
+import { Link } from 'gatsby';
+import React, { useState } from 'react';
 import { letterSpacing } from '../style/helpers';
-import { colorPrimary, colorGradient } from '../style/theme';
+import { centerContent } from '../style/modifiers';
+import { colorGradient, colorPrimary } from '../style/theme';
+import { useOnWindowScroll } from '../utils/useOnWindowScroll';
+import Logotype from './Logotype';
+
+type Props = {
+  home?: boolean;
+};
 
 const Nav = styled.nav`
+  position: fixed;
+  z-index: 1;
   ${centerContent};
+  top: 0;
   width: 100%;
-  height: 72px;
+  height: calc(72px + 32px);
+  padding-top: 32px;
+  margin-top: -32px;
+  overflow: hidden;
+  transform: none;
+  background: #fff;
+  transition: 240ms;
 `;
 
 const ContentContainer = styled.div`
-  width: 100%;
+  width: calc(100% - 24px);
   max-width: 1120px;
   display: flex;
   justify-content: space-between;
@@ -53,36 +67,61 @@ const NavMenu = styled.div`
   }
 `;
 
-// TODO: variable height on homepage
-// TODO: fixed nav
-const Navbar = () => (
-  <Nav role="navigation" aria-label="main-navigation">
-    <ContentContainer>
-      <Link css={{ height: 48 }} to="/" title="Logo">
-        <Logotype />
-      </Link>
-      <NavMenu>
-        <Link to="/sobre" activeClassName="active">
-          Sobre
+const Navbar = ({ home }: Props) => {
+  const [isExpanded, setIsExpanded] = useState(
+    home ? window.scrollY < 28 : false,
+  );
+
+  useOnWindowScroll(
+    scrollPos => {
+      if (home) {
+        if (scrollPos.y > 28) {
+          if (isExpanded) setIsExpanded(false);
+        } else if (!isExpanded) {
+          setIsExpanded(true);
+        }
+      }
+    },
+    [isExpanded, home],
+    100,
+  );
+
+  return (
+    <Nav
+      style={{
+        transform: isExpanded ? 'translate3d(0, 32px, 0)' : undefined,
+        boxShadow: !isExpanded ? '0px 3px 4px rgba(0, 0, 0, 0.05)' : undefined,
+      }}
+      role="navigation"
+      aria-label="main-navigation"
+    >
+      <ContentContainer>
+        <Link css={{ height: 48 }} to="/" title="Logo">
+          <Logotype />
         </Link>
-        <Link to="/projetos" activeClassName="active">
-          Projetos
-        </Link>
-        <Link to="/atividades-e-notícias" activeClassName="active">
-          Atividades
-        </Link>
-        <Link to="/membros" activeClassName="active">
-          Membros
-        </Link>
-        <Link to="/pesquisa" activeClassName="active">
-          Pesquisa
-        </Link>
-        <Link to="/contato" activeClassName="active">
-          Contato
-        </Link>
-      </NavMenu>
-    </ContentContainer>
-  </Nav>
-);
+        <NavMenu>
+          <Link to="/sobre" activeClassName="active">
+            Sobre
+          </Link>
+          <Link to="/projetos" activeClassName="active">
+            Projetos
+          </Link>
+          <Link to="/atividades-e-noticias" activeClassName="active">
+            Atividades
+          </Link>
+          <Link to="/membros" activeClassName="active">
+            Membros
+          </Link>
+          <Link to="/pesquisa" activeClassName="active">
+            Pesquisa
+          </Link>
+          <Link to="/contato" activeClassName="active">
+            Contato
+          </Link>
+        </NavMenu>
+      </ContentContainer>
+    </Nav>
+  );
+};
 
 export default Navbar;

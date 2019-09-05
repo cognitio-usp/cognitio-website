@@ -1,6 +1,5 @@
 import styled from '@emotion/styled';
 import { graphql } from 'gatsby';
-import GatsbyImage, { FluidObject } from 'gatsby-image';
 import React, { ReactNode } from 'react';
 import Helmet from 'react-helmet';
 import { oc } from 'ts-optchain.macro';
@@ -15,16 +14,17 @@ import {
   ImageSharpFluid,
   ProjectPageByIdQuery,
   MemberCardFragment,
-  Maybe,
 } from '../typings/graphql';
 import Members from '../components/Members';
+import PreviewCompatibleImage from '../components/PreviewCompatibleImage';
 
 type Props = {
   name: Frontmatter['projectName'];
   thumb?: ImageSharpFluid | null;
   start: Frontmatter['projectStart'];
   end: Frontmatter['projectEnd'];
-  members?: MemberCardFragment[] | null;
+  members?: (MemberCardFragment | null)[] | null;
+  formerMembers?: (MemberCardFragment | null)[] | null;
   posts: ProjectPageByIdQuery['posts'];
   contentHTML?: string | null;
   content?: ReactNode;
@@ -33,19 +33,14 @@ type Props = {
 const Header = styled(PlexusContainer)`
   padding-top: 36px;
   padding-bottom: 36px;
-  margin-bottom: 46px;
+  margin-bottom: 54px;
 `;
 
-const ProjectLogo = styled(GatsbyImage)`
+const ProjectLogo = styled.div`
   ${circle(210)};
-  margin-right: 54px;
+  margin-right: 40px;
   background: #fff;
-
-  img {
-    width: 90% !important;
-    margin-left: 5%;
-    object-fit: contain !important;
-  }
+  overflow: hidden;
 `;
 
 const HeaderLeftContent = styled.div`
@@ -71,8 +66,6 @@ const HeaderLeftContent = styled.div`
   }
 `;
 
-// TODO: default thumb
-
 const HeaderContentContainer = styled.div`
   ${centerContent};
   max-width: 900px;
@@ -86,23 +79,44 @@ export const ProjectPageTemplate = ({
   end,
   posts,
   members,
+  formerMembers,
   contentHTML,
   content,
 }: Props) => {
-  const startIsValid = start !== 'Invalid date';
-  const endDateIsValid = end !== 'Invalid date';
+  const startIsValid = start && start !== 'Invalid date';
+  const endDateIsValid = end && end !== 'Invalid date';
+
+  const formerMembersIds = formerMembers
+    ? formerMembers.map(item => oc(item).id())
+    : [];
+  const filteredMembers =
+    members &&
+    members.filter(item => !formerMembersIds.includes(oc(item).id()));
 
   return (
     <>
       <Header orangeBackground>
         <HeaderContentContainer>
-          {thumb && <ProjectLogo fluid={thumb as FluidObject} />}
-          <HeaderLeftContent>
+          {thumb && (
+            <ProjectLogo>
+              <PreviewCompatibleImage
+                padding="0 12px"
+                imageInfo={thumb}
+                contain
+                fillContainer
+              />
+            </ProjectLogo>
+          )}
+          <HeaderLeftContent css={{ textAlign: !thumb ? 'center' : undefined }}>
             <h1>{name}</h1>
             {startIsValid && (
-              <h2>
+              <h2
+                title={
+                  endDateIsValid ? 'Duração do projeto' : 'Início do projeto'
+                }
+              >
                 {start}
-                {endDateIsValid ? ` - ${end}` : ''}
+                {endDateIsValid ? ` – ${end}` : ''}
               </h2>
             )}
           </HeaderLeftContent>
@@ -111,7 +125,9 @@ export const ProjectPageTemplate = ({
 
       <TextSection contentHTML={contentHTML} content={content} />
 
-      <Members members={members} />
+      <Members sort members={filteredMembers} />
+
+      <Members sort sectionLabel="Ex-membros" members={formerMembers} />
 
       <ActivitiesAndNews
         sectionTitle="Atividades e Notícias do Projeto"
@@ -141,14 +157,15 @@ const ProjectPage = ({ data }: { data: ProjectPageByIdQuery }) => {
         start={oc(data).markdownRemark.frontmatter.projectStart()}
         end={oc(data).markdownRemark.frontmatter.projectEnd()}
         members={oc(data).markdownRemark.frontmatter.projectMembers()}
+        formerMembers={oc(
+          data,
+        ).markdownRemark.frontmatter.projectFormerMembers()}
         contentHTML={oc(data).markdownRemark.html()}
         posts={posts}
       />
     </Layout>
   );
 };
-
-// TODO: create this page
 
 export default ProjectPage;
 
@@ -166,8 +183,8 @@ export const ProjectPageQuery = graphql`
             }
           }
         }
-        projectStart(formatString: "MM/YYYY")
-        projectEnd(formatString: "MM/YYYY")
+        projectStart(formatString: "MMM [de] YYYY", locale: "pt-br")
+        projectEnd(formatString: "MMM [de] YYYY", locale: "pt-br")
         projectMembers {
           ...MemberCard
         }

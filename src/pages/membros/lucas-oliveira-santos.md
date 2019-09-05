@@ -1,16 +1,16 @@
 ---
+id: kasdjfljqjjaflkj
 templateKey: member-page
 memberName: Lucas Oliveira Santos
 memberThumb: /img/15895233_1385606964843066_4028243722913222456_n.jpg
 memberRole: Aluno de graduação
+memberType: 4
 memberSince: 2017-06-01T03:00:00.000Z
-memberUntil: ''
+memberUntil: 2019-09-03T03:00:00.000Z
+isFormerMember: false
 memberEmail: hello@lucassantos.net
 memberLattes: 'https://www.linkedin.com/in/lucasols/'
 memberLinkedin: 'https://www.linkedin.com/in/lucasols/'
-memberBio: >-
-  Aluno de Design na FAU-USP. Designer e Desenvolvedor Front-end no projeto
-  mobility e Designer no projeto engenheiros 5.0.
 memberOtherInfos:
   - info: lucassantos.net
     label: Website
@@ -24,4 +24,4 @@ memberFeaturedLink:
   label: LinkedIn
   url: 'https://www.linkedin.com/in/lucasols/'
 ---
-
+zxcxzcdfsdfsdffds kjsdfkjjsdkfjsdkljfksdjfkljsdkfjksdjf kjsdfkjsdklfj ksjdflksjlfk jsdfj

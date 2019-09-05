@@ -1,4 +1,3 @@
-const proxy = require('http-proxy-middleware');
 const fsApi = require('netlify-cms-backend-fs/dist/fs/fs-express-api');
 
 module.exports = {
@@ -64,6 +63,7 @@ module.exports = {
               // the content container as this plugin uses this as the
               // base for generating different widths of each image.
               maxWidth: 2048,
+              showCaptions: true,
             },
           },
           {
@@ -80,6 +80,8 @@ module.exports = {
       options: {
         modulePath: `${__dirname}/src/cms/cms.js`, // Or another path if you don't want to create /src/cms/init.js
         manualInit: true,
+        htmlTitle: 'CMS · COGNITIO',
+        htmlFavicon: 'static/img/favicon-32x32.png',
       },
     },
     'gatsby-plugin-netlify', // make sure to keep it last in the array
@@ -88,14 +90,5 @@ module.exports = {
   // read more: https://www.gatsbyjs.org/docs/api-proxy/#advanced-proxying
   developMiddleware: app => {
     fsApi(app);
-    app.use(
-      '/.netlify/functions/',
-      proxy({
-        target: 'http://localhost:9000',
-        pathRewrite: {
-          '/.netlify/functions/': '',
-        },
-      }),
-    );
   },
 };

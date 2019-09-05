@@ -1,8 +1,7 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 import { graphql } from 'gatsby';
 import Layout from '../components/Layout';
-import Content, { HTMLContent } from '../components/Content';
-import { centerContentCollum } from '../style/modifiers';
+import { centerContentCollum, centerContent } from '../style/modifiers';
 import styled from '@emotion/styled';
 import PlexusContainer from '../components/PlexusContainer';
 import { AboutPageTemplateQuery } from '../typings/graphql';
@@ -15,10 +14,12 @@ import Button from '../components/Button';
 import { letterSpacing } from '../style/helpers';
 import { fontSecondary } from '../style/theme';
 import Helmet from 'react-helmet';
+import { oc } from 'ts-optchain.macro';
 
 type Props = {
-  description: string;
-  history: string;
+  description?: string | null;
+  contentHTML?: string | null;
+  content?: ReactNode;
 };
 
 const Description = styled(PlexusContainer)`
@@ -44,7 +45,11 @@ const MoreInfoButton = styled(Button)`
   margin: 8px;
 `;
 
-export const AboutPageTemplate = ({ description, history }: Props) => {
+export const AboutPageTemplate = ({
+  description,
+  content,
+  contentHTML,
+}: Props) => {
   return (
     <>
       <Description>
@@ -52,10 +57,10 @@ export const AboutPageTemplate = ({ description, history }: Props) => {
         <p>{description}</p>
       </Description>
 
-      {history && (
+      {(content || contentHTML) && (
         <>
           <SectionHeader label="Histórico do grupo" />
-          <TextSection>{history}</TextSection>
+          <TextSection content={content} contentHTML={contentHTML} />
         </>
       )}
 
@@ -66,6 +71,8 @@ export const AboutPageTemplate = ({ description, history }: Props) => {
       <div
         css={css`
           max-width: 1000px;
+          ${centerContent};
+          flex-wrap: wrap;
         `}
       >
         <MoreInfoButton outline label="Projetos de pesquisa" to="/projetos" />
@@ -77,16 +84,17 @@ export const AboutPageTemplate = ({ description, history }: Props) => {
 };
 
 const AboutPage = ({ data }: { data: AboutPageTemplateQuery }) => {
-  const { frontmatter } = data.markdownRemark!;
+  const { description } = oc(data).markdownRemark.frontmatter() || {};
 
   return (
     <Layout>
       <Helmet>
         <title>COGNITIO · Sobre</title>
+        <meta name="description" content={`${description}`} />
       </Helmet>
       <AboutPageTemplate
-        description={frontmatter!.description!}
-        history={frontmatter!.history!}
+        description={description}
+        contentHTML={oc(data).markdownRemark.html()}
       />
     </Layout>
   );
@@ -97,9 +105,9 @@ export default AboutPage;
 export const aboutPageQuery = graphql`
   query AboutPageTemplate {
     markdownRemark(frontmatter: { templateKey: { eq: "about-page" } }) {
+      html
       frontmatter {
         description
-        history
       }
     }
   }

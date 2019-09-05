@@ -713,6 +713,7 @@ export enum FileFieldsEnum {
   childImageSharp___internal___type = 'childImageSharp___internal___type',
   childMarkdownRemark___id = 'childMarkdownRemark___id',
   childMarkdownRemark___frontmatter___description = 'childMarkdownRemark___frontmatter___description',
+  childMarkdownRemark___frontmatter___id = 'childMarkdownRemark___frontmatter___id',
   childMarkdownRemark___frontmatter___history = 'childMarkdownRemark___frontmatter___history',
   childMarkdownRemark___frontmatter___links = 'childMarkdownRemark___frontmatter___links',
   childMarkdownRemark___frontmatter___links___name = 'childMarkdownRemark___frontmatter___links___name',
@@ -771,7 +772,9 @@ export enum FileFieldsEnum {
   childMarkdownRemark___frontmatter___memberUntil = 'childMarkdownRemark___frontmatter___memberUntil',
   childMarkdownRemark___frontmatter___memberEmail = 'childMarkdownRemark___frontmatter___memberEmail',
   childMarkdownRemark___frontmatter___memberLattes = 'childMarkdownRemark___frontmatter___memberLattes',
+  childMarkdownRemark___frontmatter___isFormerMember = 'childMarkdownRemark___frontmatter___isFormerMember',
   childMarkdownRemark___frontmatter___memberLinkedin = 'childMarkdownRemark___frontmatter___memberLinkedin',
+  childMarkdownRemark___frontmatter___memberType = 'childMarkdownRemark___frontmatter___memberType',
   childMarkdownRemark___frontmatter___memberOtherInfos = 'childMarkdownRemark___frontmatter___memberOtherInfos',
   childMarkdownRemark___frontmatter___memberOtherInfos___info = 'childMarkdownRemark___frontmatter___memberOtherInfos___info',
   childMarkdownRemark___frontmatter___memberOtherInfos___link = 'childMarkdownRemark___frontmatter___memberOtherInfos___link',
@@ -883,57 +886,44 @@ export enum FileFieldsEnum {
   childMarkdownRemark___frontmatter___projectMembers___timeToRead = 'childMarkdownRemark___frontmatter___projectMembers___timeToRead',
   childMarkdownRemark___frontmatter___projectMembers___tableOfContents = 'childMarkdownRemark___frontmatter___projectMembers___tableOfContents',
   childMarkdownRemark___frontmatter___projectMembers___children = 'childMarkdownRemark___frontmatter___projectMembers___children',
-  childMarkdownRemark___frontmatter___relatedPosts = 'childMarkdownRemark___frontmatter___relatedPosts',
-  childMarkdownRemark___frontmatter___relatedPosts___id = 'childMarkdownRemark___frontmatter___relatedPosts___id',
-  childMarkdownRemark___frontmatter___relatedPosts___excerpt = 'childMarkdownRemark___frontmatter___relatedPosts___excerpt',
-  childMarkdownRemark___frontmatter___relatedPosts___rawMarkdownBody = 'childMarkdownRemark___frontmatter___relatedPosts___rawMarkdownBody',
-  childMarkdownRemark___frontmatter___relatedPosts___fileAbsolutePath = 'childMarkdownRemark___frontmatter___relatedPosts___fileAbsolutePath',
-  childMarkdownRemark___frontmatter___relatedPosts___html = 'childMarkdownRemark___frontmatter___relatedPosts___html',
-  childMarkdownRemark___frontmatter___relatedPosts___htmlAst = 'childMarkdownRemark___frontmatter___relatedPosts___htmlAst',
-  childMarkdownRemark___frontmatter___relatedPosts___excerptAst = 'childMarkdownRemark___frontmatter___relatedPosts___excerptAst',
-  childMarkdownRemark___frontmatter___relatedPosts___headings = 'childMarkdownRemark___frontmatter___relatedPosts___headings',
-  childMarkdownRemark___frontmatter___relatedPosts___timeToRead = 'childMarkdownRemark___frontmatter___relatedPosts___timeToRead',
-  childMarkdownRemark___frontmatter___relatedPosts___tableOfContents = 'childMarkdownRemark___frontmatter___relatedPosts___tableOfContents',
-  childMarkdownRemark___frontmatter___relatedPosts___children = 'childMarkdownRemark___frontmatter___relatedPosts___children',
+  childMarkdownRemark___frontmatter___projectFormerMembers = 'childMarkdownRemark___frontmatter___projectFormerMembers',
+  childMarkdownRemark___frontmatter___projectFormerMembers___id = 'childMarkdownRemark___frontmatter___projectFormerMembers___id',
+  childMarkdownRemark___frontmatter___projectFormerMembers___excerpt = 'childMarkdownRemark___frontmatter___projectFormerMembers___excerpt',
+  childMarkdownRemark___frontmatter___projectFormerMembers___rawMarkdownBody = 'childMarkdownRemark___frontmatter___projectFormerMembers___rawMarkdownBody',
+  childMarkdownRemark___frontmatter___projectFormerMembers___fileAbsolutePath = 'childMarkdownRemark___frontmatter___projectFormerMembers___fileAbsolutePath',
+  childMarkdownRemark___frontmatter___projectFormerMembers___html = 'childMarkdownRemark___frontmatter___projectFormerMembers___html',
+  childMarkdownRemark___frontmatter___projectFormerMembers___htmlAst = 'childMarkdownRemark___frontmatter___projectFormerMembers___htmlAst',
+  childMarkdownRemark___frontmatter___projectFormerMembers___excerptAst = 'childMarkdownRemark___frontmatter___projectFormerMembers___excerptAst',
+  childMarkdownRemark___frontmatter___projectFormerMembers___headings = 'childMarkdownRemark___frontmatter___projectFormerMembers___headings',
+  childMarkdownRemark___frontmatter___projectFormerMembers___timeToRead = 'childMarkdownRemark___frontmatter___projectFormerMembers___timeToRead',
+  childMarkdownRemark___frontmatter___projectFormerMembers___tableOfContents = 'childMarkdownRemark___frontmatter___projectFormerMembers___tableOfContents',
+  childMarkdownRemark___frontmatter___projectFormerMembers___children = 'childMarkdownRemark___frontmatter___projectFormerMembers___children',
+  childMarkdownRemark___frontmatter___coordinators = 'childMarkdownRemark___frontmatter___coordinators',
+  childMarkdownRemark___frontmatter___coordinators___id = 'childMarkdownRemark___frontmatter___coordinators___id',
+  childMarkdownRemark___frontmatter___coordinators___excerpt = 'childMarkdownRemark___frontmatter___coordinators___excerpt',
+  childMarkdownRemark___frontmatter___coordinators___rawMarkdownBody = 'childMarkdownRemark___frontmatter___coordinators___rawMarkdownBody',
+  childMarkdownRemark___frontmatter___coordinators___fileAbsolutePath = 'childMarkdownRemark___frontmatter___coordinators___fileAbsolutePath',
+  childMarkdownRemark___frontmatter___coordinators___html = 'childMarkdownRemark___frontmatter___coordinators___html',
+  childMarkdownRemark___frontmatter___coordinators___htmlAst = 'childMarkdownRemark___frontmatter___coordinators___htmlAst',
+  childMarkdownRemark___frontmatter___coordinators___excerptAst = 'childMarkdownRemark___frontmatter___coordinators___excerptAst',
+  childMarkdownRemark___frontmatter___coordinators___headings = 'childMarkdownRemark___frontmatter___coordinators___headings',
+  childMarkdownRemark___frontmatter___coordinators___timeToRead = 'childMarkdownRemark___frontmatter___coordinators___timeToRead',
+  childMarkdownRemark___frontmatter___coordinators___tableOfContents = 'childMarkdownRemark___frontmatter___coordinators___tableOfContents',
+  childMarkdownRemark___frontmatter___coordinators___children = 'childMarkdownRemark___frontmatter___coordinators___children',
+  childMarkdownRemark___frontmatter___formerMembers = 'childMarkdownRemark___frontmatter___formerMembers',
+  childMarkdownRemark___frontmatter___formerMembers___id = 'childMarkdownRemark___frontmatter___formerMembers___id',
+  childMarkdownRemark___frontmatter___formerMembers___excerpt = 'childMarkdownRemark___frontmatter___formerMembers___excerpt',
+  childMarkdownRemark___frontmatter___formerMembers___rawMarkdownBody = 'childMarkdownRemark___frontmatter___formerMembers___rawMarkdownBody',
+  childMarkdownRemark___frontmatter___formerMembers___fileAbsolutePath = 'childMarkdownRemark___frontmatter___formerMembers___fileAbsolutePath',
+  childMarkdownRemark___frontmatter___formerMembers___html = 'childMarkdownRemark___frontmatter___formerMembers___html',
+  childMarkdownRemark___frontmatter___formerMembers___htmlAst = 'childMarkdownRemark___frontmatter___formerMembers___htmlAst',
+  childMarkdownRemark___frontmatter___formerMembers___excerptAst = 'childMarkdownRemark___frontmatter___formerMembers___excerptAst',
+  childMarkdownRemark___frontmatter___formerMembers___headings = 'childMarkdownRemark___frontmatter___formerMembers___headings',
+  childMarkdownRemark___frontmatter___formerMembers___timeToRead = 'childMarkdownRemark___frontmatter___formerMembers___timeToRead',
+  childMarkdownRemark___frontmatter___formerMembers___tableOfContents = 'childMarkdownRemark___frontmatter___formerMembers___tableOfContents',
+  childMarkdownRemark___frontmatter___formerMembers___children = 'childMarkdownRemark___frontmatter___formerMembers___children',
   childMarkdownRemark___frontmatter___title = 'childMarkdownRemark___frontmatter___title',
   childMarkdownRemark___frontmatter___templateKey = 'childMarkdownRemark___frontmatter___templateKey',
-  childMarkdownRemark___frontmatter___memberBio = 'childMarkdownRemark___frontmatter___memberBio',
-  childMarkdownRemark___frontmatter___featuredpost = 'childMarkdownRemark___frontmatter___featuredpost',
-  childMarkdownRemark___frontmatter___featuredimage___birthtime = 'childMarkdownRemark___frontmatter___featuredimage___birthtime',
-  childMarkdownRemark___frontmatter___featuredimage___birthtimeMs = 'childMarkdownRemark___frontmatter___featuredimage___birthtimeMs',
-  childMarkdownRemark___frontmatter___featuredimage___sourceInstanceName = 'childMarkdownRemark___frontmatter___featuredimage___sourceInstanceName',
-  childMarkdownRemark___frontmatter___featuredimage___absolutePath = 'childMarkdownRemark___frontmatter___featuredimage___absolutePath',
-  childMarkdownRemark___frontmatter___featuredimage___relativePath = 'childMarkdownRemark___frontmatter___featuredimage___relativePath',
-  childMarkdownRemark___frontmatter___featuredimage___extension = 'childMarkdownRemark___frontmatter___featuredimage___extension',
-  childMarkdownRemark___frontmatter___featuredimage___size = 'childMarkdownRemark___frontmatter___featuredimage___size',
-  childMarkdownRemark___frontmatter___featuredimage___prettySize = 'childMarkdownRemark___frontmatter___featuredimage___prettySize',
-  childMarkdownRemark___frontmatter___featuredimage___modifiedTime = 'childMarkdownRemark___frontmatter___featuredimage___modifiedTime',
-  childMarkdownRemark___frontmatter___featuredimage___accessTime = 'childMarkdownRemark___frontmatter___featuredimage___accessTime',
-  childMarkdownRemark___frontmatter___featuredimage___changeTime = 'childMarkdownRemark___frontmatter___featuredimage___changeTime',
-  childMarkdownRemark___frontmatter___featuredimage___birthTime = 'childMarkdownRemark___frontmatter___featuredimage___birthTime',
-  childMarkdownRemark___frontmatter___featuredimage___root = 'childMarkdownRemark___frontmatter___featuredimage___root',
-  childMarkdownRemark___frontmatter___featuredimage___dir = 'childMarkdownRemark___frontmatter___featuredimage___dir',
-  childMarkdownRemark___frontmatter___featuredimage___base = 'childMarkdownRemark___frontmatter___featuredimage___base',
-  childMarkdownRemark___frontmatter___featuredimage___ext = 'childMarkdownRemark___frontmatter___featuredimage___ext',
-  childMarkdownRemark___frontmatter___featuredimage___name = 'childMarkdownRemark___frontmatter___featuredimage___name',
-  childMarkdownRemark___frontmatter___featuredimage___relativeDirectory = 'childMarkdownRemark___frontmatter___featuredimage___relativeDirectory',
-  childMarkdownRemark___frontmatter___featuredimage___dev = 'childMarkdownRemark___frontmatter___featuredimage___dev',
-  childMarkdownRemark___frontmatter___featuredimage___mode = 'childMarkdownRemark___frontmatter___featuredimage___mode',
-  childMarkdownRemark___frontmatter___featuredimage___nlink = 'childMarkdownRemark___frontmatter___featuredimage___nlink',
-  childMarkdownRemark___frontmatter___featuredimage___uid = 'childMarkdownRemark___frontmatter___featuredimage___uid',
-  childMarkdownRemark___frontmatter___featuredimage___gid = 'childMarkdownRemark___frontmatter___featuredimage___gid',
-  childMarkdownRemark___frontmatter___featuredimage___rdev = 'childMarkdownRemark___frontmatter___featuredimage___rdev',
-  childMarkdownRemark___frontmatter___featuredimage___ino = 'childMarkdownRemark___frontmatter___featuredimage___ino',
-  childMarkdownRemark___frontmatter___featuredimage___atimeMs = 'childMarkdownRemark___frontmatter___featuredimage___atimeMs',
-  childMarkdownRemark___frontmatter___featuredimage___mtimeMs = 'childMarkdownRemark___frontmatter___featuredimage___mtimeMs',
-  childMarkdownRemark___frontmatter___featuredimage___ctimeMs = 'childMarkdownRemark___frontmatter___featuredimage___ctimeMs',
-  childMarkdownRemark___frontmatter___featuredimage___atime = 'childMarkdownRemark___frontmatter___featuredimage___atime',
-  childMarkdownRemark___frontmatter___featuredimage___mtime = 'childMarkdownRemark___frontmatter___featuredimage___mtime',
-  childMarkdownRemark___frontmatter___featuredimage___ctime = 'childMarkdownRemark___frontmatter___featuredimage___ctime',
-  childMarkdownRemark___frontmatter___featuredimage___publicURL = 'childMarkdownRemark___frontmatter___featuredimage___publicURL',
-  childMarkdownRemark___frontmatter___featuredimage___id = 'childMarkdownRemark___frontmatter___featuredimage___id',
-  childMarkdownRemark___frontmatter___featuredimage___children = 'childMarkdownRemark___frontmatter___featuredimage___children',
-  childMarkdownRemark___frontmatter___tags = 'childMarkdownRemark___frontmatter___tags',
   childMarkdownRemark___excerpt = 'childMarkdownRemark___excerpt',
   childMarkdownRemark___rawMarkdownBody = 'childMarkdownRemark___rawMarkdownBody',
   childMarkdownRemark___fileAbsolutePath = 'childMarkdownRemark___fileAbsolutePath',
@@ -1060,12 +1050,13 @@ export type FloatQueryOperatorInput = {
 
 export type Frontmatter = {
   description?: Maybe<Scalars['String']>,
+  id?: Maybe<Scalars['String']>,
   history?: Maybe<Scalars['String']>,
-  links: Array<Links>,
-  books: Array<ResearchCard>,
-  thesis: Array<ResearchCard>,
-  articles: Array<ResearchCard>,
-  contacts: Array<Contact>,
+  links?: Maybe<Array<Links>>,
+  books?: Maybe<Array<ResearchCard>>,
+  thesis?: Maybe<Array<ResearchCard>>,
+  articles?: Maybe<Array<ResearchCard>>,
+  contacts?: Maybe<Array<Contact>>,
   address1?: Maybe<Scalars['String']>,
   address2?: Maybe<Scalars['String']>,
   memberRole?: Maybe<Scalars['String']>,
@@ -1075,7 +1066,9 @@ export type Frontmatter = {
   memberUntil?: Maybe<Scalars['Date']>,
   memberEmail?: Maybe<Scalars['String']>,
   memberLattes?: Maybe<Scalars['String']>,
+  isFormerMember?: Maybe<Scalars['Boolean']>,
   memberLinkedin?: Maybe<Scalars['String']>,
+  memberType?: Maybe<Scalars['Int']>,
   memberOtherInfos?: Maybe<Array<OtherInfos>>,
   memberFeaturedLink?: Maybe<FeaturedLink>,
   projectName?: Maybe<Scalars['String']>,
@@ -1093,13 +1086,11 @@ export type Frontmatter = {
   activitieLink?: Maybe<FeaturedLink>,
   relatedProjects?: Maybe<Array<Maybe<MarkdownRemark>>>,
   projectMembers?: Maybe<Array<Maybe<MarkdownRemark>>>,
-  relatedPosts?: Maybe<Array<Maybe<MarkdownRemark>>>,
+  projectFormerMembers?: Maybe<Array<Maybe<MarkdownRemark>>>,
+  coordinators?: Maybe<Array<Maybe<MarkdownRemark>>>,
+  formerMembers?: Maybe<Array<Maybe<MarkdownRemark>>>,
   title?: Maybe<Scalars['String']>,
   templateKey?: Maybe<Scalars['String']>,
-  memberBio?: Maybe<Scalars['String']>,
-  featuredpost?: Maybe<Scalars['Boolean']>,
-  featuredimage?: Maybe<File>,
-  tags?: Maybe<Array<Maybe<Scalars['String']>>>,
 };
 
 
@@ -1144,6 +1135,7 @@ export type FrontmatterDateArgs = {
 
 export type FrontmatterFilterInput = {
   description?: Maybe<StringQueryOperatorInput>,
+  id?: Maybe<StringQueryOperatorInput>,
   history?: Maybe<StringQueryOperatorInput>,
   links?: Maybe<LinksFilterListInput>,
   books?: Maybe<ResearchCardFilterListInput>,
@@ -1159,7 +1151,9 @@ export type FrontmatterFilterInput = {
   memberUntil?: Maybe<DateQueryOperatorInput>,
   memberEmail?: Maybe<StringQueryOperatorInput>,
   memberLattes?: Maybe<StringQueryOperatorInput>,
+  isFormerMember?: Maybe<BooleanQueryOperatorInput>,
   memberLinkedin?: Maybe<StringQueryOperatorInput>,
+  memberType?: Maybe<IntQueryOperatorInput>,
   memberOtherInfos?: Maybe<OtherInfosFilterListInput>,
   memberFeaturedLink?: Maybe<FeaturedLinkFilterInput>,
   projectName?: Maybe<StringQueryOperatorInput>,
@@ -1177,13 +1171,11 @@ export type FrontmatterFilterInput = {
   activitieLink?: Maybe<FeaturedLinkFilterInput>,
   relatedProjects?: Maybe<MarkdownRemarkFilterListInput>,
   projectMembers?: Maybe<MarkdownRemarkFilterListInput>,
-  relatedPosts?: Maybe<MarkdownRemarkFilterListInput>,
+  projectFormerMembers?: Maybe<MarkdownRemarkFilterListInput>,
+  coordinators?: Maybe<MarkdownRemarkFilterListInput>,
+  formerMembers?: Maybe<MarkdownRemarkFilterListInput>,
   title?: Maybe<StringQueryOperatorInput>,
   templateKey?: Maybe<StringQueryOperatorInput>,
-  memberBio?: Maybe<StringQueryOperatorInput>,
-  featuredpost?: Maybe<BooleanQueryOperatorInput>,
-  featuredimage?: Maybe<FileFilterInput>,
-  tags?: Maybe<StringQueryOperatorInput>,
 };
 
 export enum ImageCropFocus {
@@ -1833,6 +1825,7 @@ export type MarkdownRemarkFields = {
 export enum MarkdownRemarkFieldsEnum {
   id = 'id',
   frontmatter___description = 'frontmatter___description',
+  frontmatter___id = 'frontmatter___id',
   frontmatter___history = 'frontmatter___history',
   frontmatter___links = 'frontmatter___links',
   frontmatter___links___name = 'frontmatter___links___name',
@@ -1922,7 +1915,9 @@ export enum MarkdownRemarkFieldsEnum {
   frontmatter___memberUntil = 'frontmatter___memberUntil',
   frontmatter___memberEmail = 'frontmatter___memberEmail',
   frontmatter___memberLattes = 'frontmatter___memberLattes',
+  frontmatter___isFormerMember = 'frontmatter___isFormerMember',
   frontmatter___memberLinkedin = 'frontmatter___memberLinkedin',
+  frontmatter___memberType = 'frontmatter___memberType',
   frontmatter___memberOtherInfos = 'frontmatter___memberOtherInfos',
   frontmatter___memberOtherInfos___info = 'frontmatter___memberOtherInfos___info',
   frontmatter___memberOtherInfos___link = 'frontmatter___memberOtherInfos___link',
@@ -2063,6 +2058,7 @@ export enum MarkdownRemarkFieldsEnum {
   frontmatter___relatedProjects = 'frontmatter___relatedProjects',
   frontmatter___relatedProjects___id = 'frontmatter___relatedProjects___id',
   frontmatter___relatedProjects___frontmatter___description = 'frontmatter___relatedProjects___frontmatter___description',
+  frontmatter___relatedProjects___frontmatter___id = 'frontmatter___relatedProjects___frontmatter___id',
   frontmatter___relatedProjects___frontmatter___history = 'frontmatter___relatedProjects___frontmatter___history',
   frontmatter___relatedProjects___frontmatter___links = 'frontmatter___relatedProjects___frontmatter___links',
   frontmatter___relatedProjects___frontmatter___books = 'frontmatter___relatedProjects___frontmatter___books',
@@ -2077,7 +2073,9 @@ export enum MarkdownRemarkFieldsEnum {
   frontmatter___relatedProjects___frontmatter___memberUntil = 'frontmatter___relatedProjects___frontmatter___memberUntil',
   frontmatter___relatedProjects___frontmatter___memberEmail = 'frontmatter___relatedProjects___frontmatter___memberEmail',
   frontmatter___relatedProjects___frontmatter___memberLattes = 'frontmatter___relatedProjects___frontmatter___memberLattes',
+  frontmatter___relatedProjects___frontmatter___isFormerMember = 'frontmatter___relatedProjects___frontmatter___isFormerMember',
   frontmatter___relatedProjects___frontmatter___memberLinkedin = 'frontmatter___relatedProjects___frontmatter___memberLinkedin',
+  frontmatter___relatedProjects___frontmatter___memberType = 'frontmatter___relatedProjects___frontmatter___memberType',
   frontmatter___relatedProjects___frontmatter___memberOtherInfos = 'frontmatter___relatedProjects___frontmatter___memberOtherInfos',
   frontmatter___relatedProjects___frontmatter___projectName = 'frontmatter___relatedProjects___frontmatter___projectName',
   frontmatter___relatedProjects___frontmatter___projectStart = 'frontmatter___relatedProjects___frontmatter___projectStart',
@@ -2091,12 +2089,11 @@ export enum MarkdownRemarkFieldsEnum {
   frontmatter___relatedProjects___frontmatter___activitieLocation = 'frontmatter___relatedProjects___frontmatter___activitieLocation',
   frontmatter___relatedProjects___frontmatter___relatedProjects = 'frontmatter___relatedProjects___frontmatter___relatedProjects',
   frontmatter___relatedProjects___frontmatter___projectMembers = 'frontmatter___relatedProjects___frontmatter___projectMembers',
-  frontmatter___relatedProjects___frontmatter___relatedPosts = 'frontmatter___relatedProjects___frontmatter___relatedPosts',
+  frontmatter___relatedProjects___frontmatter___projectFormerMembers = 'frontmatter___relatedProjects___frontmatter___projectFormerMembers',
+  frontmatter___relatedProjects___frontmatter___coordinators = 'frontmatter___relatedProjects___frontmatter___coordinators',
+  frontmatter___relatedProjects___frontmatter___formerMembers = 'frontmatter___relatedProjects___frontmatter___formerMembers',
   frontmatter___relatedProjects___frontmatter___title = 'frontmatter___relatedProjects___frontmatter___title',
   frontmatter___relatedProjects___frontmatter___templateKey = 'frontmatter___relatedProjects___frontmatter___templateKey',
-  frontmatter___relatedProjects___frontmatter___memberBio = 'frontmatter___relatedProjects___frontmatter___memberBio',
-  frontmatter___relatedProjects___frontmatter___featuredpost = 'frontmatter___relatedProjects___frontmatter___featuredpost',
-  frontmatter___relatedProjects___frontmatter___tags = 'frontmatter___relatedProjects___frontmatter___tags',
   frontmatter___relatedProjects___excerpt = 'frontmatter___relatedProjects___excerpt',
   frontmatter___relatedProjects___rawMarkdownBody = 'frontmatter___relatedProjects___rawMarkdownBody',
   frontmatter___relatedProjects___fileAbsolutePath = 'frontmatter___relatedProjects___fileAbsolutePath',
@@ -2128,6 +2125,7 @@ export enum MarkdownRemarkFieldsEnum {
   frontmatter___projectMembers = 'frontmatter___projectMembers',
   frontmatter___projectMembers___id = 'frontmatter___projectMembers___id',
   frontmatter___projectMembers___frontmatter___description = 'frontmatter___projectMembers___frontmatter___description',
+  frontmatter___projectMembers___frontmatter___id = 'frontmatter___projectMembers___frontmatter___id',
   frontmatter___projectMembers___frontmatter___history = 'frontmatter___projectMembers___frontmatter___history',
   frontmatter___projectMembers___frontmatter___links = 'frontmatter___projectMembers___frontmatter___links',
   frontmatter___projectMembers___frontmatter___books = 'frontmatter___projectMembers___frontmatter___books',
@@ -2142,7 +2140,9 @@ export enum MarkdownRemarkFieldsEnum {
   frontmatter___projectMembers___frontmatter___memberUntil = 'frontmatter___projectMembers___frontmatter___memberUntil',
   frontmatter___projectMembers___frontmatter___memberEmail = 'frontmatter___projectMembers___frontmatter___memberEmail',
   frontmatter___projectMembers___frontmatter___memberLattes = 'frontmatter___projectMembers___frontmatter___memberLattes',
+  frontmatter___projectMembers___frontmatter___isFormerMember = 'frontmatter___projectMembers___frontmatter___isFormerMember',
   frontmatter___projectMembers___frontmatter___memberLinkedin = 'frontmatter___projectMembers___frontmatter___memberLinkedin',
+  frontmatter___projectMembers___frontmatter___memberType = 'frontmatter___projectMembers___frontmatter___memberType',
   frontmatter___projectMembers___frontmatter___memberOtherInfos = 'frontmatter___projectMembers___frontmatter___memberOtherInfos',
   frontmatter___projectMembers___frontmatter___projectName = 'frontmatter___projectMembers___frontmatter___projectName',
   frontmatter___projectMembers___frontmatter___projectStart = 'frontmatter___projectMembers___frontmatter___projectStart',
@@ -2156,12 +2156,11 @@ export enum MarkdownRemarkFieldsEnum {
   frontmatter___projectMembers___frontmatter___activitieLocation = 'frontmatter___projectMembers___frontmatter___activitieLocation',
   frontmatter___projectMembers___frontmatter___relatedProjects = 'frontmatter___projectMembers___frontmatter___relatedProjects',
   frontmatter___projectMembers___frontmatter___projectMembers = 'frontmatter___projectMembers___frontmatter___projectMembers',
-  frontmatter___projectMembers___frontmatter___relatedPosts = 'frontmatter___projectMembers___frontmatter___relatedPosts',
+  frontmatter___projectMembers___frontmatter___projectFormerMembers = 'frontmatter___projectMembers___frontmatter___projectFormerMembers',
+  frontmatter___projectMembers___frontmatter___coordinators = 'frontmatter___projectMembers___frontmatter___coordinators',
+  frontmatter___projectMembers___frontmatter___formerMembers = 'frontmatter___projectMembers___frontmatter___formerMembers',
   frontmatter___projectMembers___frontmatter___title = 'frontmatter___projectMembers___frontmatter___title',
   frontmatter___projectMembers___frontmatter___templateKey = 'frontmatter___projectMembers___frontmatter___templateKey',
-  frontmatter___projectMembers___frontmatter___memberBio = 'frontmatter___projectMembers___frontmatter___memberBio',
-  frontmatter___projectMembers___frontmatter___featuredpost = 'frontmatter___projectMembers___frontmatter___featuredpost',
-  frontmatter___projectMembers___frontmatter___tags = 'frontmatter___projectMembers___frontmatter___tags',
   frontmatter___projectMembers___excerpt = 'frontmatter___projectMembers___excerpt',
   frontmatter___projectMembers___rawMarkdownBody = 'frontmatter___projectMembers___rawMarkdownBody',
   frontmatter___projectMembers___fileAbsolutePath = 'frontmatter___projectMembers___fileAbsolutePath',
@@ -2190,135 +2189,209 @@ export enum MarkdownRemarkFieldsEnum {
   frontmatter___projectMembers___internal___mediaType = 'frontmatter___projectMembers___internal___mediaType',
   frontmatter___projectMembers___internal___owner = 'frontmatter___projectMembers___internal___owner',
   frontmatter___projectMembers___internal___type = 'frontmatter___projectMembers___internal___type',
-  frontmatter___relatedPosts = 'frontmatter___relatedPosts',
-  frontmatter___relatedPosts___id = 'frontmatter___relatedPosts___id',
-  frontmatter___relatedPosts___frontmatter___description = 'frontmatter___relatedPosts___frontmatter___description',
-  frontmatter___relatedPosts___frontmatter___history = 'frontmatter___relatedPosts___frontmatter___history',
-  frontmatter___relatedPosts___frontmatter___links = 'frontmatter___relatedPosts___frontmatter___links',
-  frontmatter___relatedPosts___frontmatter___books = 'frontmatter___relatedPosts___frontmatter___books',
-  frontmatter___relatedPosts___frontmatter___thesis = 'frontmatter___relatedPosts___frontmatter___thesis',
-  frontmatter___relatedPosts___frontmatter___articles = 'frontmatter___relatedPosts___frontmatter___articles',
-  frontmatter___relatedPosts___frontmatter___contacts = 'frontmatter___relatedPosts___frontmatter___contacts',
-  frontmatter___relatedPosts___frontmatter___address1 = 'frontmatter___relatedPosts___frontmatter___address1',
-  frontmatter___relatedPosts___frontmatter___address2 = 'frontmatter___relatedPosts___frontmatter___address2',
-  frontmatter___relatedPosts___frontmatter___memberRole = 'frontmatter___relatedPosts___frontmatter___memberRole',
-  frontmatter___relatedPosts___frontmatter___memberName = 'frontmatter___relatedPosts___frontmatter___memberName',
-  frontmatter___relatedPosts___frontmatter___memberSince = 'frontmatter___relatedPosts___frontmatter___memberSince',
-  frontmatter___relatedPosts___frontmatter___memberUntil = 'frontmatter___relatedPosts___frontmatter___memberUntil',
-  frontmatter___relatedPosts___frontmatter___memberEmail = 'frontmatter___relatedPosts___frontmatter___memberEmail',
-  frontmatter___relatedPosts___frontmatter___memberLattes = 'frontmatter___relatedPosts___frontmatter___memberLattes',
-  frontmatter___relatedPosts___frontmatter___memberLinkedin = 'frontmatter___relatedPosts___frontmatter___memberLinkedin',
-  frontmatter___relatedPosts___frontmatter___memberOtherInfos = 'frontmatter___relatedPosts___frontmatter___memberOtherInfos',
-  frontmatter___relatedPosts___frontmatter___projectName = 'frontmatter___relatedPosts___frontmatter___projectName',
-  frontmatter___relatedPosts___frontmatter___projectStart = 'frontmatter___relatedPosts___frontmatter___projectStart',
-  frontmatter___relatedPosts___frontmatter___projectEnd = 'frontmatter___relatedPosts___frontmatter___projectEnd',
-  frontmatter___relatedPosts___frontmatter___blogTitle = 'frontmatter___relatedPosts___frontmatter___blogTitle',
-  frontmatter___relatedPosts___frontmatter___blogAuthor = 'frontmatter___relatedPosts___frontmatter___blogAuthor',
-  frontmatter___relatedPosts___frontmatter___date = 'frontmatter___relatedPosts___frontmatter___date',
-  frontmatter___relatedPosts___frontmatter___featured = 'frontmatter___relatedPosts___frontmatter___featured',
-  frontmatter___relatedPosts___frontmatter___activitieTitle = 'frontmatter___relatedPosts___frontmatter___activitieTitle',
-  frontmatter___relatedPosts___frontmatter___activitieType = 'frontmatter___relatedPosts___frontmatter___activitieType',
-  frontmatter___relatedPosts___frontmatter___activitieLocation = 'frontmatter___relatedPosts___frontmatter___activitieLocation',
-  frontmatter___relatedPosts___frontmatter___relatedProjects = 'frontmatter___relatedPosts___frontmatter___relatedProjects',
-  frontmatter___relatedPosts___frontmatter___projectMembers = 'frontmatter___relatedPosts___frontmatter___projectMembers',
-  frontmatter___relatedPosts___frontmatter___relatedPosts = 'frontmatter___relatedPosts___frontmatter___relatedPosts',
-  frontmatter___relatedPosts___frontmatter___title = 'frontmatter___relatedPosts___frontmatter___title',
-  frontmatter___relatedPosts___frontmatter___templateKey = 'frontmatter___relatedPosts___frontmatter___templateKey',
-  frontmatter___relatedPosts___frontmatter___memberBio = 'frontmatter___relatedPosts___frontmatter___memberBio',
-  frontmatter___relatedPosts___frontmatter___featuredpost = 'frontmatter___relatedPosts___frontmatter___featuredpost',
-  frontmatter___relatedPosts___frontmatter___tags = 'frontmatter___relatedPosts___frontmatter___tags',
-  frontmatter___relatedPosts___excerpt = 'frontmatter___relatedPosts___excerpt',
-  frontmatter___relatedPosts___rawMarkdownBody = 'frontmatter___relatedPosts___rawMarkdownBody',
-  frontmatter___relatedPosts___fileAbsolutePath = 'frontmatter___relatedPosts___fileAbsolutePath',
-  frontmatter___relatedPosts___fields___slug = 'frontmatter___relatedPosts___fields___slug',
-  frontmatter___relatedPosts___html = 'frontmatter___relatedPosts___html',
-  frontmatter___relatedPosts___htmlAst = 'frontmatter___relatedPosts___htmlAst',
-  frontmatter___relatedPosts___excerptAst = 'frontmatter___relatedPosts___excerptAst',
-  frontmatter___relatedPosts___headings = 'frontmatter___relatedPosts___headings',
-  frontmatter___relatedPosts___headings___value = 'frontmatter___relatedPosts___headings___value',
-  frontmatter___relatedPosts___headings___depth = 'frontmatter___relatedPosts___headings___depth',
-  frontmatter___relatedPosts___timeToRead = 'frontmatter___relatedPosts___timeToRead',
-  frontmatter___relatedPosts___tableOfContents = 'frontmatter___relatedPosts___tableOfContents',
-  frontmatter___relatedPosts___wordCount___paragraphs = 'frontmatter___relatedPosts___wordCount___paragraphs',
-  frontmatter___relatedPosts___wordCount___sentences = 'frontmatter___relatedPosts___wordCount___sentences',
-  frontmatter___relatedPosts___wordCount___words = 'frontmatter___relatedPosts___wordCount___words',
-  frontmatter___relatedPosts___parent___id = 'frontmatter___relatedPosts___parent___id',
-  frontmatter___relatedPosts___parent___children = 'frontmatter___relatedPosts___parent___children',
-  frontmatter___relatedPosts___children = 'frontmatter___relatedPosts___children',
-  frontmatter___relatedPosts___children___id = 'frontmatter___relatedPosts___children___id',
-  frontmatter___relatedPosts___children___children = 'frontmatter___relatedPosts___children___children',
-  frontmatter___relatedPosts___internal___content = 'frontmatter___relatedPosts___internal___content',
-  frontmatter___relatedPosts___internal___contentDigest = 'frontmatter___relatedPosts___internal___contentDigest',
-  frontmatter___relatedPosts___internal___description = 'frontmatter___relatedPosts___internal___description',
-  frontmatter___relatedPosts___internal___fieldOwners = 'frontmatter___relatedPosts___internal___fieldOwners',
-  frontmatter___relatedPosts___internal___ignoreType = 'frontmatter___relatedPosts___internal___ignoreType',
-  frontmatter___relatedPosts___internal___mediaType = 'frontmatter___relatedPosts___internal___mediaType',
-  frontmatter___relatedPosts___internal___owner = 'frontmatter___relatedPosts___internal___owner',
-  frontmatter___relatedPosts___internal___type = 'frontmatter___relatedPosts___internal___type',
+  frontmatter___projectFormerMembers = 'frontmatter___projectFormerMembers',
+  frontmatter___projectFormerMembers___id = 'frontmatter___projectFormerMembers___id',
+  frontmatter___projectFormerMembers___frontmatter___description = 'frontmatter___projectFormerMembers___frontmatter___description',
+  frontmatter___projectFormerMembers___frontmatter___id = 'frontmatter___projectFormerMembers___frontmatter___id',
+  frontmatter___projectFormerMembers___frontmatter___history = 'frontmatter___projectFormerMembers___frontmatter___history',
+  frontmatter___projectFormerMembers___frontmatter___links = 'frontmatter___projectFormerMembers___frontmatter___links',
+  frontmatter___projectFormerMembers___frontmatter___books = 'frontmatter___projectFormerMembers___frontmatter___books',
+  frontmatter___projectFormerMembers___frontmatter___thesis = 'frontmatter___projectFormerMembers___frontmatter___thesis',
+  frontmatter___projectFormerMembers___frontmatter___articles = 'frontmatter___projectFormerMembers___frontmatter___articles',
+  frontmatter___projectFormerMembers___frontmatter___contacts = 'frontmatter___projectFormerMembers___frontmatter___contacts',
+  frontmatter___projectFormerMembers___frontmatter___address1 = 'frontmatter___projectFormerMembers___frontmatter___address1',
+  frontmatter___projectFormerMembers___frontmatter___address2 = 'frontmatter___projectFormerMembers___frontmatter___address2',
+  frontmatter___projectFormerMembers___frontmatter___memberRole = 'frontmatter___projectFormerMembers___frontmatter___memberRole',
+  frontmatter___projectFormerMembers___frontmatter___memberName = 'frontmatter___projectFormerMembers___frontmatter___memberName',
+  frontmatter___projectFormerMembers___frontmatter___memberSince = 'frontmatter___projectFormerMembers___frontmatter___memberSince',
+  frontmatter___projectFormerMembers___frontmatter___memberUntil = 'frontmatter___projectFormerMembers___frontmatter___memberUntil',
+  frontmatter___projectFormerMembers___frontmatter___memberEmail = 'frontmatter___projectFormerMembers___frontmatter___memberEmail',
+  frontmatter___projectFormerMembers___frontmatter___memberLattes = 'frontmatter___projectFormerMembers___frontmatter___memberLattes',
+  frontmatter___projectFormerMembers___frontmatter___isFormerMember = 'frontmatter___projectFormerMembers___frontmatter___isFormerMember',
+  frontmatter___projectFormerMembers___frontmatter___memberLinkedin = 'frontmatter___projectFormerMembers___frontmatter___memberLinkedin',
+  frontmatter___projectFormerMembers___frontmatter___memberType = 'frontmatter___projectFormerMembers___frontmatter___memberType',
+  frontmatter___projectFormerMembers___frontmatter___memberOtherInfos = 'frontmatter___projectFormerMembers___frontmatter___memberOtherInfos',
+  frontmatter___projectFormerMembers___frontmatter___projectName = 'frontmatter___projectFormerMembers___frontmatter___projectName',
+  frontmatter___projectFormerMembers___frontmatter___projectStart = 'frontmatter___projectFormerMembers___frontmatter___projectStart',
+  frontmatter___projectFormerMembers___frontmatter___projectEnd = 'frontmatter___projectFormerMembers___frontmatter___projectEnd',
+  frontmatter___projectFormerMembers___frontmatter___blogTitle = 'frontmatter___projectFormerMembers___frontmatter___blogTitle',
+  frontmatter___projectFormerMembers___frontmatter___blogAuthor = 'frontmatter___projectFormerMembers___frontmatter___blogAuthor',
+  frontmatter___projectFormerMembers___frontmatter___date = 'frontmatter___projectFormerMembers___frontmatter___date',
+  frontmatter___projectFormerMembers___frontmatter___featured = 'frontmatter___projectFormerMembers___frontmatter___featured',
+  frontmatter___projectFormerMembers___frontmatter___activitieTitle = 'frontmatter___projectFormerMembers___frontmatter___activitieTitle',
+  frontmatter___projectFormerMembers___frontmatter___activitieType = 'frontmatter___projectFormerMembers___frontmatter___activitieType',
+  frontmatter___projectFormerMembers___frontmatter___activitieLocation = 'frontmatter___projectFormerMembers___frontmatter___activitieLocation',
+  frontmatter___projectFormerMembers___frontmatter___relatedProjects = 'frontmatter___projectFormerMembers___frontmatter___relatedProjects',
+  frontmatter___projectFormerMembers___frontmatter___projectMembers = 'frontmatter___projectFormerMembers___frontmatter___projectMembers',
+  frontmatter___projectFormerMembers___frontmatter___projectFormerMembers = 'frontmatter___projectFormerMembers___frontmatter___projectFormerMembers',
+  frontmatter___projectFormerMembers___frontmatter___coordinators = 'frontmatter___projectFormerMembers___frontmatter___coordinators',
+  frontmatter___projectFormerMembers___frontmatter___formerMembers = 'frontmatter___projectFormerMembers___frontmatter___formerMembers',
+  frontmatter___projectFormerMembers___frontmatter___title = 'frontmatter___projectFormerMembers___frontmatter___title',
+  frontmatter___projectFormerMembers___frontmatter___templateKey = 'frontmatter___projectFormerMembers___frontmatter___templateKey',
+  frontmatter___projectFormerMembers___excerpt = 'frontmatter___projectFormerMembers___excerpt',
+  frontmatter___projectFormerMembers___rawMarkdownBody = 'frontmatter___projectFormerMembers___rawMarkdownBody',
+  frontmatter___projectFormerMembers___fileAbsolutePath = 'frontmatter___projectFormerMembers___fileAbsolutePath',
+  frontmatter___projectFormerMembers___fields___slug = 'frontmatter___projectFormerMembers___fields___slug',
+  frontmatter___projectFormerMembers___html = 'frontmatter___projectFormerMembers___html',
+  frontmatter___projectFormerMembers___htmlAst = 'frontmatter___projectFormerMembers___htmlAst',
+  frontmatter___projectFormerMembers___excerptAst = 'frontmatter___projectFormerMembers___excerptAst',
+  frontmatter___projectFormerMembers___headings = 'frontmatter___projectFormerMembers___headings',
+  frontmatter___projectFormerMembers___headings___value = 'frontmatter___projectFormerMembers___headings___value',
+  frontmatter___projectFormerMembers___headings___depth = 'frontmatter___projectFormerMembers___headings___depth',
+  frontmatter___projectFormerMembers___timeToRead = 'frontmatter___projectFormerMembers___timeToRead',
+  frontmatter___projectFormerMembers___tableOfContents = 'frontmatter___projectFormerMembers___tableOfContents',
+  frontmatter___projectFormerMembers___wordCount___paragraphs = 'frontmatter___projectFormerMembers___wordCount___paragraphs',
+  frontmatter___projectFormerMembers___wordCount___sentences = 'frontmatter___projectFormerMembers___wordCount___sentences',
+  frontmatter___projectFormerMembers___wordCount___words = 'frontmatter___projectFormerMembers___wordCount___words',
+  frontmatter___projectFormerMembers___parent___id = 'frontmatter___projectFormerMembers___parent___id',
+  frontmatter___projectFormerMembers___parent___children = 'frontmatter___projectFormerMembers___parent___children',
+  frontmatter___projectFormerMembers___children = 'frontmatter___projectFormerMembers___children',
+  frontmatter___projectFormerMembers___children___id = 'frontmatter___projectFormerMembers___children___id',
+  frontmatter___projectFormerMembers___children___children = 'frontmatter___projectFormerMembers___children___children',
+  frontmatter___projectFormerMembers___internal___content = 'frontmatter___projectFormerMembers___internal___content',
+  frontmatter___projectFormerMembers___internal___contentDigest = 'frontmatter___projectFormerMembers___internal___contentDigest',
+  frontmatter___projectFormerMembers___internal___description = 'frontmatter___projectFormerMembers___internal___description',
+  frontmatter___projectFormerMembers___internal___fieldOwners = 'frontmatter___projectFormerMembers___internal___fieldOwners',
+  frontmatter___projectFormerMembers___internal___ignoreType = 'frontmatter___projectFormerMembers___internal___ignoreType',
+  frontmatter___projectFormerMembers___internal___mediaType = 'frontmatter___projectFormerMembers___internal___mediaType',
+  frontmatter___projectFormerMembers___internal___owner = 'frontmatter___projectFormerMembers___internal___owner',
+  frontmatter___projectFormerMembers___internal___type = 'frontmatter___projectFormerMembers___internal___type',
+  frontmatter___coordinators = 'frontmatter___coordinators',
+  frontmatter___coordinators___id = 'frontmatter___coordinators___id',
+  frontmatter___coordinators___frontmatter___description = 'frontmatter___coordinators___frontmatter___description',
+  frontmatter___coordinators___frontmatter___id = 'frontmatter___coordinators___frontmatter___id',
+  frontmatter___coordinators___frontmatter___history = 'frontmatter___coordinators___frontmatter___history',
+  frontmatter___coordinators___frontmatter___links = 'frontmatter___coordinators___frontmatter___links',
+  frontmatter___coordinators___frontmatter___books = 'frontmatter___coordinators___frontmatter___books',
+  frontmatter___coordinators___frontmatter___thesis = 'frontmatter___coordinators___frontmatter___thesis',
+  frontmatter___coordinators___frontmatter___articles = 'frontmatter___coordinators___frontmatter___articles',
+  frontmatter___coordinators___frontmatter___contacts = 'frontmatter___coordinators___frontmatter___contacts',
+  frontmatter___coordinators___frontmatter___address1 = 'frontmatter___coordinators___frontmatter___address1',
+  frontmatter___coordinators___frontmatter___address2 = 'frontmatter___coordinators___frontmatter___address2',
+  frontmatter___coordinators___frontmatter___memberRole = 'frontmatter___coordinators___frontmatter___memberRole',
+  frontmatter___coordinators___frontmatter___memberName = 'frontmatter___coordinators___frontmatter___memberName',
+  frontmatter___coordinators___frontmatter___memberSince = 'frontmatter___coordinators___frontmatter___memberSince',
+  frontmatter___coordinators___frontmatter___memberUntil = 'frontmatter___coordinators___frontmatter___memberUntil',
+  frontmatter___coordinators___frontmatter___memberEmail = 'frontmatter___coordinators___frontmatter___memberEmail',
+  frontmatter___coordinators___frontmatter___memberLattes = 'frontmatter___coordinators___frontmatter___memberLattes',
+  frontmatter___coordinators___frontmatter___isFormerMember = 'frontmatter___coordinators___frontmatter___isFormerMember',
+  frontmatter___coordinators___frontmatter___memberLinkedin = 'frontmatter___coordinators___frontmatter___memberLinkedin',
+  frontmatter___coordinators___frontmatter___memberType = 'frontmatter___coordinators___frontmatter___memberType',
+  frontmatter___coordinators___frontmatter___memberOtherInfos = 'frontmatter___coordinators___frontmatter___memberOtherInfos',
+  frontmatter___coordinators___frontmatter___projectName = 'frontmatter___coordinators___frontmatter___projectName',
+  frontmatter___coordinators___frontmatter___projectStart = 'frontmatter___coordinators___frontmatter___projectStart',
+  frontmatter___coordinators___frontmatter___projectEnd = 'frontmatter___coordinators___frontmatter___projectEnd',
+  frontmatter___coordinators___frontmatter___blogTitle = 'frontmatter___coordinators___frontmatter___blogTitle',
+  frontmatter___coordinators___frontmatter___blogAuthor = 'frontmatter___coordinators___frontmatter___blogAuthor',
+  frontmatter___coordinators___frontmatter___date = 'frontmatter___coordinators___frontmatter___date',
+  frontmatter___coordinators___frontmatter___featured = 'frontmatter___coordinators___frontmatter___featured',
+  frontmatter___coordinators___frontmatter___activitieTitle = 'frontmatter___coordinators___frontmatter___activitieTitle',
+  frontmatter___coordinators___frontmatter___activitieType = 'frontmatter___coordinators___frontmatter___activitieType',
+  frontmatter___coordinators___frontmatter___activitieLocation = 'frontmatter___coordinators___frontmatter___activitieLocation',
+  frontmatter___coordinators___frontmatter___relatedProjects = 'frontmatter___coordinators___frontmatter___relatedProjects',
+  frontmatter___coordinators___frontmatter___projectMembers = 'frontmatter___coordinators___frontmatter___projectMembers',
+  frontmatter___coordinators___frontmatter___projectFormerMembers = 'frontmatter___coordinators___frontmatter___projectFormerMembers',
+  frontmatter___coordinators___frontmatter___coordinators = 'frontmatter___coordinators___frontmatter___coordinators',
+  frontmatter___coordinators___frontmatter___formerMembers = 'frontmatter___coordinators___frontmatter___formerMembers',
+  frontmatter___coordinators___frontmatter___title = 'frontmatter___coordinators___frontmatter___title',
+  frontmatter___coordinators___frontmatter___templateKey = 'frontmatter___coordinators___frontmatter___templateKey',
+  frontmatter___coordinators___excerpt = 'frontmatter___coordinators___excerpt',
+  frontmatter___coordinators___rawMarkdownBody = 'frontmatter___coordinators___rawMarkdownBody',
+  frontmatter___coordinators___fileAbsolutePath = 'frontmatter___coordinators___fileAbsolutePath',
+  frontmatter___coordinators___fields___slug = 'frontmatter___coordinators___fields___slug',
+  frontmatter___coordinators___html = 'frontmatter___coordinators___html',
+  frontmatter___coordinators___htmlAst = 'frontmatter___coordinators___htmlAst',
+  frontmatter___coordinators___excerptAst = 'frontmatter___coordinators___excerptAst',
+  frontmatter___coordinators___headings = 'frontmatter___coordinators___headings',
+  frontmatter___coordinators___headings___value = 'frontmatter___coordinators___headings___value',
+  frontmatter___coordinators___headings___depth = 'frontmatter___coordinators___headings___depth',
+  frontmatter___coordinators___timeToRead = 'frontmatter___coordinators___timeToRead',
+  frontmatter___coordinators___tableOfContents = 'frontmatter___coordinators___tableOfContents',
+  frontmatter___coordinators___wordCount___paragraphs = 'frontmatter___coordinators___wordCount___paragraphs',
+  frontmatter___coordinators___wordCount___sentences = 'frontmatter___coordinators___wordCount___sentences',
+  frontmatter___coordinators___wordCount___words = 'frontmatter___coordinators___wordCount___words',
+  frontmatter___coordinators___parent___id = 'frontmatter___coordinators___parent___id',
+  frontmatter___coordinators___parent___children = 'frontmatter___coordinators___parent___children',
+  frontmatter___coordinators___children = 'frontmatter___coordinators___children',
+  frontmatter___coordinators___children___id = 'frontmatter___coordinators___children___id',
+  frontmatter___coordinators___children___children = 'frontmatter___coordinators___children___children',
+  frontmatter___coordinators___internal___content = 'frontmatter___coordinators___internal___content',
+  frontmatter___coordinators___internal___contentDigest = 'frontmatter___coordinators___internal___contentDigest',
+  frontmatter___coordinators___internal___description = 'frontmatter___coordinators___internal___description',
+  frontmatter___coordinators___internal___fieldOwners = 'frontmatter___coordinators___internal___fieldOwners',
+  frontmatter___coordinators___internal___ignoreType = 'frontmatter___coordinators___internal___ignoreType',
+  frontmatter___coordinators___internal___mediaType = 'frontmatter___coordinators___internal___mediaType',
+  frontmatter___coordinators___internal___owner = 'frontmatter___coordinators___internal___owner',
+  frontmatter___coordinators___internal___type = 'frontmatter___coordinators___internal___type',
+  frontmatter___formerMembers = 'frontmatter___formerMembers',
+  frontmatter___formerMembers___id = 'frontmatter___formerMembers___id',
+  frontmatter___formerMembers___frontmatter___description = 'frontmatter___formerMembers___frontmatter___description',
+  frontmatter___formerMembers___frontmatter___id = 'frontmatter___formerMembers___frontmatter___id',
+  frontmatter___formerMembers___frontmatter___history = 'frontmatter___formerMembers___frontmatter___history',
+  frontmatter___formerMembers___frontmatter___links = 'frontmatter___formerMembers___frontmatter___links',
+  frontmatter___formerMembers___frontmatter___books = 'frontmatter___formerMembers___frontmatter___books',
+  frontmatter___formerMembers___frontmatter___thesis = 'frontmatter___formerMembers___frontmatter___thesis',
+  frontmatter___formerMembers___frontmatter___articles = 'frontmatter___formerMembers___frontmatter___articles',
+  frontmatter___formerMembers___frontmatter___contacts = 'frontmatter___formerMembers___frontmatter___contacts',
+  frontmatter___formerMembers___frontmatter___address1 = 'frontmatter___formerMembers___frontmatter___address1',
+  frontmatter___formerMembers___frontmatter___address2 = 'frontmatter___formerMembers___frontmatter___address2',
+  frontmatter___formerMembers___frontmatter___memberRole = 'frontmatter___formerMembers___frontmatter___memberRole',
+  frontmatter___formerMembers___frontmatter___memberName = 'frontmatter___formerMembers___frontmatter___memberName',
+  frontmatter___formerMembers___frontmatter___memberSince = 'frontmatter___formerMembers___frontmatter___memberSince',
+  frontmatter___formerMembers___frontmatter___memberUntil = 'frontmatter___formerMembers___frontmatter___memberUntil',
+  frontmatter___formerMembers___frontmatter___memberEmail = 'frontmatter___formerMembers___frontmatter___memberEmail',
+  frontmatter___formerMembers___frontmatter___memberLattes = 'frontmatter___formerMembers___frontmatter___memberLattes',
+  frontmatter___formerMembers___frontmatter___isFormerMember = 'frontmatter___formerMembers___frontmatter___isFormerMember',
+  frontmatter___formerMembers___frontmatter___memberLinkedin = 'frontmatter___formerMembers___frontmatter___memberLinkedin',
+  frontmatter___formerMembers___frontmatter___memberType = 'frontmatter___formerMembers___frontmatter___memberType',
+  frontmatter___formerMembers___frontmatter___memberOtherInfos = 'frontmatter___formerMembers___frontmatter___memberOtherInfos',
+  frontmatter___formerMembers___frontmatter___projectName = 'frontmatter___formerMembers___frontmatter___projectName',
+  frontmatter___formerMembers___frontmatter___projectStart = 'frontmatter___formerMembers___frontmatter___projectStart',
+  frontmatter___formerMembers___frontmatter___projectEnd = 'frontmatter___formerMembers___frontmatter___projectEnd',
+  frontmatter___formerMembers___frontmatter___blogTitle = 'frontmatter___formerMembers___frontmatter___blogTitle',
+  frontmatter___formerMembers___frontmatter___blogAuthor = 'frontmatter___formerMembers___frontmatter___blogAuthor',
+  frontmatter___formerMembers___frontmatter___date = 'frontmatter___formerMembers___frontmatter___date',
+  frontmatter___formerMembers___frontmatter___featured = 'frontmatter___formerMembers___frontmatter___featured',
+  frontmatter___formerMembers___frontmatter___activitieTitle = 'frontmatter___formerMembers___frontmatter___activitieTitle',
+  frontmatter___formerMembers___frontmatter___activitieType = 'frontmatter___formerMembers___frontmatter___activitieType',
+  frontmatter___formerMembers___frontmatter___activitieLocation = 'frontmatter___formerMembers___frontmatter___activitieLocation',
+  frontmatter___formerMembers___frontmatter___relatedProjects = 'frontmatter___formerMembers___frontmatter___relatedProjects',
+  frontmatter___formerMembers___frontmatter___projectMembers = 'frontmatter___formerMembers___frontmatter___projectMembers',
+  frontmatter___formerMembers___frontmatter___projectFormerMembers = 'frontmatter___formerMembers___frontmatter___projectFormerMembers',
+  frontmatter___formerMembers___frontmatter___coordinators = 'frontmatter___formerMembers___frontmatter___coordinators',
+  frontmatter___formerMembers___frontmatter___formerMembers = 'frontmatter___formerMembers___frontmatter___formerMembers',
+  frontmatter___formerMembers___frontmatter___title = 'frontmatter___formerMembers___frontmatter___title',
+  frontmatter___formerMembers___frontmatter___templateKey = 'frontmatter___formerMembers___frontmatter___templateKey',
+  frontmatter___formerMembers___excerpt = 'frontmatter___formerMembers___excerpt',
+  frontmatter___formerMembers___rawMarkdownBody = 'frontmatter___formerMembers___rawMarkdownBody',
+  frontmatter___formerMembers___fileAbsolutePath = 'frontmatter___formerMembers___fileAbsolutePath',
+  frontmatter___formerMembers___fields___slug = 'frontmatter___formerMembers___fields___slug',
+  frontmatter___formerMembers___html = 'frontmatter___formerMembers___html',
+  frontmatter___formerMembers___htmlAst = 'frontmatter___formerMembers___htmlAst',
+  frontmatter___formerMembers___excerptAst = 'frontmatter___formerMembers___excerptAst',
+  frontmatter___formerMembers___headings = 'frontmatter___formerMembers___headings',
+  frontmatter___formerMembers___headings___value = 'frontmatter___formerMembers___headings___value',
+  frontmatter___formerMembers___headings___depth = 'frontmatter___formerMembers___headings___depth',
+  frontmatter___formerMembers___timeToRead = 'frontmatter___formerMembers___timeToRead',
+  frontmatter___formerMembers___tableOfContents = 'frontmatter___formerMembers___tableOfContents',
+  frontmatter___formerMembers___wordCount___paragraphs = 'frontmatter___formerMembers___wordCount___paragraphs',
+  frontmatter___formerMembers___wordCount___sentences = 'frontmatter___formerMembers___wordCount___sentences',
+  frontmatter___formerMembers___wordCount___words = 'frontmatter___formerMembers___wordCount___words',
+  frontmatter___formerMembers___parent___id = 'frontmatter___formerMembers___parent___id',
+  frontmatter___formerMembers___parent___children = 'frontmatter___formerMembers___parent___children',
+  frontmatter___formerMembers___children = 'frontmatter___formerMembers___children',
+  frontmatter___formerMembers___children___id = 'frontmatter___formerMembers___children___id',
+  frontmatter___formerMembers___children___children = 'frontmatter___formerMembers___children___children',
+  frontmatter___formerMembers___internal___content = 'frontmatter___formerMembers___internal___content',
+  frontmatter___formerMembers___internal___contentDigest = 'frontmatter___formerMembers___internal___contentDigest',
+  frontmatter___formerMembers___internal___description = 'frontmatter___formerMembers___internal___description',
+  frontmatter___formerMembers___internal___fieldOwners = 'frontmatter___formerMembers___internal___fieldOwners',
+  frontmatter___formerMembers___internal___ignoreType = 'frontmatter___formerMembers___internal___ignoreType',
+  frontmatter___formerMembers___internal___mediaType = 'frontmatter___formerMembers___internal___mediaType',
+  frontmatter___formerMembers___internal___owner = 'frontmatter___formerMembers___internal___owner',
+  frontmatter___formerMembers___internal___type = 'frontmatter___formerMembers___internal___type',
   frontmatter___title = 'frontmatter___title',
   frontmatter___templateKey = 'frontmatter___templateKey',
-  frontmatter___memberBio = 'frontmatter___memberBio',
-  frontmatter___featuredpost = 'frontmatter___featuredpost',
-  frontmatter___featuredimage___birthtime = 'frontmatter___featuredimage___birthtime',
-  frontmatter___featuredimage___birthtimeMs = 'frontmatter___featuredimage___birthtimeMs',
-  frontmatter___featuredimage___sourceInstanceName = 'frontmatter___featuredimage___sourceInstanceName',
-  frontmatter___featuredimage___absolutePath = 'frontmatter___featuredimage___absolutePath',
-  frontmatter___featuredimage___relativePath = 'frontmatter___featuredimage___relativePath',
-  frontmatter___featuredimage___extension = 'frontmatter___featuredimage___extension',
-  frontmatter___featuredimage___size = 'frontmatter___featuredimage___size',
-  frontmatter___featuredimage___prettySize = 'frontmatter___featuredimage___prettySize',
-  frontmatter___featuredimage___modifiedTime = 'frontmatter___featuredimage___modifiedTime',
-  frontmatter___featuredimage___accessTime = 'frontmatter___featuredimage___accessTime',
-  frontmatter___featuredimage___changeTime = 'frontmatter___featuredimage___changeTime',
-  frontmatter___featuredimage___birthTime = 'frontmatter___featuredimage___birthTime',
-  frontmatter___featuredimage___root = 'frontmatter___featuredimage___root',
-  frontmatter___featuredimage___dir = 'frontmatter___featuredimage___dir',
-  frontmatter___featuredimage___base = 'frontmatter___featuredimage___base',
-  frontmatter___featuredimage___ext = 'frontmatter___featuredimage___ext',
-  frontmatter___featuredimage___name = 'frontmatter___featuredimage___name',
-  frontmatter___featuredimage___relativeDirectory = 'frontmatter___featuredimage___relativeDirectory',
-  frontmatter___featuredimage___dev = 'frontmatter___featuredimage___dev',
-  frontmatter___featuredimage___mode = 'frontmatter___featuredimage___mode',
-  frontmatter___featuredimage___nlink = 'frontmatter___featuredimage___nlink',
-  frontmatter___featuredimage___uid = 'frontmatter___featuredimage___uid',
-  frontmatter___featuredimage___gid = 'frontmatter___featuredimage___gid',
-  frontmatter___featuredimage___rdev = 'frontmatter___featuredimage___rdev',
-  frontmatter___featuredimage___ino = 'frontmatter___featuredimage___ino',
-  frontmatter___featuredimage___atimeMs = 'frontmatter___featuredimage___atimeMs',
-  frontmatter___featuredimage___mtimeMs = 'frontmatter___featuredimage___mtimeMs',
-  frontmatter___featuredimage___ctimeMs = 'frontmatter___featuredimage___ctimeMs',
-  frontmatter___featuredimage___atime = 'frontmatter___featuredimage___atime',
-  frontmatter___featuredimage___mtime = 'frontmatter___featuredimage___mtime',
-  frontmatter___featuredimage___ctime = 'frontmatter___featuredimage___ctime',
-  frontmatter___featuredimage___publicURL = 'frontmatter___featuredimage___publicURL',
-  frontmatter___featuredimage___id = 'frontmatter___featuredimage___id',
-  frontmatter___featuredimage___parent___id = 'frontmatter___featuredimage___parent___id',
-  frontmatter___featuredimage___parent___children = 'frontmatter___featuredimage___parent___children',
-  frontmatter___featuredimage___children = 'frontmatter___featuredimage___children',
-  frontmatter___featuredimage___children___id = 'frontmatter___featuredimage___children___id',
-  frontmatter___featuredimage___children___children = 'frontmatter___featuredimage___children___children',
-  frontmatter___featuredimage___internal___content = 'frontmatter___featuredimage___internal___content',
-  frontmatter___featuredimage___internal___contentDigest = 'frontmatter___featuredimage___internal___contentDigest',
-  frontmatter___featuredimage___internal___description = 'frontmatter___featuredimage___internal___description',
-  frontmatter___featuredimage___internal___fieldOwners = 'frontmatter___featuredimage___internal___fieldOwners',
-  frontmatter___featuredimage___internal___ignoreType = 'frontmatter___featuredimage___internal___ignoreType',
-  frontmatter___featuredimage___internal___mediaType = 'frontmatter___featuredimage___internal___mediaType',
-  frontmatter___featuredimage___internal___owner = 'frontmatter___featuredimage___internal___owner',
-  frontmatter___featuredimage___internal___type = 'frontmatter___featuredimage___internal___type',
-  frontmatter___featuredimage___childImageSharp___id = 'frontmatter___featuredimage___childImageSharp___id',
-  frontmatter___featuredimage___childImageSharp___children = 'frontmatter___featuredimage___childImageSharp___children',
-  frontmatter___featuredimage___childMarkdownRemark___id = 'frontmatter___featuredimage___childMarkdownRemark___id',
-  frontmatter___featuredimage___childMarkdownRemark___excerpt = 'frontmatter___featuredimage___childMarkdownRemark___excerpt',
-  frontmatter___featuredimage___childMarkdownRemark___rawMarkdownBody = 'frontmatter___featuredimage___childMarkdownRemark___rawMarkdownBody',
-  frontmatter___featuredimage___childMarkdownRemark___fileAbsolutePath = 'frontmatter___featuredimage___childMarkdownRemark___fileAbsolutePath',
-  frontmatter___featuredimage___childMarkdownRemark___html = 'frontmatter___featuredimage___childMarkdownRemark___html',
-  frontmatter___featuredimage___childMarkdownRemark___htmlAst = 'frontmatter___featuredimage___childMarkdownRemark___htmlAst',
-  frontmatter___featuredimage___childMarkdownRemark___excerptAst = 'frontmatter___featuredimage___childMarkdownRemark___excerptAst',
-  frontmatter___featuredimage___childMarkdownRemark___headings = 'frontmatter___featuredimage___childMarkdownRemark___headings',
-  frontmatter___featuredimage___childMarkdownRemark___timeToRead = 'frontmatter___featuredimage___childMarkdownRemark___timeToRead',
-  frontmatter___featuredimage___childMarkdownRemark___tableOfContents = 'frontmatter___featuredimage___childMarkdownRemark___tableOfContents',
-  frontmatter___featuredimage___childMarkdownRemark___children = 'frontmatter___featuredimage___childMarkdownRemark___children',
-  frontmatter___tags = 'frontmatter___tags',
   excerpt = 'excerpt',
   rawMarkdownBody = 'rawMarkdownBody',
   fileAbsolutePath = 'fileAbsolutePath',
@@ -3641,10 +3714,32 @@ export type GatsbyImageSharpSizes_NoBase64Fragment = Pick<ImageSharpSizes, 'aspe
 
 export type GatsbyImageSharpSizes_WithWebp_NoBase64Fragment = Pick<ImageSharpSizes, 'aspectRatio' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp' | 'sizes'>;
 
+export type ActivitiesAndNewsPageQueryVariables = {};
+
+
+export type ActivitiesAndNewsPageQuery = { allMarkdownRemark: { edges: Array<{ node: (
+        Pick<MarkdownRemark, 'excerpt'>
+        & { fields: Maybe<(
+          Pick<MarkdownRemarkFields, 'slug'>
+          & { readingTime: Maybe<Pick<MarkdownRemarkFieldsReadingTime, 'text'>> }
+        )>, frontmatter: Maybe<(
+          Pick<Frontmatter, 'templateKey' | 'blogTitle' | 'blogAuthor' | 'activitieTitle' | 'activitieType' | 'activitieLocation' | 'date'>
+          & { blogFeaturedImage: Maybe<{ childImageSharp: Maybe<{ fluid: Maybe<GatsbyImageSharpFluidFragment> }> }> }
+        )> }
+      ) }> } };
+
+export type ProjectsPageQueryVariables = {};
+
+
+export type ProjectsPageQuery = { allMarkdownRemark: ProjectsFragment };
+
 export type AboutPageTemplateQueryVariables = {};
 
 
-export type AboutPageTemplateQuery = { markdownRemark: Maybe<{ frontmatter: Maybe<Pick<Frontmatter, 'description' | 'history'>> }> };
+export type AboutPageTemplateQuery = { markdownRemark: Maybe<(
+    Pick<MarkdownRemark, 'html'>
+    & { frontmatter: Maybe<Pick<Frontmatter, 'description'>> }
+  )> };
 
 export type ActivitiePostByIdQueryVariables = {
   id: Scalars['String']
@@ -3657,16 +3752,6 @@ export type ActivitiePostByIdQuery = { markdownRemark: Maybe<(
       Pick<Frontmatter, 'activitieTitle' | 'activitieType' | 'date' | 'activitieLocation'>
       & { relatedProjects: Maybe<Array<Maybe<{ fields: Maybe<Pick<MarkdownRemarkFields, 'slug'>>, frontmatter: Maybe<Pick<Frontmatter, 'projectName'>> }>>>, activitieLink: Maybe<Pick<FeaturedLink, 'label' | 'url'>> }
     )> }
-  )> };
-
-export type BlogPostBydIdQueryVariables = {
-  id: Scalars['String']
-};
-
-
-export type BlogPostBydIdQuery = { markdownRemark: Maybe<(
-    Pick<MarkdownRemark, 'id' | 'html'>
-    & { frontmatter: Maybe<Pick<Frontmatter, 'date' | 'title' | 'description' | 'tags'>> }
   )> };
 
 export type BlogPostByIdQueryVariables = {
@@ -3687,7 +3772,7 @@ export type ContactPageTemplateQueryVariables = {};
 
 export type ContactPageTemplateQuery = { markdownRemark: Maybe<{ frontmatter: Maybe<(
       Pick<Frontmatter, 'address1' | 'address2'>
-      & { contacts: Array<Pick<Contact, 'name' | 'email'>> }
+      & { contacts: Maybe<Array<Pick<Contact, 'name' | 'email'>>> }
     )> }> };
 
 export type HighlightFragment = { fields: Maybe<Pick<MarkdownRemarkFields, 'slug'>>, frontmatter: Maybe<(
@@ -3723,24 +3808,34 @@ export type IndexPageTemplateQuery = { markdownRemark: Maybe<{ frontmatter: Mayb
        }> }, projects: ProjectsFragment, posts: PostsFragment };
 
 export type MemberFragment = (
-  Pick<MarkdownRemark, 'html'>
+  Pick<MarkdownRemark, 'html' | 'excerpt'>
   & { frontmatter: Maybe<(
-    Pick<Frontmatter, 'memberRole' | 'memberName' | 'memberSince' | 'memberUntil' | 'memberEmail' | 'memberLattes' | 'memberLinkedin'>
+    Pick<Frontmatter, 'memberRole' | 'memberName' | 'memberSince' | 'memberUntil' | 'memberEmail' | 'memberLattes' | 'isFormerMember' | 'memberLinkedin'>
+    & { memberUntilTimestamp: Frontmatter['memberUntil'] }
     & { memberThumb: Maybe<{ childImageSharp: Maybe<{ fluid: Maybe<GatsbyImageSharpFluidFragment> }> }>, memberOtherInfos: Maybe<Array<Pick<OtherInfos, 'info' | 'link' | 'label'>>>, memberFeaturedLink: Maybe<Pick<FeaturedLink, 'label' | 'url'>> }
   )> }
 );
 
-export type MemberCardFragment = { fields: Maybe<Pick<MarkdownRemarkFields, 'slug'>>, frontmatter: Maybe<(
-    Pick<Frontmatter, 'memberRole' | 'memberName' | 'memberSince' | 'memberUntil'>
+export type MemberCardFragment = (
+  Pick<MarkdownRemark, 'id'>
+  & { fields: Maybe<Pick<MarkdownRemarkFields, 'slug'>>, frontmatter: Maybe<(
+    Pick<Frontmatter, 'memberRole' | 'memberName' | 'memberType' | 'isFormerMember'>
+    & { memberUntilTimestamp: Frontmatter['memberUntil'] }
     & { memberThumb: Maybe<{ childImageSharp: Maybe<{ fluid: Maybe<GatsbyImageSharpFluidFragment> }> }>, memberFeaturedLink: Maybe<Pick<FeaturedLink, 'label' | 'url'>> }
-  )> };
+  )> }
+);
 
 export type MemberPageByIdQueryVariables = {
   id: Scalars['String']
 };
 
 
-export type MemberPageByIdQuery = { markdownRemark: Maybe<MemberFragment> };
+export type MemberPageByIdQuery = { markdownRemark: Maybe<MemberFragment>, projects: ProjectsFragment, projectsInWitchIsFormerMember: ProjectsFragment };
+
+export type MembersIndexPageTemplateQueryVariables = {};
+
+
+export type MembersIndexPageTemplateQuery = { markdownRemark: Maybe<{ frontmatter: Maybe<{ coordinators: Maybe<Array<Maybe<MemberCardFragment>>>, formerMembers: Maybe<Array<Maybe<MemberCardFragment>>> }> }>, members: { edges: Array<{ node: MemberCardFragment }> } };
 
 export type ProjectPageByIdQueryVariables = {
   id: Scalars['String']
@@ -3751,30 +3846,20 @@ export type ProjectPageByIdQuery = { markdownRemark: Maybe<(
     Pick<MarkdownRemark, 'html' | 'excerpt'>
     & { frontmatter: Maybe<(
       Pick<Frontmatter, 'projectName' | 'projectStart' | 'projectEnd'>
-      & { projectThumb: Maybe<{ childImageSharp: Maybe<{ fluid: Maybe<GatsbyImageSharpFluidFragment> }> }>, projectMembers: Maybe<Array<Maybe<MemberCardFragment>>> }
+      & { projectThumb: Maybe<{ childImageSharp: Maybe<{ fluid: Maybe<GatsbyImageSharpFluidFragment> }> }>, projectMembers: Maybe<Array<Maybe<MemberCardFragment>>>, projectFormerMembers: Maybe<Array<Maybe<MemberCardFragment>>> }
     )> }
   )>, posts: PostsFragment };
 
 export type ResearchPageTemplateQueryVariables = {};
 
 
-export type ResearchPageTemplateQuery = { markdownRemark: Maybe<{ frontmatter: Maybe<{ links: Array<Pick<Links, 'name' | 'url'>>, articles: Array<(
+export type ResearchPageTemplateQuery = { markdownRemark: Maybe<{ frontmatter: Maybe<{ links: Maybe<Array<Pick<Links, 'name' | 'url'>>>, articles: Maybe<Array<(
         Pick<ResearchCard, 'description'>
         & { links: Maybe<Array<Pick<Links, 'name' | 'url'>>> }
-      )>, thesis: Array<(
+      )>>, thesis: Maybe<Array<(
         Pick<ResearchCard, 'description'>
         & { links: Maybe<Array<Pick<Links, 'name' | 'url'>>> }
-      )>, books: Array<(
+      )>>, books: Maybe<Array<(
         Pick<ResearchCard, 'description'>
         & { links: Maybe<Array<Pick<Links, 'name' | 'url'>>> }
-      )> }> }> };
-
-export type TagPageQueryVariables = {
-  tag?: Maybe<Scalars['String']>
-};
-
-
-export type TagPageQuery = { site: Maybe<{ siteMetadata: Maybe<Pick<SiteSiteMetadata, 'title'>> }>, allMarkdownRemark: (
-    Pick<MarkdownRemarkConnection, 'totalCount'>
-    & { edges: Array<{ node: { fields: Maybe<Pick<MarkdownRemarkFields, 'slug'>>, frontmatter: Maybe<Pick<Frontmatter, 'title'>> } }> }
-  ) };
+      )>> }> }> };

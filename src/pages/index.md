@@ -5,6 +5,6 @@ description: >-
   tratando desde assuntos relacionados aos princípios e fundamentos da área (com
   caráter interdisciplinar) até aplicações voltadas a problemas de engenharia.
   Em termos de aplicações o foco tem sido em mobilidade urbana e inteligência
-  computacional aplicacada a problemas de trânsito.
+  computacional aplicada a problemas de trânsito.
 ---
 

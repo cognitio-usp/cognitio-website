@@ -1,28 +1,33 @@
 import styled from '@emotion/styled';
 import { graphql } from 'gatsby';
+import { uniqBy } from 'lodash-es';
 import { ellipsis } from 'polished';
-import React from 'react';
+import React, { ReactNode } from 'react';
+import Helmet from 'react-helmet';
+import { oc } from 'ts-optchain.macro';
+import Icon from '../components/Icon';
 import Layout from '../components/Layout';
 import PlexusContainer from '../components/PlexusContainer';
-import SectionHeader from '../components/SectionHeader';
+import PreviewCompatibleImage from '../components/PreviewCompatibleImage';
+import Projects from '../components/Projects';
 import TextSection from '../components/TextSection';
-import { circle, letterSpacing } from '../style/helpers';
-import { centerContent } from '../style/modifiers';
+import { circle, joinWith, letterSpacing } from '../style/helpers';
+import { centerContent, fillContainer } from '../style/modifiers';
 import { colorTertiary, fontCondensed } from '../style/theme';
-import { MemberPageByIdQuery } from '../typings/graphql';
+import { ImageSharpFluid, MemberPageByIdQuery } from '../typings/graphql';
 import urlPrettier from '../utils/urlPrettier';
-import Helmet from 'react-helmet';
 
 type Props = {
   name?: string | null;
   role?: string | null;
   memberSince: string;
   memberUntil?: string | null;
-  thumb?: string | null;
+  memberUntilTimestamp?: string | null;
+  thumb?: ImageSharpFluid | null;
   email?: string | null;
   lattes?: string | null;
+  forceIsFormeMember?: boolean | null;
   linkedin?: string | null;
-  bio?: string | null;
   otherInfos?:
     | {
         info?: string | null;
@@ -34,6 +39,10 @@ type Props = {
     label?: string | null;
     url?: string | null;
   };
+  contentHTML?: string | null;
+  content?: ReactNode;
+  projects?: MemberPageByIdQuery['projects'];
+  projectsInWitchIsFormerMember?: MemberPageByIdQuery['projectsInWitchIsFormerMember'];
 };
 
 const Header = styled(PlexusContainer)`
@@ -43,9 +52,12 @@ const Header = styled(PlexusContainer)`
 
 const ProfileImage = styled.div`
   ${circle(240)};
-  margin-right: 54px;
+  margin-right: 40px;
   background-size: cover;
   flex-shrink: 0;
+  box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.3);
+
+  overflow: hidden;
 `;
 
 const HeaderLeftContent = styled.div`
@@ -71,6 +83,7 @@ const HeaderLeftContent = styled.div`
   }
 
   h3 {
+    ${joinWith(' · ')}
     color: #fff;
     font-weight: 300;
     font-size: 18px;
@@ -78,21 +91,17 @@ const HeaderLeftContent = styled.div`
   }
 `;
 
-// TODO: add gatsby-img
-// TODO: default thumb
-
 const HeaderContentContainer = styled.div`
   ${centerContent};
   max-width: 900px;
-  width: 100%;
+  width: calc(100% - 20px);
 `;
 
 const InfoContainer = styled.div`
   z-index: 1;
-  width: 100%;
+  width: calc(100% - 20px);
   max-width: 900px;
   padding: 28px 46px;
-  margin-bottom: 56px;
 
   background: #f8f8f8;
   border-radius: 4px;
@@ -142,14 +151,19 @@ export const MemberPageTemplate = ({
   thumb,
   memberSince,
   memberUntil,
+  memberUntilTimestamp,
   email,
+  forceIsFormeMember,
   lattes,
   linkedin,
-  bio,
+  content,
+  contentHTML,
   otherInfos,
+  projects,
+  projectsInWitchIsFormerMember,
 }: Props) => {
-  const memberUntilIsValid = memberUntil !== 'Invalid date';
-  const memberSinceIsValid = memberSince !== 'Invalid date';
+  const memberUntilIsValid = memberUntil && memberUntil !== 'Invalid date';
+  const memberSinceIsValid = memberSince && memberSince !== 'Invalid date';
   const infoItens = [
     ...(email ? [{ label: 'Email', info: email, url: `mailto:${email}` }] : []),
     ...(lattes ? [{ label: 'Currículo Lattes', url: lattes }] : []),
@@ -157,20 +171,61 @@ export const MemberPageTemplate = ({
     ...(otherInfos || []),
   ];
 
+  const filteredProjects = {
+    edges: uniqBy(
+      [...oc(projects).edges([]), ...oc(projectsInWitchIsFormerMember).edges([])],
+      'id',
+    ),
+  };
+
+  const noInfoItens = infoItens.length === 0;
+  const isFormerMember =
+    forceIsFormeMember
+    || (memberUntilTimestamp && +memberUntilTimestamp < Date.now());
+
   return (
     <>
-      <Header orangeBackground>
+      <Header
+        orangeBackground
+        css={{ paddingBottom: noInfoItens ? 36 : undefined }}
+      >
         <HeaderContentContainer>
-          <ProfileImage css={{ backgroundImage: `url(${thumb})` }} />
-          <HeaderLeftContent>
-            <h1>{name}</h1>
-            <h2>{role}</h2>
-            {memberSinceIsValid && (
-              <h3>
-                Membro {memberUntilIsValid ? 'de' : 'desde'} {memberSince}{' '}
-                {memberUntilIsValid ? ` até ${memberUntil}` : ''}
-              </h3>
+          <ProfileImage>
+            {thumb ? (
+              <PreviewCompatibleImage imageInfo={thumb} fillContainer />
+            ) : (
+              <PlexusContainer
+                opacity={1}
+                edgesOpacity={0.9}
+                color="#fff"
+                css={fillContainer}
+              >
+                <Icon name="avatar" size={100} color="#fff" />
+              </PlexusContainer>
             )}
+          </ProfileImage>
+          <HeaderLeftContent>
+            <h1
+              css={{ marginTop: noInfoItens ? '24px !important' : undefined }}
+            >
+              {name}
+            </h1>
+            <h2>{role}</h2>
+            <h3>
+              {isFormerMember && <span>Ex-membro</span>}
+              {memberSinceIsValid && (
+                <span
+                  title={
+                    memberUntilIsValid
+                      ? 'Período de participação no grupo'
+                      : 'Membro desde'
+                  }
+                >
+                  {memberSince}
+                  {memberUntilIsValid ? ` – ${memberUntil}` : ''}
+                </span>
+              )}
+            </h3>
           </HeaderLeftContent>
         </HeaderContentContainer>
       </Header>
@@ -193,45 +248,69 @@ export const MemberPageTemplate = ({
           ))}
         </InfoContainer>
       )}
-      {bio && <TextSection>{bio}</TextSection>}
+      {(content || contentHTML) && (
+        <TextSection
+          css={{ marginTop: 56 }}
+          content={content}
+          contentHTML={contentHTML}
+        />
+      )}
 
-      <SectionHeader label="Projetos" />
+      <Projects projects={filteredProjects} />
     </>
   );
 };
 
 const MemberPage = ({ data }: { data: MemberPageByIdQuery }) => {
-  const { frontmatter } = data.markdownRemark!;
+  const {
+    memberName,
+    memberRole,
+    memberThumb,
+    memberSince,
+    memberUntil,
+    memberEmail,
+    memberLattes,
+    memberLinkedin,
+    memberOtherInfos,
+    isFormerMember,
+    memberUntilTimestamp,
+  } = oc(data).markdownRemark.frontmatter() || {};
 
   return (
     <Layout>
       <Helmet titleTemplate="COGNITIO · %s">
-        <title>{`${frontmatter!.memberName}`}</title>
-        <meta name="description" content={`${frontmatter!.memberBio}`} />
+        <title>{`${memberName}`}</title>
+        <meta
+          name="description"
+          content={`${oc(data).markdownRemark.excerpt('')}`}
+        />
       </Helmet>
       <MemberPageTemplate
-        name={frontmatter!.memberName}
-        role={frontmatter!.memberRole}
-        thumb={frontmatter!.memberThumb.childImageSharp!.fluid!.src}
-        memberSince={frontmatter!.memberSince}
-        memberUntil={frontmatter!.memberUntil}
-        email={frontmatter!.memberEmail}
-        lattes={frontmatter!.memberLattes}
-        linkedin={frontmatter!.memberLinkedin}
-        bio={frontmatter!.memberBio}
-        otherInfos={frontmatter!.memberOtherInfos}
+        name={memberName}
+        role={memberRole}
+        thumb={oc(memberThumb).childImageSharp.fluid()}
+        memberSince={memberSince}
+        memberUntil={memberUntil}
+        memberUntilTimestamp={memberUntilTimestamp}
+        email={memberEmail}
+        lattes={memberLattes}
+        linkedin={memberLinkedin}
+        contentHTML={oc(data).markdownRemark.html()}
+        otherInfos={memberOtherInfos}
+        forceIsFormeMember={isFormerMember}
+        projects={data.projects}
+        projectsInWitchIsFormerMember={data.projectsInWitchIsFormerMember}
       />
     </Layout>
   );
 };
-
-// TODO: add projects
 
 export default MemberPage;
 
 export const memberPageQuery = graphql`
   fragment Member on MarkdownRemark {
     html
+    excerpt(pruneLength: 200)
     frontmatter {
       memberRole
       memberName
@@ -242,10 +321,12 @@ export const memberPageQuery = graphql`
           }
         }
       }
-      memberSince(formatString: "M/YYYY", locale: "pt-Br")
-      memberUntil(formatString: "M/YYYY", locale: "pt-Br")
+      memberSince(formatString: "MMM [de] YYYY", locale: "pt-Br")
+      memberUntil(formatString: "MMM [de] YYYY", locale: "pt-Br")
+      memberUntilTimestamp: memberUntil(formatString: "x")
       memberEmail
       memberLattes
+      isFormerMember
       memberLinkedin
       memberOtherInfos {
         info
@@ -260,12 +341,15 @@ export const memberPageQuery = graphql`
   }
 
   fragment MemberCard on MarkdownRemark {
+    id
     fields {
       slug
     }
     frontmatter {
       memberRole
       memberName
+      memberType
+      isFormerMember
       memberThumb {
         childImageSharp {
           fluid(maxWidth: 240, quality: 100) {
@@ -273,8 +357,7 @@ export const memberPageQuery = graphql`
           }
         }
       }
-      memberSince(formatString: "M/YYYY", locale: "pt-Br")
-      memberUntil(formatString: "M/YYYY", locale: "pt-Br")
+      memberUntilTimestamp: memberUntil(formatString: "x")
       memberFeaturedLink {
         label
         url
@@ -285,6 +368,30 @@ export const memberPageQuery = graphql`
   query MemberPageById($id: String!) {
     markdownRemark(id: { eq: $id }) {
       ...Member
+    }
+
+    projects: allMarkdownRemark(
+      filter: {
+        frontmatter: {
+          templateKey: { eq: "project-page" }
+          projectMembers: { elemMatch: { id: { eq: $id } } }
+        }
+      }
+      sort: { fields: [frontmatter___projectStart], order: DESC }
+    ) {
+      ...Projects
+    }
+
+    projectsInWitchIsFormerMember: allMarkdownRemark(
+      filter: {
+        frontmatter: {
+          templateKey: { eq: "project-page" }
+          projectFormerMembers: { elemMatch: { id: { eq: $id } } }
+        }
+      }
+      sort: { fields: [frontmatter___projectStart], order: DESC }
+    ) {
+      ...Projects
     }
   }
 `;

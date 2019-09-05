@@ -19,7 +19,7 @@ type Props = {
 
 const Container = styled.div`
   max-width: calc(778px + 20px);
-  padding: 0 20px;
+  padding: 0 24px;
   width: 100%;
   font-size: 18px;
   line-height: 1.6;
@@ -27,11 +27,9 @@ const Container = styled.div`
   color: ${colorTextBody};
 `;
 
-  /* TODO: improve spacing between elements */
-
 const Content = styled.div`
   p {
-    margin-bottom: 42px;
+    margin-bottom: 26px;
   }
 
   code {
@@ -48,11 +46,14 @@ const Content = styled.div`
     letter-spacing: 0.01em;
     background: ${rgba(colorSecondary, 0.08)};
     border-radius: 4px;
+    margin-top: 32px;
+    margin-bottom: 32px;
+    padding: 18px 28px 2px;
 
     font-style: italic;
 
     p {
-      padding: 14px 6px;
+      margin-bottom: 16px;
     }
   }
 
@@ -65,14 +66,13 @@ const Content = styled.div`
   h2 {
     font-family: ${fontPrimary};
     font-weight: 500;
-    margin-top: 16px;
-    margin-bottom: 8px;
+    margin-top: 32px;
+    margin-bottom: 12px;
     color: #000;
   }
 
   h2 {
     font-weight: 400;
-    margin-bottom: 6px;
   }
 
   pre {
@@ -92,7 +92,8 @@ const Content = styled.div`
   ol {
     padding-left: 24px;
     list-style: none;
-    margin-bottom: 16px;
+    margin-top: -6px;
+    margin-bottom: 26px;
   }
 
   li {
@@ -127,6 +128,12 @@ const Content = styled.div`
     background: ${rgba(colorSecondary, 0.5)};
   }
 
+  .gatsby-resp-image-figure,
+  .youtube,
+  div > img {
+    margin: 36px 0;
+  }
+
   .youtube {
     position: relative;
     padding-bottom: 56.25%;
@@ -142,6 +149,17 @@ const Content = styled.div`
       height: 100%;
     }
   }
+
+  figcaption {
+    text-align: center;
+    font-size: 16px;
+    font-style: italic;
+    margin-top: 8px;
+  }
+
+  div > img {
+    width: 100%;
+  }
 `;
 
 const TextSection: FunctionComponent<Props> = ({
@@ -149,7 +167,7 @@ const TextSection: FunctionComponent<Props> = ({
   content,
   contentHTML,
   children,
-}: Props) => (
+}) => (
   <Container className={className}>
     {children}
     <Content
