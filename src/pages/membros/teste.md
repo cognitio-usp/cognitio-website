@@ -2,7 +2,7 @@
 id: ajllkjlkwjlkjsdflklkj
 templateKey: member-page
 memberName: Exemplo de Ex Membros
-memberThumb: /img/jumbotron.jpg
+image: /img/jumbotron.jpg
 memberRole: Ex membro Testess
 memberType: 5
 memberSince: 2019-09-01T03:00:00.000Z

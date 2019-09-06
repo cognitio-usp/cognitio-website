@@ -2,11 +2,11 @@
 id: Projeto Mobility
 templateKey: project-page
 projectName: Projeto Mobility
-projectThumb: /img/logotype.png
+image: /img/logotype.png
 date: 2019-09-02T18:52:31.652Z
 projectStart: 2019-09-01T22:51:23.752Z
 projectEnd: ''
-featured: '3'
+featured: not
 projectMembers:
   - Prof. Dr. Marcio Lobo Netto
   - Lucas Oliveira Santos

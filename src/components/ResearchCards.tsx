@@ -35,27 +35,25 @@ const Link = styled(Button)`
   margin-top: 12px;
 `;
 
-const ResearchCards = ({ cards }: Props) => {
-  return (
-    <>
-      {cards.map((item, i) => (
-        <Card key={i}>
-          <p>{item.description}</p>
-          {item.links &&
-            item.links.map((link, i) => (
-              <Link
-                key={i}
-                outline
-                small
-                leadingIcon="link"
-                label={link.name}
-                href={link.url}
-              />
-            ))}
-        </Card>
-      ))}
-    </>
-  );
-};
+const ResearchCards = ({ cards }: Props) => (
+  <>
+    {cards.map((item, i) => (
+      <Card key={i}>
+        <p>{item.description}</p>
+        {item.links &&
+          item.links.map((link, i2) => (
+            <Link
+              key={i2}
+              outline
+              small
+              leadingIcon="link"
+              label={link.name}
+              href={link.url}
+            />
+          ))}
+      </Card>
+    ))}
+  </>
+);
 
 export default ResearchCards;

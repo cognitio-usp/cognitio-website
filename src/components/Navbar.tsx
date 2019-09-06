@@ -6,6 +6,7 @@ import { centerContent } from '../style/modifiers';
 import { colorGradient, colorPrimary } from '../style/theme';
 import { useOnWindowScroll } from '../utils/useOnWindowScroll';
 import Logotype from './Logotype';
+import { isBrowser } from '../utils/isBrowser';
 
 type Props = {
   home?: boolean;
@@ -67,9 +68,10 @@ const NavMenu = styled.div`
   }
 `;
 
+
 const Navbar = ({ home }: Props) => {
   const [isExpanded, setIsExpanded] = useState(
-    home ? window.scrollY < 28 : false,
+    home && isBrowser ? window.scrollY < 28 : false,
   );
 
   useOnWindowScroll(

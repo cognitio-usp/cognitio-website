@@ -2,7 +2,7 @@
 id: kasdjfljqjjaflkj
 templateKey: member-page
 memberName: Lucas Oliveira Santos
-memberThumb: /img/15895233_1385606964843066_4028243722913222456_n.jpg
+image: /img/15895233_1385606964843066_4028243722913222456_n.jpg
 memberRole: Aluno de graduação
 memberType: 4
 memberSince: 2017-06-01T03:00:00.000Z

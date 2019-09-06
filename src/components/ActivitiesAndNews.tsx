@@ -1,15 +1,15 @@
+import css from '@emotion/css';
 import styled from '@emotion/styled';
 import { rgba } from '@lucasols/utils';
 import { Link } from 'gatsby';
 import React from 'react';
+import { oc } from 'ts-optchain.macro';
 import { joinWith, letterSpacing } from '../style/helpers';
-import { centerContent } from '../style/modifiers';
 import { colorSecondary, colorTertiary } from '../style/theme';
 import { PostsFragment } from '../typings/graphql';
 import { postsType } from './HomeHighlights';
 import PostTypeTag from './PostTypeTag';
 import SectionHeader from './SectionHeader';
-import css from '@emotion/css';
 
 type Props = {
   posts?: PostsFragment;
@@ -99,7 +99,7 @@ const ActivitiesAndNews = ({ posts, moreButton, sectionTitle }: Props) =>
             activitieType || (templateKey && postsType[templateKey]);
 
           return (
-            <Card key={i} to={fields.slug!}>
+            <Card key={i} to={oc(fields).slug('error')}>
               {postType && (
                 <PostTypeTag css={{ marginBottom: 8 }}>{postType}</PostTypeTag>
               )}
@@ -109,8 +109,8 @@ const ActivitiesAndNews = ({ posts, moreButton, sectionTitle }: Props) =>
                   <>
                     {blogAuthor && <span>{blogAuthor}</span>}
                     {<time>{date.replace(/,.+/, '')}</time>}
-                    {fields.readingTime!.text && (
-                      <span>{`Leitura de ${fields.readingTime!.text.replace(
+                    {oc(fields).readingTime.text() && (
+                      <span>{`Leitura de ${oc(fields).readingTime.text('').replace(
                         ' read',
                         '',
                       )}`}</span>

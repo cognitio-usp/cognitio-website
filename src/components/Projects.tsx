@@ -55,8 +55,8 @@ const Image = styled(PreviewCompatibleImage)`
   }
 `;
 
-const Projects = ({ moreButton, projects }: Props) => {
-  return projects && projects.edges.length > 0 ? (
+const Projects = ({ moreButton, projects }: Props) =>
+  (projects && projects.edges.length > 0 ? (
     <>
       <SectionHeader
         label="Projetos de Pesquisa"
@@ -64,7 +64,7 @@ const Projects = ({ moreButton, projects }: Props) => {
       />
       <Container>
         {projects.edges.map((item, i) => {
-          const image = oc(item).node.frontmatter.projectThumb.childImageSharp.fluid();
+          const image = oc(item).node.frontmatter.image.childImageSharp.fluid();
 
           return (
             <Project key={i} to={oc(item).node.fields.slug('ERRO!')}>
@@ -80,7 +80,6 @@ const Projects = ({ moreButton, projects }: Props) => {
         })}
       </Container>
     </>
-  ) : null;
-};
+  ) : null);
 
 export default Projects;

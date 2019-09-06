@@ -2,7 +2,7 @@
 id: kajflkjqkjlkjrlwjp
 templateKey: member-page
 memberName: Prof. Dr. Marcio Lobo Netto
-memberThumb: /img/marciolobo.jpg
+image: /img/marciolobo.jpg
 memberRole: Coordenador
 memberType: 1
 isFormerMember: false

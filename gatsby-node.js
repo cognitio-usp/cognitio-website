@@ -123,7 +123,7 @@ exports.createSchemaCustomization = ({ actions }) => {
       address2: String
       memberRole: String
       memberName: String
-      memberThumb: File @fileByRelativePath
+      image: File @fileByRelativePath
       memberSince: Date @dateformat
       memberUntil: Date @dateformat
       memberEmail: String
@@ -136,11 +136,9 @@ exports.createSchemaCustomization = ({ actions }) => {
       projectName: String
       projectStart: Date @dateformat
       projectEnd: Date @dateformat
-      projectThumb: File @fileByRelativePath
       blogTitle: String
       blogAuthor: String
       date: Date @dateformat
-      blogFeaturedImage: File @fileByRelativePath
       featured: String
       activitieTitle: String
       activitieType: String

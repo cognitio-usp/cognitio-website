@@ -2,20 +2,22 @@ import styled from '@emotion/styled';
 import { graphql } from 'gatsby';
 import React, { ReactNode } from 'react';
 import Helmet from 'react-helmet';
+import { oc } from 'ts-optchain.macro';
 import Layout from '../components/Layout';
 import SocialButtons from '../components/SocialButtons';
+import Tags from '../components/Tags';
 import TextSection from '../components/TextSection';
 import { joinWith } from '../style/helpers';
 import { centerContent } from '../style/modifiers';
-import { colorPrimary, colorTertiary, fontCondensed } from '../style/theme';
-import { BlogPostByIdQuery } from '../typings/graphql';
-import { oc } from 'ts-optchain.macro';
-import Tags from '../components/Tags';
+import { colorPrimary, colorTertiary } from '../style/theme';
+import { BlogPostByIdQuery, ImageSharpFluid } from '../typings/graphql';
+import PreviewCompatibleImage from '../components/PreviewCompatibleImage';
+import { isBrowser } from '../utils/isBrowser';
 
 type Props = {
   title?: string | null;
   author?: string | null;
-  featuredImage?: string | null;
+  featuredImage?: ImageSharpFluid | string | null;
   readingTime?: string | null;
   date?: string | null;
   contentHTML?: string | null;
@@ -28,14 +30,8 @@ type Props = {
 const FeaturedImage = styled.div`
   ${centerContent};
   width: 100%;
-  min-height: 200px;
-  max-height: 420px;
+  height: 420px;
   overflow: hidden;
-
-  img {
-    width: 100%;
-    height: auto;
-  }
 `;
 
 const Title = styled.h1`
@@ -67,7 +63,7 @@ export const BlogPostTemplate = ({
   <>
     {featuredImage && (
       <FeaturedImage>
-        <img src={featuredImage} alt="" />
+        <PreviewCompatibleImage imageInfo={featuredImage} fillContainer />
       </FeaturedImage>
     )}
 
@@ -98,7 +94,7 @@ export const BlogPostTemplate = ({
     </TextSection>
 
     <SocialButtons
-      pageUrl={window.location.href}
+      pageUrl={isBrowser ? window.location.href : ''}
       pageTitle={`COGNITIO · ${title}`}
     />
     {/* TODO: fix pageUrl to parent page */}
@@ -106,24 +102,30 @@ export const BlogPostTemplate = ({
 );
 
 const BlogPost = ({ data }: { data: BlogPostByIdQuery }) => {
-  const { frontmatter, fields, html, excerpt } = data.markdownRemark!;
+  const { frontmatter, fields, html, excerpt } = oc(data).markdownRemark() || {};
+  const {
+    blogTitle,
+    blogAuthor,
+    image,
+    date,
+    relatedProjects,
+  } = frontmatter || {};
 
   return (
     <Layout>
       <Helmet titleTemplate="COGNITIO · %s">
-        <title>{`${frontmatter!.blogTitle}`}</title>
+        <title>{`${blogTitle}`}</title>
         <meta name="description" content={`${excerpt}`} />
       </Helmet>
       <BlogPostTemplate
-        title={frontmatter!.blogTitle}
-        author={frontmatter!.blogAuthor}
+        title={blogTitle}
+        author={blogAuthor}
         featuredImage={
-          frontmatter!.blogFeaturedImage &&
-          frontmatter!.blogFeaturedImage.childImageSharp!.fluid!.src
+          oc(image).childImageSharp.fluid()
         }
-        date={frontmatter!.date}
-        relatedProjects={frontmatter!.relatedProjects}
-        readingTime={fields!.readingTime && fields!.readingTime.text}
+        date={date}
+        relatedProjects={relatedProjects}
+        readingTime={oc(fields).readingTime.text()}
         contentHTML={html}
       />
     </Layout>
@@ -148,7 +150,7 @@ export const blogPostQuery = graphql`
             projectName
           }
         }
-        blogFeaturedImage {
+        image {
           childImageSharp {
             fluid(maxWidth: 2000, quality: 100) {
               ...GatsbyImageSharpFluid

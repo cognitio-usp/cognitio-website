@@ -20,7 +20,7 @@ import PreviewCompatibleImage from '../components/PreviewCompatibleImage';
 
 type Props = {
   name: Frontmatter['projectName'];
-  thumb?: ImageSharpFluid | null;
+  thumb?: string | ImageSharpFluid | null;
   start: Frontmatter['projectStart'];
   end: Frontmatter['projectEnd'];
   members?: (MemberCardFragment | null)[] | null;
@@ -153,7 +153,7 @@ const ProjectPage = ({ data }: { data: ProjectPageByIdQuery }) => {
         name={oc(data).markdownRemark.frontmatter.projectName()}
         thumb={oc(
           data,
-        ).markdownRemark.frontmatter.projectThumb.childImageSharp.fluid()}
+        ).markdownRemark.frontmatter.image.childImageSharp.fluid()}
         start={oc(data).markdownRemark.frontmatter.projectStart()}
         end={oc(data).markdownRemark.frontmatter.projectEnd()}
         members={oc(data).markdownRemark.frontmatter.projectMembers()}
@@ -176,7 +176,7 @@ export const ProjectPageQuery = graphql`
       excerpt(pruneLength: 200, truncate: true)
       frontmatter {
         projectName
-        projectThumb {
+        image {
           childImageSharp {
             fluid(maxWidth: 500, quality: 100) {
               ...GatsbyImageSharpFluid

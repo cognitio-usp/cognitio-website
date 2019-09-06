@@ -1,18 +1,21 @@
-import React from 'react';
 import styled from '@emotion/styled';
-
-import cognitiveScienceIcon from '../img/reasearch-areas/cognitive-science.svg';
-import { centerContent, centerContentCollum } from '../style/modifiers';
-import { circle, letterSpacing } from '../style/helpers';
 import { rgba } from '@lucasols/utils';
-import { colorSecondary, sectionMaxWidth, fontCondensed } from '../style/theme';
+import React from 'react';
+import cognitiveScienceIcon from '../img/reasearch-areas/cognitive-science.svg';
+import artificalLifeIcon from '../img/reasearch-areas/artificial-life.svg';
+import neuroscienceIcon from '../img/reasearch-areas/neuroscience.svg';
+import dynamicSystemIcon from '../img/reasearch-areas/dynamic-systems.svg';
+import virtualRealityIcon from '../img/reasearch-areas/vr.svg';
+import { circle, letterSpacing } from '../style/helpers';
+import { centerContent, centerContentCollum } from '../style/modifiers';
+import { colorSecondary, fontCondensed, colorTertiary } from '../style/theme';
 
 const researchAreasData = [
   { name: 'Ciência Cognitiva', icon: cognitiveScienceIcon },
-  { name: 'Vida Artificial', icon: cognitiveScienceIcon },
-  { name: 'Sistemas Dinâmicos', icon: cognitiveScienceIcon },
-  { name: 'Realidade Virtual', icon: cognitiveScienceIcon },
-  { name: 'Neurociência', icon: cognitiveScienceIcon },
+  { name: 'Sistemas Dinâmicos', icon: dynamicSystemIcon },
+  { name: 'Vida Artificial', icon: artificalLifeIcon },
+  { name: 'Neurociência', icon: neuroscienceIcon },
+  { name: 'Realidade Virtual', icon: virtualRealityIcon },
 ];
 
 const Container = styled.div`
@@ -28,7 +31,12 @@ const ResearchArea = styled.div`
   min-width: 240px;
   ${centerContentCollum};
 
+  &:hover {
+    color: ${colorTertiary};
+  }
+
   > div {
+    transition: 240ms;
     text-align: center;
     font-size: 22px;
     font-weight: 400;
@@ -45,6 +53,12 @@ const ResearchAreaIcon = styled.div`
   background-repeat: no-repeat;
   background-position: center;
   background-color: ${rgba(colorSecondary, 0.08)};
+  transition: 240ms;
+  border: 1.5px solid ${rgba(colorTertiary, 0)};
+
+  ${ResearchArea}:hover & {
+    border-color: ${rgba(colorTertiary, 0.8)};
+  }
 `;
 
 const ResearchAreas = () => (

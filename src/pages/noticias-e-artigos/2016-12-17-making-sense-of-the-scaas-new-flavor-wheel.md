@@ -4,7 +4,7 @@ templateKey: blog-post
 blogTitle: Teste Blog
 blogAuthor: Lucas Santoss
 date: 2019-09-02T06:33:25.693Z
-blogFeaturedImage: /img/blog-index.jpg
+image: /img/blog-index.jpg
 featured: '1'
 relatedProjects:
   - Projeto Mobility

@@ -4,7 +4,7 @@ import moment from 'moment';
 
 const BlogPostPreview = ({ entry, widgetFor, getAsset }) => {
   const date = moment(entry.getIn(['data', 'date']));
-  const image = entry.getIn(['data', 'blogFeaturedImage']);
+  const image = entry.getIn(['data', 'image']);
 
   useEffect(() => {
     const imgs = document

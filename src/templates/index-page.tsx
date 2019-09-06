@@ -111,14 +111,7 @@ export const pageQuery = graphql`
       activitieType
       activitieLocation
       date(formatString: "DD/MM/YYYY [às] HH:mm", locale: "pt-Br")
-      blogFeaturedImage {
-        childImageSharp {
-          fluid(maxWidth: 1920, quality: 100) {
-            ...GatsbyImageSharpFluid
-          }
-        }
-      }
-      projectThumb {
+      image {
         childImageSharp {
           fluid(maxWidth: 1920, quality: 100) {
             ...GatsbyImageSharpFluid
@@ -137,7 +130,7 @@ export const pageQuery = graphql`
         excerpt(pruneLength: 200)
         frontmatter {
           projectName
-          projectThumb {
+          image {
             childImageSharp {
               fluid(maxWidth: 1000, quality: 100) {
                 ...GatsbyImageSharpFluid

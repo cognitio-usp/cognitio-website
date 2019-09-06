@@ -39,15 +39,15 @@ export const MembersIndexPageTemplate = ({
     item => item.id,
   );
   const filterMembersIds = [
-    ...(coordinators ? coordinators.map(item => item.id) : []),
-    ...(formerMembers ? formerMembers.map(item => item.id) : []),
+    ...(coordinators ? coordinators.map(item => oc(item).id()) : []),
+    ...(formerMembers ? formerMembers.map(item => oc(item).id()) : []),
     ...formerMembersFromMembersQueryIds,
   ];
   const filteredMembers =
     members && members.filter(item => !filterMembersIds.includes(item.node.id));
   const filteredFormerMembers = formerMembers
     ? formerMembers.filter(
-        item => !formerMembersFromMembersQueryIds.includes(item.id),
+        item => !formerMembersFromMembersQueryIds.includes(oc(item).id('')),
       )
     : [];
 

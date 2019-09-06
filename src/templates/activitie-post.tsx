@@ -23,6 +23,7 @@ import Button from '../components/Button';
 import { rgba } from '@lucasols/utils';
 import Tags from '../components/Tags';
 import { oc } from 'ts-optchain.macro';
+import { isBrowser } from '../utils/isBrowser';
 
 type Props = {
   title?: string | null;
@@ -151,7 +152,7 @@ export const ActivitiePostTemplate = ({
     />
 
     <SocialButtons
-      pageUrl={window.location.href}
+      pageUrl={isBrowser ? window.location.href : ''}
       pageTitle={`COGNITIO · ${title}`}
     />
     {/* TODO: fix pageUrl to parent page */}

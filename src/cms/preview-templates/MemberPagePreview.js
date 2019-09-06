@@ -13,7 +13,7 @@ const MemberPagePreview = ({ entry, widgetFor, widgetsFor, getAsset }) => {
     memberLattes,
     memberLinkedin,
     memberOtherInfos,
-    memberThumb,
+    image,
     isFormerMember,
   } = toJSON(entry) || {};
 
@@ -30,7 +30,7 @@ const MemberPagePreview = ({ entry, widgetFor, widgetsFor, getAsset }) => {
       content={widgetFor('body')}
       otherInfos={memberOtherInfos}
       forceIsFormeMember={isFormerMember}
-      thumb={getAsset(memberThumb) && getAsset(memberThumb).toString()}
+      thumb={getAsset(image) && getAsset(image).toString()}
     />
   );
 };

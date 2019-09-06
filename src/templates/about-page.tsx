@@ -43,45 +43,44 @@ const Description = styled(PlexusContainer)`
 
 const MoreInfoButton = styled(Button)`
   margin: 8px;
+  width: 370px;
 `;
 
 export const AboutPageTemplate = ({
   description,
   content,
   contentHTML,
-}: Props) => {
-  return (
-    <>
-      <Description>
-        <Logotype textColor="#fff" height={140} />
-        <p>{description}</p>
-      </Description>
+}: Props) => (
+  <>
+    <Description>
+      <Logotype textColor="#fff" height={140} />
+      <p>{description}</p>
+    </Description>
 
-      {(content || contentHTML) && (
-        <>
-          <SectionHeader label="Histórico do grupo" />
-          <TextSection content={content} contentHTML={contentHTML} />
-        </>
-      )}
+    {(content || contentHTML) && (
+      <>
+        <SectionHeader label="Histórico do grupo" />
+        <TextSection content={content} contentHTML={contentHTML} />
+      </>
+    )}
 
-      <SectionHeader label="Linhas de pesquisa" />
-      <ResearchAreas />
+    <SectionHeader label="Linhas de pesquisa" />
+    <ResearchAreas />
 
-      <SectionHeader label="Mais Informações" />
-      <div
-        css={css`
-          max-width: 1000px;
-          ${centerContent};
-          flex-wrap: wrap;
-        `}
-      >
-        <MoreInfoButton outline label="Projetos de pesquisa" to="/projetos" />
-        <MoreInfoButton outline label="Contato" to="/contato" />
-        <MoreInfoButton outline label="Produção científica" to="/pesquisa" />
-      </div>
-    </>
-  );
-};
+    <SectionHeader label="Mais Informações" />
+    <div
+      css={css`
+        max-width: 1000px;
+        ${centerContentCollum};
+        flex-wrap: wrap;
+      `}
+    >
+      <MoreInfoButton outline label="Projetos de pesquisa" to="/projetos" />
+      <MoreInfoButton outline label="Produção científica" to="/pesquisa" />
+      <MoreInfoButton outline label="Contato" to="/contato" />
+    </div>
+  </>
+);
 
 const AboutPage = ({ data }: { data: AboutPageTemplateQuery }) => {
   const { description } = oc(data).markdownRemark.frontmatter() || {};

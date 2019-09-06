@@ -108,7 +108,7 @@ const ActivitiesAndNewsPage = ({
 
           const featuredImg = oc(
             node,
-          ).frontmatter.blogFeaturedImage.childImageSharp.fluid();
+          ).frontmatter.image.childImageSharp.fluid();
           const readingTime = oc(node).fields.readingTime.text();
           const {
             activitieTitle,
@@ -212,7 +212,7 @@ export const activitiesandnewsPageQuery = graphql`
             blogAuthor
             activitieTitle
             activitieType
-            blogFeaturedImage {
+            image {
               childImageSharp {
                 fluid(maxWidth: 500, quality: 100) {
                   ...GatsbyImageSharpFluid

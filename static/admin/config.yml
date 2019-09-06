@@ -44,7 +44,7 @@ collections:
       - {label: Título, name: blogTitle, widget: string}
       - {label: Autor, name: blogAuthor, widget: string, required: false}
       - {label: Data de Publicação, name: date, widget: datetime}
-      - {label: Featured Image, name: blogFeaturedImage, widget: image, required: false}
+      - {label: Featured Image, name: image, widget: image, required: false}
       - << : *featured
       - << : *relatedProjects
       - {label: Texto, name: body, widget: markdown}
@@ -87,7 +87,7 @@ collections:
       - << : *uuid
       - {label: Template Key, name: templateKey, widget: hidden, default: member-page}
       - {label: Nome, name: memberName, widget: string}
-      - {label: Imagem do perfil, name: memberThumb, widget: image, allow_multiple: false, required: false}
+      - {label: Imagem do perfil, name: image, widget: image, allow_multiple: false, required: false}
       - {label: Função, name: memberRole, widget: string}
       - label: Tipo de membro
         name: memberType
@@ -151,7 +151,7 @@ collections:
       - << : *uuid
       - {label: Template Key, name: templateKey, widget: hidden, default: project-page}
       - {label: Nome, name: projectName, widget: string}
-      - {label: Logo do Projeto, name: projectThumb, widget: image, allow_multiple: false, required: false}
+      - {label: Logo do Projeto, name: image, widget: image, allow_multiple: false, required: false}
       - {label: Descrição do projeto, name: body, widget: markdown}
       - {label: Data, name: date, widget: datetime, hint: Este campo é usado apenas para usar como referência na criação dos destaques da página inicial. Apenas o post mais recente de cada posição é selecionado}
       - {label: Data de Início do Projeto, name: projectStart, widget: date}

@@ -94,8 +94,8 @@ const Members = ({ members, sectionLabel = 'Membros', sort }: Props) => {
     ? members &&
       members.sort(
         (a, b) =>
-          oc(a).frontmatter.memberType(-500) -
-          oc(b).frontmatter.memberType(-500),
+          oc(a).frontmatter.memberType(-500)
+          - oc(b).frontmatter.memberType(-500),
       )
     : members;
 
@@ -108,7 +108,7 @@ const Members = ({ members, sectionLabel = 'Membros', sort }: Props) => {
 
           const { frontmatter, fields } = item;
 
-          const image = oc(frontmatter).memberThumb.childImageSharp.fluid();
+          const image = oc(frontmatter).image.childImageSharp.fluid();
 
           const featuredLink = oc(frontmatter).memberFeaturedLink();
 

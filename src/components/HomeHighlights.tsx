@@ -154,21 +154,18 @@ const HomeHighlights = ({ mainHighlight, highlight2, highlight3 }: Props) => {
             activitieTitle,
             activitieType,
             templateKey,
-            blogFeaturedImage,
-            projectThumb,
+            image,
           } = frontmatter;
 
           const postType =
             activitieType || (templateKey && postsType[templateKey]);
-          const thumb =
-            oc(blogFeaturedImage).childImageSharp.fluid()
-            || oc(projectThumb).childImageSharp.fluid();
+          const thumb = oc(image).childImageSharp.fluid();
 
           return (
             <Highlight
               key={i}
               to={fields.slug || 'ERRO!'}
-              css={{ gridRow: i === 0 ? '1 / span 2' : undefined }}
+              css={{ gridRow: i === 0 ? (highlights.length === 3 ? '1 / span 2' : '1 / span 1') : undefined }}
             >
               {thumb && thumb.src ? (
                 <>

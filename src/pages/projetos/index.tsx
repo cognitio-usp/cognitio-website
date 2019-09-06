@@ -52,6 +52,7 @@ const ProjectCard = styled(Link)`
   p {
     width: 100%;
     font-size: 14px;
+    flex-grow: 1;
     line-height: 1.4;
     text-align: center;
     font-family: ${fontSecondary};
@@ -89,7 +90,7 @@ const ProjectsPage = ({ data }: { data: ProjectsPageQuery }) => {
 
           const projectLogo = oc(
             node,
-          ).frontmatter.projectThumb.childImageSharp.fluid();
+          ).frontmatter.image.childImageSharp.fluid();
 
           return (
             <ProjectCard key={i} to={oc(node).fields.slug() || 'ERROR'}>

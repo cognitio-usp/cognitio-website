@@ -1,6 +1,5 @@
 import { useRef, useLayoutEffect } from 'react';
-
-const isBrowser = typeof window !== `undefined`;
+import { isBrowser } from './isBrowser';
 
 type PosObj = { x: number; y: number };
 type Effect = (currPos: PosObj, prevPos: PosObj) => void;

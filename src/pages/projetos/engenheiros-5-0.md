@@ -2,7 +2,7 @@
 id: Engenheiros 5.0
 templateKey: project-page
 projectName: Engenheiros 5.0s
-projectThumb: /img/25025720_270392206825789_7710930077009051648_n.jpg
+image: /img/25025720_270392206825789_7710930077009051648_n.jpg
 date: 2019-09-03T00:06:20.229Z
 projectStart: 2019-06-02T00:06:20.392Z
 projectEnd: 2020-07-01T00:06:20.415Z

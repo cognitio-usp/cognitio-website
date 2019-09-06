@@ -23,7 +23,7 @@ type Props = {
   memberSince: string;
   memberUntil?: string | null;
   memberUntilTimestamp?: string | null;
-  thumb?: ImageSharpFluid | null;
+  thumb?: string | ImageSharpFluid | null;
   email?: string | null;
   lattes?: string | null;
   forceIsFormeMember?: boolean | null;
@@ -265,7 +265,7 @@ const MemberPage = ({ data }: { data: MemberPageByIdQuery }) => {
   const {
     memberName,
     memberRole,
-    memberThumb,
+    image,
     memberSince,
     memberUntil,
     memberEmail,
@@ -288,7 +288,7 @@ const MemberPage = ({ data }: { data: MemberPageByIdQuery }) => {
       <MemberPageTemplate
         name={memberName}
         role={memberRole}
-        thumb={oc(memberThumb).childImageSharp.fluid()}
+        thumb={oc(image).childImageSharp.fluid()}
         memberSince={memberSince}
         memberUntil={memberUntil}
         memberUntilTimestamp={memberUntilTimestamp}
@@ -314,7 +314,7 @@ export const memberPageQuery = graphql`
     frontmatter {
       memberRole
       memberName
-      memberThumb {
+      image {
         childImageSharp {
           fluid(maxWidth: 240, quality: 100) {
             ...GatsbyImageSharpFluid
@@ -350,7 +350,7 @@ export const memberPageQuery = graphql`
       memberName
       memberType
       isFormerMember
-      memberThumb {
+      image {
         childImageSharp {
           fluid(maxWidth: 240, quality: 100) {
             ...GatsbyImageSharpFluid

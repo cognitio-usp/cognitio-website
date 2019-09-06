@@ -17,12 +17,10 @@ const Title = styled.h1`
   ${letterSpacing(8)};
 `;
 
-const PageTitle = ({ title }: Props) => {
-  return (
-    <PlexusContainer height={154} orangeBackground>
-      <Title>{title}</Title>
-    </PlexusContainer>
-  );
-};
+const PageTitle = ({ title }: Props) => (
+  <PlexusContainer height={154} orangeBackground>
+    <Title>{title}</Title>
+  </PlexusContainer>
+);
 
 export default PageTitle;
