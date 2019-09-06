@@ -71,7 +71,9 @@ const NavMenu = styled.div`
 
 const Navbar = ({ home }: Props) => {
   const [isExpanded, setIsExpanded] = useState(
-    home && isBrowser ? window.scrollY < 28 : false,
+    home
+      ? (isBrowser ? window.scrollY < 28 : true)
+      : false,
   );
 
   useOnWindowScroll(
