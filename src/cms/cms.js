@@ -9,7 +9,7 @@ import IndexPagePreview from './preview-templates/IndexPagePreview';
 import { CSSInjector } from './utils/cssInjector';
 
 import { Widget as IdWidget } from '@ncwidgets/id';
-import './custom-widgets/MarkdownYoutube';
+import { addMarkdownYoutubeWidget } from './custom-widgets/markdownYoutube';
 import ProjectPagePreview from './preview-templates/ProjectPagePreview';
 import ActivitiePostPreview from './preview-templates/ActivitiePostPreview';
 import MemberPagePreview from './preview-templates/MemberPagePreview';
@@ -29,13 +29,12 @@ if (process.env.NODE_ENV === 'development') {
   CMS.registerBackend('file-system', FileSystemBackend);
 } else {
   config.backend = {
-    backend: {
-      name: 'git-gateway',
-      branch: 'master',
-    },
+    name: 'git-gateway',
+    branch: 'master',
   };
 }
 
+addMarkdownYoutubeWidget();
 CMS.registerWidget(IdWidget);
 
 CMS.init({ config });

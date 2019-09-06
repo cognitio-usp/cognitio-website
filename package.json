@@ -8,7 +8,7 @@
   "scripts": {
     "dev": "npm run clean && gatsby develop",
     "build": "gatsby build",
-    "test-build": "npm run eslint && npm run graphql-types && npm run validate-typescript && npm run clean && gatsby build",
+    "test-build": "npm run eslint && npm run validate-typescript && npm run clean && gatsby build",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
     "eslint": "eslint \"src/**/*.{js,ts,tsx}\" --fix",
