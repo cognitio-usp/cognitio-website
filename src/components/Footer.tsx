@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'gatsby';
+import Link from '../lib/gatsby-link/GatsbyLink';
 import styled from '@emotion/styled';
 import { colorPrimary, colorSecondary } from '../style/theme';
 import { centerContent } from '../style/modifiers';

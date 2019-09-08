@@ -1,0 +1,45 @@
+const baseUrl = 'https://localhost:8000/';
+
+window.addEventListener('message', event => {
+  if (
+    event.origin.startsWith('https://localhost') ||
+    event.origin.startsWith('https://')
+  ) {
+    console.log();
+    window.history.replaceState(
+      null,
+      event.data[1],
+      `https://sites.usp.br/cognitio${event.data[0]}`,
+    );
+  }
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+  document.documentElement.innerHTML = `
+  <head>
+    <meta charSet="utf-8"/>
+    <meta http-equiv="x-ua-compatible" content="ie=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <title data-react-helmet="true">COGNITIO · USP</title>
+    <link data-react-helmet="true" rel="apple-touch-icon" sizes="180x180" href="${baseUrl}img/apple-touch-icon.png"/>
+    <link data-react-helmet="true" rel="icon" type="image/png" href="${baseUrl}img/favicon-32x32.png" sizes="32x32"/>
+    <link data-react-helmet="true" rel="icon" type="image/png" href="${baseUrl}img/favicon-16x16.png" sizes="16x16"/>
+    <meta data-react-helmet="true" name="theme-color" content="#fff"/>
+    <meta data-react-helmet="true" property="og:type" content="business.business"/>
+    <meta data-react-helmet="true" property="og:title" content="COGNITIO · USP"/>
+    <meta data-react-helmet="true" property="og:url" content="/"/>
+    <meta data-react-helmet="true" name="description" content="O grupo Cognitio desenvolve atividades na área da computação cognitiva, tratando desde assuntos relacionados aos princípios e fundamentos da área (com caráter interdisciplinar) até aplicações voltadas a problemas de engenharia. Em termos de aplicações o foco tem sido em mobilidade urbana e inteligência computacional aplicada a problemas de trânsito."/>
+    <style>
+    .grecaptcha-badge {
+      display: none !important;
+    }
+    </style>
+  </head>
+  <body style="display: block !important;">
+    <iframe style="position: absolute; height: 100%; width: 100%; margin: 0; padding: 0; top: 0; left: 0" src="${baseUrl}${window.location.pathname.replace(
+    '/cognitio/',
+    '',
+  )}" frameborder="0"></iframe>
+  </body>
+`;
+});

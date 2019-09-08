@@ -1,7 +1,7 @@
 import css from '@emotion/css';
 import styled from '@emotion/styled';
 import { rgba } from '@lucasols/utils';
-import { Link } from 'gatsby';
+import Link from '../lib/gatsby-link/GatsbyLink';
 import React from 'react';
 import { oc } from 'ts-optchain.macro';
 import { joinWith, letterSpacing } from '../style/helpers';

@@ -2,16 +2,16 @@ import styled from '@emotion/styled';
 import { graphql } from 'gatsby';
 import React from 'react';
 import Helmet from 'react-helmet';
+import { oc } from 'ts-optchain.macro';
+import ActivitiesAndNews from '../components/ActivitiesAndNews';
 import Button from '../components/Button';
 import HomeHighlights from '../components/HomeHighlights';
 import Layout from '../components/Layout';
 import PlexusContainer from '../components/PlexusContainer';
+import Projects from '../components/Projects';
 import { centerContentCollum } from '../style/modifiers';
 import { fontSecondary } from '../style/theme';
 import { IndexPageTemplateQuery } from '../typings/graphql';
-import Projects from '../components/Projects';
-import ActivitiesAndNews from '../components/ActivitiesAndNews';
-import { oc } from 'ts-optchain.macro';
 
 type Props = {
   description?: string | null;

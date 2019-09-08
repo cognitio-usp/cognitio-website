@@ -7,6 +7,14 @@
       "type": "npm",
       "script": "dev",
       "problemMatcher": [],
+      "options": {
+        "env": {
+          "NODE_TLS_REJECT_UNAUTHORIZED": 0
+        }
+      },
+      "presentation": {
+        "clear": true
+      },
       "runOptions": {
         "runOn": "folderOpen"
       }
@@ -19,9 +27,7 @@
     {
       "type": "npm",
       "script": "validate-typescript",
-      "problemMatcher": [
-        "$tsc"
-      ]
+      "problemMatcher": ["$tsc"]
     },
     {
       "type": "npm",

@@ -11,7 +11,7 @@ import { centerContent, fillContainer } from '../style/modifiers';
 import { letterSpacing } from '../style/helpers';
 import css from '@emotion/css';
 import Icon, { Icons } from '../components/Icon';
-import { Link } from 'gatsby';
+import Link from "../lib/gatsby-link/GatsbyLink";
 import { ellipsis } from 'polished';
 
 type Props = {

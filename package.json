@@ -6,7 +6,7 @@
   "license": "MIT",
   "main": "n/a",
   "scripts": {
-    "dev": "npm run clean && gatsby develop",
+    "dev": "gatsby develop --https",
     "build": "gatsby build",
     "test-build": "npm run eslint && npm run validate-typescript && npm run clean && gatsby build",
     "serve": "gatsby serve",

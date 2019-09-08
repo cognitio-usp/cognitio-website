@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from 'react';
+import React, { FunctionComponent, useEffect } from 'react';
 import { Helmet } from 'react-helmet';
 import Footer from './Footer';
 import Navbar from './Navbar';
@@ -26,6 +26,12 @@ const Content = styled.div`
 
 const TemplateWrapper: FunctionComponent<Props> = ({ children, home }) => {
   const { title, description } = useSiteMetadata();
+
+  useEffect(() => {
+    if (window.top !== window) {
+      window.top.postMessage([window.location.pathname, document.title], '*');
+    }
+  }, [children]);
 
   return (
     <>

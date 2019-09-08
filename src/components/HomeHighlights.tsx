@@ -1,6 +1,6 @@
 import css from '@emotion/css';
 import styled from '@emotion/styled';
-import { Link } from 'gatsby';
+import Link from '../lib/gatsby-link/GatsbyLink';
 import React from 'react';
 import { letterSpacing } from '../style/helpers';
 import { centerContent, fillContainer } from '../style/modifiers';

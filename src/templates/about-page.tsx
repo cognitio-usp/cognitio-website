@@ -15,6 +15,7 @@ import { letterSpacing } from '../style/helpers';
 import { fontSecondary } from '../style/theme';
 import Helmet from 'react-helmet';
 import { oc } from 'ts-optchain.macro';
+import cognitioUrl from '../utils/cognitioUrl';
 
 type Props = {
   description?: string | null;

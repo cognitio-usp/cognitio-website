@@ -1,12 +1,12 @@
 import styled from '@emotion/styled';
-import { Link } from 'gatsby';
 import React, { useState } from 'react';
+import Link from '../lib/gatsby-link/GatsbyLink';
 import { letterSpacing } from '../style/helpers';
 import { centerContent } from '../style/modifiers';
 import { colorGradient, colorPrimary } from '../style/theme';
+import { isBrowser } from '../utils/isBrowser';
 import { useOnWindowScroll } from '../utils/useOnWindowScroll';
 import Logotype from './Logotype';
-import { isBrowser } from '../utils/isBrowser';
 
 type Props = {
   home?: boolean;
