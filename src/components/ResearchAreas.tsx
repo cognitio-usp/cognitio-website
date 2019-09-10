@@ -9,6 +9,7 @@ import virtualRealityIcon from '../img/reasearch-areas/vr.svg';
 import { circle, letterSpacing } from '../style/helpers';
 import { centerContent, centerContentCollum } from '../style/modifiers';
 import { colorSecondary, fontCondensed, colorTertiary } from '../style/theme';
+import { mqMobile } from '../style/mediaQueries';
 
 const researchAreasData = [
   { name: 'Ciência Cognitiva', icon: cognitiveScienceIcon },
@@ -28,8 +29,13 @@ const Container = styled.div`
 
 const ResearchArea = styled.div`
   margin: 24px;
-  min-width: 240px;
+  width: 240px;
   ${centerContentCollum};
+
+  ${mqMobile} {
+    margin: 14px;
+    width: 150px;
+  }
 
   &:hover {
     color: ${colorTertiary};
@@ -45,6 +51,11 @@ const ResearchArea = styled.div`
     font-family: ${fontCondensed};
     ${letterSpacing(8)};
     line-height: 1.4;
+
+    ${mqMobile} {
+      margin-top: 12px;
+      font-size: 17px;
+    }
   }
 `;
 
@@ -58,6 +69,11 @@ const ResearchAreaIcon = styled.div`
 
   ${ResearchArea}:hover & {
     border-color: ${rgba(colorTertiary, 0.8)};
+  }
+
+  ${mqMobile} {
+    ${circle(140)};
+    background-size: 80px;
   }
 `;
 

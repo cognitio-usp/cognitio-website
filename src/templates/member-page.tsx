@@ -12,10 +12,12 @@ import PreviewCompatibleImage from '../components/PreviewCompatibleImage';
 import Projects from '../components/Projects';
 import TextSection from '../components/TextSection';
 import { circle, joinWith, letterSpacing } from '../style/helpers';
-import { centerContent, fillContainer } from '../style/modifiers';
+import { centerContent, fillContainer, centerContentCollum } from '../style/modifiers';
 import { colorTertiary, fontCondensed } from '../style/theme';
 import { ImageSharpFluid, MemberPageByIdQuery } from '../typings/graphql';
 import urlPrettier from '../utils/urlPrettier';
+import { mqMobile } from '../style/mediaQueries';
+import { OutboundLink } from 'gatsby-plugin-google-analytics';
 
 type Props = {
   name?: string | null;
@@ -46,8 +48,7 @@ type Props = {
 };
 
 const Header = styled(PlexusContainer)`
-  padding-top: 36px;
-  padding-bottom: 120px;
+  padding: 36px 0 120px;
 `;
 
 const ProfileImage = styled.div`
@@ -58,19 +59,32 @@ const ProfileImage = styled.div`
   box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.3);
 
   overflow: hidden;
+
+  ${mqMobile} {
+    margin-right: 0;
+  }
 `;
 
 const HeaderLeftContent = styled.div`
   text-shadow: 0px 3px 5px rgba(0, 0, 0, 0.3);
   max-width: 700px;
 
+  ${mqMobile} {
+    text-align: center;
+  }
+
   h1 {
-    margin-top: 54px;
+    margin-top: 38px;
     ${letterSpacing(6)};
     color: #fff;
-    font-weight: 300;
+    font-weight: 400;
     line-height: 1.1;
-    font-size: 54px;
+    font-size: 42px;
+
+    ${mqMobile} {
+      margin-top: 24px;
+      font-size: 36px;
+    }
   }
 
   h2 {
@@ -80,6 +94,10 @@ const HeaderLeftContent = styled.div`
     font-size: 28px;
     margin-bottom: 16px;
     margin-top: 12px;
+
+    ${mqMobile} {
+      font-size: 24px;
+    }
   }
 
   h3 {
@@ -94,7 +112,11 @@ const HeaderLeftContent = styled.div`
 const HeaderContentContainer = styled.div`
   ${centerContent};
   max-width: 900px;
-  width: calc(100% - 20px);
+  width: calc(100% - 32px);
+
+  ${mqMobile} {
+    ${centerContentCollum};
+  }
 `;
 
 const InfoContainer = styled.div`
@@ -234,10 +256,10 @@ export const MemberPageTemplate = ({
           {infoItens.map(({ info, url, label }, i) => (
             <InfoItem key={i}>
               {url ? (
-                <a href={url} target="_blank" rel="noopener noreferrer">
+                <OutboundLink href={url} target="_blank" rel="noopener noreferrer">
                   <h1>{info || urlPrettier(url) || role}</h1>
                   {label && <h2>{label}</h2>}
-                </a>
+                </OutboundLink>
               ) : (
                 <>
                   <h1>{info || role}</h1>
@@ -277,7 +299,7 @@ const MemberPage = ({ data }: { data: MemberPageByIdQuery }) => {
   } = oc(data).markdownRemark.frontmatter() || {};
 
   return (
-    <Layout>
+    <Layout pageTitle={memberName || undefined}>
       <Helmet titleTemplate="COGNITIO · %s">
         <title>{`${memberName}`}</title>
         <meta

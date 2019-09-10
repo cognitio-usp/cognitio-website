@@ -1,4 +1,4 @@
-import { useRef, useLayoutEffect } from 'react';
+import { useRef, useLayoutEffect, useEffect } from 'react';
 import { isBrowser } from './isBrowser';
 
 type PosObj = { x: number; y: number };
@@ -20,7 +20,7 @@ export function useOnWindowScroll(effect: Effect, deps?: any[], wait?: number) {
     throttleTimeout = null;
   };
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     if (!isBrowser) {
       return;
     }

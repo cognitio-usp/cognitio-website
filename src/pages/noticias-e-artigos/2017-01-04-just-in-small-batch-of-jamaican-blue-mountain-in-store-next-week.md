@@ -3,7 +3,8 @@ id: asdfsfasfsf
 templateKey: blog-post
 blogTitle: Teste Blog 3
 date: 2017-01-04T15:04:10.000Z
-featured: not
+image: /img/chemex.jpg
+featured: '2'
 ---
 We expect the shipment of a limited quantity of green beans next Monday. We’ll be offering the roasted beans from Tuesday, but quantities are limited, so be quick.
 

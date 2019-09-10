@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 import { rgba } from '@lucasols/utils';
-import Link from '../lib/gatsby-link/GatsbyLink';
+import Link from '../lib/gatsby-link';
 import React from 'react';
 import { oc } from 'ts-optchain.macro';
 import { circle } from '../style/helpers';

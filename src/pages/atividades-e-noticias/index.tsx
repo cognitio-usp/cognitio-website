@@ -19,6 +19,7 @@ import { centerContent, centerContentCollum } from '../../style/modifiers';
 import { colorSecondary, colorTertiary, fontSecondary } from '../../style/theme';
 import { ActivitiesAndNewsPageQuery } from '../../typings/graphql';
 import { pickRandomColor } from '../../utils/pickRandomColor';
+import { mqMobile } from '../../style/mediaQueries';
 
 const ActivitiesAndNewsContainer = styled.div`
   max-width: 1200px;
@@ -37,6 +38,10 @@ const imageWrapperStyle = css`
   left: 0;
   height: 200px;
   width: 100%;
+
+  ${mqMobile} {
+    height: 180px;
+  }
 `;
 
 const ProjectCard = styled(Link)`
@@ -50,6 +55,10 @@ const ProjectCard = styled(Link)`
   flex: 1 0 280px;
   max-width: 340px;
   transition: border-color 160ms;
+
+  ${mqMobile} {
+    padding-top: 180px;
+  }
 
   &:hover {
     border-color: ${colorSecondary};
@@ -84,6 +93,10 @@ const ProjectCard = styled(Link)`
     font-family: ${fontSecondary};
     margin-bottom: 20px;
     flex-grow: 1;
+
+    ${mqMobile} {
+      font-size: 12.99px;
+    }
   }
 `;
 
@@ -95,7 +108,7 @@ const ActivitiesAndNewsPage = ({
   const posts = oc(data).allMarkdownRemark.edges() || [];
 
   return (
-    <Layout>
+    <Layout pageTitle="Atividades e Notícias">
       <Helmet>
         <title>COGNITIO · Atividades e Notícias</title>
       </Helmet>

@@ -8,7 +8,7 @@ import Layout from '../components/Layout';
 import PlexusContainer from '../components/PlexusContainer';
 import TextSection from '../components/TextSection';
 import { circle, letterSpacing } from '../style/helpers';
-import { centerContent } from '../style/modifiers';
+import { centerContent, centerContentCollum } from '../style/modifiers';
 import {
   Frontmatter,
   ImageSharpFluid,
@@ -17,6 +17,7 @@ import {
 } from '../typings/graphql';
 import Members from '../components/Members';
 import PreviewCompatibleImage from '../components/PreviewCompatibleImage';
+import { mqMobile } from '../style/mediaQueries';
 
 type Props = {
   name: Frontmatter['projectName'];
@@ -31,8 +32,7 @@ type Props = {
 };
 
 const Header = styled(PlexusContainer)`
-  padding-top: 36px;
-  padding-bottom: 36px;
+  padding: 36px 16px;
   margin-bottom: 54px;
 `;
 
@@ -41,11 +41,20 @@ const ProjectLogo = styled.div`
   margin-right: 40px;
   background: #fff;
   overflow: hidden;
+  flex-shrink: 0;
+
+  ${mqMobile} {
+    margin-right: 0;
+  }
 `;
 
 const HeaderLeftContent = styled.div`
   text-shadow: 0px 3px 5px rgba(0, 0, 0, 0.3);
   max-width: 700px;
+
+  ${mqMobile} {
+    text-align: center;
+  }
 
   h1 {
     margin-top: 54px;
@@ -54,6 +63,11 @@ const HeaderLeftContent = styled.div`
     font-weight: 300;
     line-height: 1.1;
     font-size: 54px;
+
+    ${mqMobile} {
+      margin-top: 32px;
+      font-size: 42px;
+    }
   }
 
   h2 {
@@ -70,6 +84,10 @@ const HeaderContentContainer = styled.div`
   ${centerContent};
   max-width: 900px;
   width: 100%;
+
+  ${mqMobile} {
+    ${centerContentCollum};
+  }
 `;
 
 export const ProjectPageTemplate = ({
@@ -139,18 +157,19 @@ export const ProjectPageTemplate = ({
 
 const ProjectPage = ({ data }: { data: ProjectPageByIdQuery }) => {
   const { posts } = data;
+  const projectName = oc(data).markdownRemark.frontmatter.projectName();
 
   return (
-    <Layout>
+    <Layout pageTitle={projectName || undefined}>
       <Helmet titleTemplate="COGNITIO · %s">
-        <title>{`${oc(data).markdownRemark.frontmatter.projectName()}`}</title>
+        <title>{`${projectName}`}</title>
         <meta
           name="description"
           content={`${oc(data).markdownRemark.excerpt()}`}
         />
       </Helmet>
       <ProjectPageTemplate
-        name={oc(data).markdownRemark.frontmatter.projectName()}
+        name={projectName}
         thumb={oc(
           data,
         ).markdownRemark.frontmatter.image.childImageSharp.fluid()}

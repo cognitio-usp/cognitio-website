@@ -30,7 +30,7 @@ if (process.env.NODE_ENV === 'development') {
 } else {
   config.backend = {
     name: 'git-gateway',
-    branch: 'master',
+    // publish_mode: 'editorial_workflow',
   };
 }
 

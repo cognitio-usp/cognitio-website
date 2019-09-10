@@ -1,20 +1,15 @@
-import css from '@emotion/css';
 import styled from '@emotion/styled';
 import { graphql } from 'gatsby';
 import React from 'react';
+import Helmet from 'react-helmet';
+import { oc } from 'ts-optchain.macro';
 import Button from '../components/Button';
 import Layout from '../components/Layout';
 import PageTitle from '../components/PageTitle';
-import PlexusContainer from '../components/PlexusContainer';
-import SectionHeader from '../components/SectionHeader';
-import TextSection from '../components/TextSection';
-import { letterSpacing } from '../style/helpers';
-import { centerContentCollum, centerContent } from '../style/modifiers';
-import { fontSecondary } from '../style/theme';
-import { ResearchPageTemplateQuery } from '../typings/graphql';
 import ResearchCards from '../components/ResearchCards';
-import Helmet from 'react-helmet';
-import { oc } from 'ts-optchain.macro';
+import SectionHeader from '../components/SectionHeader';
+import { centerContentCollum } from '../style/modifiers';
+import { ResearchPageTemplateQuery } from '../typings/graphql';
 
 type Link = {
   name: string;
@@ -35,12 +30,13 @@ type Props = {
 
 const Link = styled(Button)`
   margin: 8px;
-  min-width: 400px;
-  max-width: 100%;
+  min-width: 300px;
+  max-width: calc(100% - 32px);
 `;
 
 const LinksContainer = styled.div`
   ${centerContentCollum};
+  width: 100%;
 `;
 
 export const ResearchPageTemplate = ({
@@ -89,7 +85,7 @@ const ResearchPage = ({ data }: { data: ResearchPageTemplateQuery }) => {
   const { frontmatter } = oc(data).markdownRemark() || {};
 
   return (
-    <Layout>
+    <Layout pageTitle="Produção científica">
       <Helmet>
         <title>COGNITIO · Produção Científica</title>
       </Helmet>

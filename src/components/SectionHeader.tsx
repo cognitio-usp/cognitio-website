@@ -6,16 +6,19 @@ import { letterSpacing } from '../style/helpers';
 import { colorSecondary } from '../style/theme';
 import { rgba } from '@lucasols/utils';
 import css from '@emotion/css';
+import { mqMobile } from '../style/mediaQueries';
 
 type Props = {
   label: string;
   className?: string;
   noBottomBorder?: boolean;
-  moreButton?: false | {
-    label: string;
-    to?: string;
-    href?: string;
-  };
+  moreButton?:
+    | false
+    | {
+        label: string;
+        to?: string;
+        href?: string;
+      };
 };
 
 const Container = styled.h1`
@@ -30,9 +33,27 @@ const Container = styled.h1`
   color: #000;
   text-transform: uppercase;
   margin-bottom: 24px;
+  line-height: 1.4;
+
+  ${mqMobile} {
+    font-size: 16px;
+  }
 
   > span {
     ${letterSpacing(30)};
+
+    ${mqMobile} {
+      ${letterSpacing(20)};
+    }
+  }
+`;
+
+const MoreButton = styled(Button)`
+  margin-left: 16px;
+  margin-right: -64px;
+
+  ${mqMobile} {
+    margin-right: 0;
   }
 `;
 
@@ -44,18 +65,23 @@ const SectionHeader = ({
 }: Props) => (
   <Container
     className={className}
-    css={
-      !noBottomBorder &&
-      css`
-        border-bottom: 1px solid ${rgba(colorSecondary, 0.4)};
-      `
-    }
+    css={css`
+      ${!noBottomBorder &&
+        `border-bottom: 1px solid ${rgba(colorSecondary, 0.4)};`}
+      ${moreButton &&
+        css`
+          > span {
+            ${mqMobile} {
+              ${letterSpacing(8)};
+            }
+          }
+        `}
+    `}
   >
     <span>{label}</span>
     {moreButton && (
-      <Button
+      <MoreButton
         small
-        css={{ marginLeft: 16, marginRight: -64 }}
         {...moreButton}
       />
     )}

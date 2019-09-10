@@ -12,6 +12,12 @@ module.exports = {
     'gatsby-plugin-typescript',
     'gatsby-remark-reading-time',
     {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        trackingId: 'UA-147513414-1',
+      },
+    },
+    {
       resolve: 'gatsby-plugin-google-fonts',
       options: {
         fonts: [

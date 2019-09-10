@@ -24,6 +24,7 @@ import { rgba } from '@lucasols/utils';
 import Tags from '../components/Tags';
 import { oc } from 'ts-optchain.macro';
 import { isBrowser } from '../utils/isBrowser';
+import { mqMobile } from '../style/mediaQueries';
 
 type Props = {
   title?: string | null;
@@ -42,8 +43,7 @@ type Props = {
 };
 
 const Header = styled(PlexusContainer)`
-  padding-top: 56px;
-  padding-bottom: 36px;
+  padding: 56px 16px 36px;
   ${centerContentCollum};
 `;
 
@@ -56,6 +56,10 @@ const Title = styled.h1`
   padding-bottom: 16px;
   max-width: 1000px;
   width: 100%;
+
+  ${mqMobile} {
+    font-size: 36px;
+  }
 
   &::after {
     content: '';
@@ -112,7 +116,7 @@ export const ActivitiePostTemplate = ({
       <Tags
         css={{ marginTop: -32, marginBottom: 24 }}
         projects={[
-          ...(type ? [{ label: type, toLink: '/activities' }] : []),
+          ...(type ? [{ label: type, toLink: '/atividades-e-noticias' }] : []),
           ...(relatedProjects
             ? relatedProjects.map(item => ({
                 label: oc(item).frontmatter.projectName('ERRO!'),
@@ -155,7 +159,6 @@ export const ActivitiePostTemplate = ({
       pageUrl={isBrowser ? window.location.href : ''}
       pageTitle={`COGNITIO · ${title}`}
     />
-    {/* TODO: fix pageUrl to parent page */}
   </>
 );
 
@@ -171,7 +174,7 @@ const ActivitiePost = ({ data }: { data: ActivitiePostByIdQuery }) => {
   } = frontmatter || {};
 
   return (
-    <Layout>
+    <Layout pageTitle={activitieTitle || undefined}>
       <Helmet titleTemplate="COGNITIO · %s">
         <title>{`${activitieTitle}`}</title>
         <meta name="description" content={`${excerpt || ''}`} />

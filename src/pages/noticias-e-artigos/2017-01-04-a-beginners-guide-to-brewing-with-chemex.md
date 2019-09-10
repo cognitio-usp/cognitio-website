@@ -4,10 +4,10 @@ templateKey: blog-post
 blogTitle: Test 2
 blogAuthor: Lucas Santos
 date: 2017-01-04T15:04:10.000Z
-image: /img/chemex.jpg
-featured: not
+image: /img/blog-index.jpg
+featured: '3'
 relatedProjects:
-  - Projeto Mobility
+  - 1567640110729-nYRtAiHr3
 ---
 ![](/img/chemex.jpg)
 

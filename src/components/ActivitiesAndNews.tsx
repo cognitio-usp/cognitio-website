@@ -1,7 +1,7 @@
 import css from '@emotion/css';
 import styled from '@emotion/styled';
 import { rgba } from '@lucasols/utils';
-import Link from '../lib/gatsby-link/GatsbyLink';
+import Link from '../lib/gatsby-link';
 import React from 'react';
 import { oc } from 'ts-optchain.macro';
 import { joinWith, letterSpacing } from '../style/helpers';
@@ -10,6 +10,7 @@ import { PostsFragment } from '../typings/graphql';
 import { postsType } from './HomeHighlights';
 import PostTypeTag from './PostTypeTag';
 import SectionHeader from './SectionHeader';
+import { mqMobile } from '../style/mediaQueries';
 
 type Props = {
   posts?: PostsFragment;
@@ -26,6 +27,10 @@ const Container = styled.div`
   gap: 16px;
   align-items: stretch;
   grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+
+  ${mqMobile} {
+    grid-template-columns: 1fr;
+  }
 `;
 
 const Card = styled(Link)`
@@ -50,6 +55,10 @@ const Card = styled(Link)`
     margin-bottom: 6px;
     font-weight: 400;
     ${letterSpacing(4)};
+
+    ${mqMobile} {
+      font-size: 26px;
+    }
   }
 
   h2 {

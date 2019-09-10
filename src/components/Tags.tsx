@@ -17,6 +17,7 @@ type Props = {
 
 const Container = styled.div`
   color: ${colorSecondary};
+  text-align: center;
 `;
 
 const Tag = styled(Link)`

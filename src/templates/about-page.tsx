@@ -16,6 +16,7 @@ import { fontSecondary } from '../style/theme';
 import Helmet from 'react-helmet';
 import { oc } from 'ts-optchain.macro';
 import cognitioUrl from '../utils/cognitioUrl';
+import { mqMobile } from '../style/mediaQueries';
 
 type Props = {
   description?: string | null;
@@ -39,12 +40,23 @@ const Description = styled(PlexusContainer)`
     font-weight: 300;
     line-height: 1.5;
     color: #fff;
+
+    @media (max-width: 800px) {
+      font-size: 16px;
+    }
+  }
+
+  ${mqMobile} {
+    svg {
+      max-width: 90%;
+    }
   }
 `;
 
 const MoreInfoButton = styled(Button)`
   margin: 8px;
   width: 370px;
+  max-width: calc(100% - 32px);
 `;
 
 export const AboutPageTemplate = ({
@@ -87,7 +99,7 @@ const AboutPage = ({ data }: { data: AboutPageTemplateQuery }) => {
   const { description } = oc(data).markdownRemark.frontmatter() || {};
 
   return (
-    <Layout>
+    <Layout pageTitle="Sobre">
       <Helmet>
         <title>COGNITIO · Sobre</title>
         <meta name="description" content={`${description}`} />

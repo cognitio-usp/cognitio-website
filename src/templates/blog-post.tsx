@@ -75,7 +75,7 @@ export const BlogPostTemplate = ({
       <header css={{ marginBottom: 46 }}>
         {relatedProjects && (
           <Tags
-            css={{ marginLeft: -4, color: colorTertiary }}
+            css={{ marginLeft: -4, color: colorTertiary, textAlign: 'left' }}
             projects={relatedProjects.map(item => ({
               label: oc(item).frontmatter.projectName('ERRO!'),
               toLink: oc(item).fields.slug('ERRO!'),
@@ -97,7 +97,6 @@ export const BlogPostTemplate = ({
       pageUrl={isBrowser ? window.location.href : ''}
       pageTitle={`COGNITIO · ${title}`}
     />
-    {/* TODO: fix pageUrl to parent page */}
   </>
 );
 
@@ -112,7 +111,7 @@ const BlogPost = ({ data }: { data: BlogPostByIdQuery }) => {
   } = frontmatter || {};
 
   return (
-    <Layout>
+    <Layout pageTitle={blogTitle || undefined}>
       <Helmet titleTemplate="COGNITIO · %s">
         <title>{`${blogTitle}`}</title>
         <meta name="description" content={`${excerpt}`} />

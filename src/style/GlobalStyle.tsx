@@ -2,8 +2,9 @@ import { css, Global } from '@emotion/core';
 import React from 'react';
 import normalize from './normalize';
 // import scrollBar from './scrollBar';
-import { fontPrimary } from './theme';
+import { fontPrimary, colorSecondary } from './theme';
 import { fillContainer } from './modifiers';
+import { rgba } from '@lucasols/utils';
 
 const reset = css`
   *,
@@ -12,6 +13,7 @@ const reset = css`
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    -webkit-tap-highlight-color: ${rgba(colorSecondary, 0.3)};
 
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -25,7 +27,6 @@ const reset = css`
     position: absolute;
     min-height: 100%;
     width: 100%;
-    padding-bottom: calc(92px + 72px);
   }
 
   body > div {

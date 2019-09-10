@@ -30,7 +30,7 @@ export const Svg = styled.svg`
 
 const PlexusContainer: FunctionComponent<Props> = ({
   opacity = 0.8,
-  edgesOpacity = 0.5,
+  edgesOpacity = 0.7,
   children,
   height,
   orangeBackground,

@@ -1,6 +1,6 @@
 import css from '@emotion/css';
 import styled from '@emotion/styled';
-import Link from '../lib/gatsby-link/GatsbyLink';
+import Link from '../lib/gatsby-link';
 import React from 'react';
 import { letterSpacing } from '../style/helpers';
 import { centerContent, fillContainer } from '../style/modifiers';
@@ -12,6 +12,7 @@ import PostTypeTag from './PostTypeTag';
 import SectionHeader from './SectionHeader';
 import PreviewCompatibleImage from './PreviewCompatibleImage';
 import { oc } from 'ts-optchain.macro';
+import { mqMobile, mqTabletDown } from '../style/mediaQueries';
 
 type Props = {
   mainHighlight: IndexPageTemplateQuery['mainHighlight'];
@@ -79,12 +80,20 @@ const InfoMainHighlight = css`
     font-weight: 500;
     ${letterSpacing(4)};
     /* color: ${colorSecondary}; */
+
+    ${mqTabletDown} {
+      font-size: 28px;
+    }
   }
 
   p {
     margin-top: 16px;
     font-size: 16px;
     line-height: 1.4;
+
+    ${mqTabletDown} {
+      font-size: 14px;
+    }
   }
 `;
 
@@ -99,6 +108,10 @@ const InfoSecondaryHighlight = css`
     font-weight: 400;
     color: #fff;
     text-align: center;
+
+    ${mqTabletDown} {
+      font-size: 24px;
+    }
   }
 
   p {
@@ -126,7 +139,7 @@ export const postsType: { [k: string]: string } = {
 
 const gridTemplate = [
   '1fr / 1fr',
-  '1fr / minmax(0, 2fr) minmax(0, 1fr)',
+  '1fr / minmax(0, 1.5fr) minmax(0, 1fr)',
   '1fr 1fr / minmax(0, 1.5fr) minmax(0, 1fr)',
 ] as const;
 
@@ -144,7 +157,25 @@ const HomeHighlights = ({ mainHighlight, highlight2, highlight3 }: Props) => {
         noBottomBorder
         css={{ marginBottom: 0 }}
       />
-      <Container css={{ gridTemplate: gridTemplate[highlights.length - 1] }}>
+      <Container
+        css={css`
+          grid-template: ${gridTemplate[highlights.length - 1]};
+
+          ${highlights.length === 2 && `
+            @media (max-width: 800px) {
+              height: 600px;
+              grid-template: minmax(0, 2fr) repeat(auto-fit, minmax(0, 1fr)) / 1fr;
+            }
+          `}
+
+          ${highlights.length === 3 && `
+            ${mqMobile} {
+              height: 800px;
+              grid-template: minmax(0, 1fr) repeat(auto-fit, minmax(0, 1fr)) / 1fr;
+            }
+          `}
+        `}
+      >
         {highlights.map(({ node: { excerpt, fields, frontmatter } }, i) => {
           if (!frontmatter || !fields) return undefined;
 
@@ -165,9 +196,16 @@ const HomeHighlights = ({ mainHighlight, highlight2, highlight3 }: Props) => {
             <Highlight
               key={i}
               to={fields.slug || 'ERRO!'}
-              css={{ gridRow: i === 0 ? (highlights.length === 3 ? '1 / span 2' : '1 / span 1') : undefined }}
+              css={{
+                gridRow:
+                  i === 0
+                    ? highlights.length === 3
+                      ? '1 / span 2'
+                      : '1 / span 1'
+                    : undefined,
+              }}
             >
-              {thumb && thumb.src ? (
+              {thumb ? (
                 <>
                   <PreviewCompatibleImage
                     imageInfo={thumb}

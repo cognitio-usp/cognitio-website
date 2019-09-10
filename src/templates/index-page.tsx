@@ -12,6 +12,7 @@ import Projects from '../components/Projects';
 import { centerContentCollum } from '../style/modifiers';
 import { fontSecondary } from '../style/theme';
 import { IndexPageTemplateQuery } from '../typings/graphql';
+import { mqMobile } from '../style/mediaQueries';
 
 type Props = {
   description?: string | null;
@@ -28,6 +29,10 @@ const Description = styled(PlexusContainer)`
   padding-top: 46px;
   padding-bottom: 36px;
 
+  ${mqMobile} {
+    margin-top: 0;
+  }
+
   p {
     margin-bottom: 24px;
     width: 100%;
@@ -39,6 +44,10 @@ const Description = styled(PlexusContainer)`
     line-height: 1.5;
     color: #fff;
     font-family: ${fontSecondary};
+
+    @media (max-width: 800px) {
+      font-size: 18px;
+    }
   }
 `;
 
@@ -69,7 +78,7 @@ export const IndexPageTemplate = ({
     <ActivitiesAndNews
       moreButton
       posts={posts}
-      sectionTitle="Atividades e Notícias Recentes"
+      sectionTitle="Atividades e Notícias"
     />
   </>
 );
@@ -79,7 +88,7 @@ const IndexPage = ({ data }: { data: IndexPageTemplateQuery }) => {
   const { mainHighlight, highlight2, highlight3, projects, posts } = data;
 
   return (
-    <Layout home>
+    <Layout home pageTitle="Início">
       <Helmet>
         <title>COGNITIO · USP</title>
         <meta name="description" content={`${description}`} />
@@ -179,8 +188,8 @@ export const pageQuery = graphql`
     ) {
       edges {
         node {
-          excerpt(pruneLength: 200)
           ...Highlight
+          excerpt(pruneLength: 200)
         }
       }
     }

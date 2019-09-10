@@ -77,7 +77,7 @@ const ProjectsPage = ({ data }: { data: ProjectsPageQuery }) => {
   const projects = oc(data).allMarkdownRemark.edges() || [];
 
   return (
-    <Layout>
+    <Layout pageTitle="Projetos">
       <Helmet>
         <title>COGNITIO · Projetos de pesquisa</title>
       </Helmet>

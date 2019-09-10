@@ -5,6 +5,7 @@ import { centerContent, fillContainer } from '../style/modifiers';
 import { colorGradient, colorSecondary, colorTertiary } from '../style/theme';
 import { rectSize } from '../style/helpers';
 import { openPopup } from '@lucasols/utils';
+import { mqMobile } from '../style/mediaQueries';
 
 type Props = {
   pageUrl: string;
@@ -32,6 +33,11 @@ const Container = styled.div`
     color: $colorTertiary;
     letter-spacing: 0.04em;
     margin-right: 16px;
+
+    ${mqMobile} {
+      font-size: 16px;
+      margin-right: 10px;
+    }
 
     @supports (-webkit-background-clip: text) {
       background: ${colorGradient()};

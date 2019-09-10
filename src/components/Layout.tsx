@@ -1,30 +1,57 @@
 import React, { FunctionComponent, useEffect } from 'react';
 import { Helmet } from 'react-helmet';
-import Footer from './Footer';
-import Navbar from './Navbar';
+import Footer, { mqFooterMobile, footerHeight, footerHeightMobile } from './Footer';
+import Navbar, { navHeight, navHeightTablet, mqNavbarTwoRows } from './Navbar';
 import useSiteMetadata from './SiteMetadata';
 import { withPrefix } from 'gatsby';
 import GlobalStyle from '../style/GlobalStyle';
 import DebugLayout from '../style/DebugLayout';
 import styled from '@emotion/styled';
 import { __DEV__ } from '../utils/isDev';
+import { mqTabletDown, mqMobile } from '../style/mediaQueries';
+import Logotype from './Logotype';
 
 type Props = {
   home?: boolean;
+  pageTitle?: string;
 }
 
 const Content = styled.div`
   width: 100%;
   max-width: 2000px;
   margin: 0 auto;
-  margin-top: 72px;
+  margin-top: ${navHeight - 32}px;
+  margin-bottom: ${footerHeight + 72}px;
   display: flex;
   align-items: center;
   flex-direction: column;
   flex-wrap: nowrap;
+  overflow-x: hidden;
+
+  ${mqNavbarTwoRows} {
+    margin-top: ${navHeightTablet - 32}px;
+  }
+
+  ${mqFooterMobile} {
+    margin-bottom: ${footerHeightMobile + 72}px;
+  }
+
+  ${mqMobile} {
+    margin-top: 0;
+    margin-bottom: ${footerHeightMobile + 72 + 64}px;
+  }
 `;
 
-const TemplateWrapper: FunctionComponent<Props> = ({ children, home }) => {
+const MobileTopLogotype = styled.div`
+  margin: 12px 0;
+  display: none;
+
+  ${mqMobile} {
+    display: block;
+  }
+`;
+
+const TemplateWrapper: FunctionComponent<Props> = ({ children, home, pageTitle: currentPage }) => {
   const { title, description } = useSiteMetadata();
 
   useEffect(() => {
@@ -65,8 +92,11 @@ const TemplateWrapper: FunctionComponent<Props> = ({ children, home }) => {
         <meta property="og:title" content={title} />
         <meta property="og:url" content="/" />
       </Helmet>
-      <Navbar home={home} />
-      <Content>{children}</Content>
+      <Navbar home={home} currentPage={currentPage} />
+      <Content>
+        {currentPage !== 'Sobre' && <MobileTopLogotype><Logotype /></MobileTopLogotype>}
+        {children}
+      </Content>
       <Footer />
     </>
   );

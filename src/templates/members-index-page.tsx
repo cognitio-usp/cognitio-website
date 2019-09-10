@@ -76,7 +76,7 @@ const MembersIndexPage = ({
 }: {
   data: MembersIndexPageTemplateQuery;
 }) => (
-  <Layout>
+  <Layout pageTitle="Membros">
     <Helmet>
       <title>COGNITIO · Corpo científico</title>
     </Helmet>

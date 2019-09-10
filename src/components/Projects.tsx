@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 import { rgba } from '@lucasols/utils';
-import Link from '../lib/gatsby-link/GatsbyLink';
+import Link from '../lib/gatsby-link';
 import React from 'react';
 import { oc } from 'ts-optchain.macro';
 import { letterSpacing } from '../style/helpers';
@@ -9,6 +9,7 @@ import { colorSecondary } from '../style/theme';
 import { ProjectsFragment } from '../typings/graphql';
 import PreviewCompatibleImage from './PreviewCompatibleImage';
 import SectionHeader from './SectionHeader';
+import { mqMobile } from '../style/mediaQueries';
 
 type Props = {
   moreButton?: boolean;
@@ -32,6 +33,12 @@ const Project = styled(Link)`
   overflow: hidden;
   padding: 16px;
   transition: border-color 160ms;
+  flex-grow: 1;
+  max-width: 600px;
+
+  ${mqMobile} {
+    height: 180px;
+  }
 
   &:hover {
     border-color: ${colorSecondary};

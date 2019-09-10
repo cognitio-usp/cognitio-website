@@ -96,7 +96,6 @@ class LocationProvider extends React.Component {
     history._onTransitionComplete();
     refs.unlisten = history.listen(() => {
       Promise.resolve().then(() => {
-        // TODO: replace rAF with react deferred update API when it's ready https://github.com/facebook/react/issues/13306
         requestAnimationFrame(() => {
           if (!this.unmounted) {
             this.setState(() => ({ context: this.getContext() }));

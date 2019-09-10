@@ -1,18 +1,13 @@
-import React, { memo } from 'react';
-import styled from '@emotion/styled';
-import {
-  colorGradient,
-  colorPrimary,
-  colorTertiary,
-  colorSecondary,
-  colorBg,
-} from '../style/theme';
-import { centerContent, fillContainer } from '../style/modifiers';
-import { letterSpacing } from '../style/helpers';
 import css from '@emotion/css';
+import styled from '@emotion/styled';
+import React from 'react';
 import Icon, { Icons } from '../components/Icon';
-import Link from "../lib/gatsby-link/GatsbyLink";
-import { ellipsis } from 'polished';
+import Link from "../lib/gatsby-link";
+import { letterSpacing } from '../style/helpers';
+import { mqMobile } from '../style/mediaQueries';
+import { centerContent, fillContainer } from '../style/modifiers';
+import { colorGradient, colorPrimary, colorSecondary, colorTertiary } from '../style/theme';
+import { OutboundLink } from 'gatsby-plugin-google-analytics';
 
 type Props = {
   label?: string;
@@ -30,7 +25,6 @@ const Container = styled.div`
   position: relative;
 
   display: inline-flex;
-  padding: 12px 0;
   color: #fff;
 
   border-radius: 100px;
@@ -53,9 +47,14 @@ const Container = styled.div`
     text-transform: uppercase;
     font-size: 20px;
     font-weight: 300;
-    padding: 0 26px;
+    padding: 12px 26px;
     height: 100%;
     width: 100%;
+
+    ${mqMobile} {
+      padding: 10px 26px;
+      font-size: 18px;
+    }
   }
 
   span {
@@ -87,11 +86,15 @@ const outlineTypeStyle = css`
 
 const smallStyle = css`
   font-weight: 400;
-  padding: 6px 0;
 
   a, button {
     font-size: 12px;
-    padding: 0 14px;
+    padding: 6px 14px;
+
+    ${mqMobile} {
+      padding: 4px 14px;
+      font-size: 10px;
+    }
   }
 `;
 
@@ -157,13 +160,13 @@ const Button = ({
       {to ? (
         <Link to={to}>{Content}</Link>
       ) : href ? (
-        <a
+        <OutboundLink
           href={href}
           target={noNewTab ? undefined : '_blank'}
           rel="noopener noreferrer"
         >
           {Content}
-        </a>
+        </OutboundLink>
       ) : (
         <button onClick={onClick} type="button">
           {Content}

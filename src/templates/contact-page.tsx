@@ -17,6 +17,7 @@ import { ContactPageTemplateQuery } from '../typings/graphql';
 import Helmet from 'react-helmet';
 import { oc } from 'ts-optchain.macro';
 import css from '@emotion/css';
+import { mqMobile } from '../style/mediaQueries';
 
 type Contact = {
   name: string;
@@ -48,6 +49,10 @@ const ContactTable = styled.table`
     background: #fff9f0;
     font-size: 18px;
 
+    ${mqMobile} {
+      font-size: 14px;
+    }
+
     a {
       color: ${colorPrimary};
     }
@@ -72,6 +77,10 @@ const Address = styled.div`
   text-align: center;
   line-height: 1.6;
   margin-bottom: 32px;
+
+  ${mqMobile} {
+    font-size: 18px;
+  }
 `;
 
 export const ContactPageTemplate = ({
@@ -127,7 +136,7 @@ const ContactPage = ({ data }: { data: ContactPageTemplateQuery }) => {
     oc(data).markdownRemark.frontmatter() || {};
 
   return (
-    <Layout>
+    <Layout pageTitle="Contato">
       <Helmet>
         <title>COGNITIO · Contato</title>
       </Helmet>

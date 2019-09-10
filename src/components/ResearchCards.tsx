@@ -3,6 +3,7 @@ import styled from '@emotion/styled';
 import { rgba } from '@lucasols/utils';
 import { colorSecondary } from '../style/theme';
 import Button from './Button';
+import { mqMobile } from '../style/mediaQueries';
 
 type Link = {
   name: string;
@@ -17,13 +18,18 @@ type Props = {
 };
 
 const Card = styled.div`
-  background: ${rgba(colorSecondary, 0.1)};
+  background: ${rgba(colorSecondary, 0.08)};
   padding: 24px 56px;
   margin-bottom: 16px;
   border-radius: 8px;
   width: calc(100% - 20px);
   max-width: 900px;
   line-height: 1.4;
+  word-wrap: break-word;
+
+  ${mqMobile} {
+    padding: 24px;
+  }
 
   p {
     width: 100%;
