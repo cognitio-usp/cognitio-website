@@ -33,6 +33,7 @@ const Container = styled.div`
 
 const Card = styled.div`
   ${centerContentCollum};
+  position: relative;
   justify-content: flex-start;
   margin: 16px 24px;
   margin-bottom: 40px;
@@ -81,8 +82,10 @@ const Card = styled.div`
 const ProfileImage = styled.div`
   ${circle(200)};
   overflow: hidden;
+  position: relative;
   border: 2px solid ${rgba(colorSecondary, 0.3)};
   transition: border-color 160ms;
+  z-index: 1;
 
   ${Card} a:hover & {
     border-color: ${colorSecondary};
@@ -115,6 +118,7 @@ const Members = ({ members, sectionLabel = 'Membros', sort }: Props) => {
           return (
             <Card key={i}>
               <Link
+                css={{ position: 'relative' }}
                 to={oc(fields).slug() || 'ERROR'}
                 title="Acessar página do membro"
               >

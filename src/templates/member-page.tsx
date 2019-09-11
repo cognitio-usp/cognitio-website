@@ -53,6 +53,7 @@ const Header = styled(PlexusContainer)`
 
 const ProfileImage = styled.div`
   ${circle(240)};
+  position: relative;
   margin-right: 40px;
   background-size: cover;
   flex-shrink: 0;

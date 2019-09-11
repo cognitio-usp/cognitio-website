@@ -14,6 +14,7 @@ type Props = {
 
 const Container = styled.div`
   ${centerContent};
+  position: relative;
   margin-top: 24px;
   padding-top: 64px;
 
@@ -54,6 +55,7 @@ const Button = styled.button`
   margin: 8px;
   position: relative;
   padding: 0;
+  z-index: 0;
   background-color: transparent;
 
   &::before {
@@ -63,6 +65,7 @@ const Button = styled.button`
     border-radius: 100px;
     opacity: 0.7;
     transition: 160ms;
+    z-index: -1;
 
     background: linear-gradient(#fff, #fff) padding-box,
       linear-gradient(to right, ${colorSecondary}, ${colorTertiary}) border-box;

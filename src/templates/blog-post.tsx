@@ -30,6 +30,7 @@ type Props = {
 
 const FeaturedImage = styled.div`
   ${centerContent};
+  position: relative;
   width: 100%;
   height: 420px;
   overflow: hidden;

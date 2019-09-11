@@ -18,6 +18,7 @@ const Container = styled.div`
   ${centerContent};
   position: relative;
   width: 100%;
+  z-index: 0;
 `;
 
 export const Svg = styled.svg`
@@ -26,6 +27,7 @@ export const Svg = styled.svg`
   left: 0;
   width: 100%;
   height: 100%;
+  z-index: -1;
 `;
 
 const PlexusContainer: FunctionComponent<Props> = ({
@@ -41,6 +43,7 @@ const PlexusContainer: FunctionComponent<Props> = ({
   <Container
     className={className}
     css={css`
+      position: relative;
       background: ${background};
       height: ${height ? `${height}px` : 'auto'};
     `}

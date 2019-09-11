@@ -35,7 +35,7 @@ export const mqNavbarTwoRows = '@media (max-width: 772px)';
 
 const Nav = styled.nav`
   position: fixed;
-  z-index: 1;
+  z-index: 1000;
   ${centerContent};
   top: 0;
   left: 0;
@@ -47,6 +47,7 @@ const Nav = styled.nav`
   transform: none;
   background: #fff;
   transition: 240ms;
+  will-change: transform;
 
   ${mqNavbarTwoRows} {
     height: ${navHeightTablet}px;
@@ -56,11 +57,12 @@ const Nav = styled.nav`
     padding-bottom: 64px;
     padding-top: 16px;
     margin: 0;
-    top: 100%;
+    bottom: -500px;
+    top: auto;
     max-height: 100%;
-    height: auto;
+    height: 500px;
     overflow-y: auto;
-    transform: translate3d(0, -62px, 0);
+    transform: translate3d(0, -62px, 0) translateZ(0);
     box-shadow: 0px -3px 12px rgba(0, 0, 0, 0.08);
   }
 `;
@@ -159,7 +161,7 @@ const NavBrand = styled(Link)`
 
 const MobileHeader = styled.div`
   position: fixed;
-  z-index: 1;
+  z-index: 1000;
   width: 100%;
   height: 62px;
   bottom: 0;
@@ -213,7 +215,7 @@ const CurrentPage = styled.div`
 `;
 
 const BgOverlay = styled.div`
-  z-index: 1;
+  z-index: 100;
   opacity: 0;
   visibility: hidden;
   height: 100%;
@@ -224,7 +226,10 @@ const BgOverlay = styled.div`
   transition: 160ms;
   will-change: opacity, visibility;
   background: ${colorGradient(0.8)};
-  backdrop-filter: blur(5px);
+
+  @media (-webkit-min-device-pixel-ratio: 3), (min-resolution: 192dpi) {
+    /* backdrop-filter: blur(5px); */
+  }
 `;
 
 const Navbar = ({ currentPage, home }: Props) => {
@@ -273,7 +278,7 @@ const Navbar = ({ currentPage, home }: Props) => {
           transform: scrollIsOnTop
             ? 'translate3d(0, 32px, 0)'
             : isMobile && isExpanded
-            ? 'translate3d(0, -100%, 0)'
+            ? 'translate3d(0, -100%, 0) translateZ(0)'
             : undefined,
           boxShadow:
             !scrollIsOnTop && !isMobile
@@ -287,27 +292,27 @@ const Navbar = ({ currentPage, home }: Props) => {
           <NavBrand to="/" title="Logo">
             <Logotype />
           </NavBrand>
-          <NavMenu style={{ opacity: isExpanded ? 1 : 0 }}>
+          <NavMenu style={{ opacity: isMobile ? (isExpanded ? 1 : 0) : 1 }}>
             <Link to="/" css={mobileOnly} activeClassName="active">
               Início
             </Link>
 
-            <Link to="/sobre" activeClassName="active">
+            <Link to="/sobre/" activeClassName="active">
               Sobre
             </Link>
-            <Link to="/projetos" activeClassName="active">
+            <Link to="/projetos/" activeClassName="active">
               Projetos
             </Link>
-            <Link to="/atividades-e-noticias" activeClassName="active">
+            <Link to="/atividades-e-noticias/" activeClassName="active">
               Atividades
             </Link>
-            <Link to="/membros" activeClassName="active">
+            <Link to="/membros/" activeClassName="active">
               Membros
             </Link>
-            <Link to="/pesquisa" activeClassName="active">
+            <Link to="/pesquisa/" activeClassName="active">
               Pesquisa
             </Link>
-            <Link to="/contato" activeClassName="active">
+            <Link to="/contato/" activeClassName="active">
               Contato
             </Link>
           </NavMenu>

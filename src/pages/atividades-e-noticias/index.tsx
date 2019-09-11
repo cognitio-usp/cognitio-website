@@ -46,6 +46,7 @@ const imageWrapperStyle = css`
 
 const ProjectCard = styled(Link)`
   ${centerContentCollum};
+  position: relative;
   border: 1.5px solid ${rgba(colorSecondary, 0.4)};
   border-radius: 8px;
   overflow: hidden;

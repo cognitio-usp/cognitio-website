@@ -31,7 +31,7 @@ const Content = styled.div`
   align-items: center;
   flex-direction: column;
   flex-wrap: nowrap;
-  overflow-x: hidden;
+  overflow: hidden;
 
   ${mqNavbarTwoRows} {
     margin-top: ${navHeightTablet - 32}px;

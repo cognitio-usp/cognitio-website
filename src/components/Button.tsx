@@ -28,6 +28,7 @@ const Container = styled.div`
   color: #fff;
 
   border-radius: 100px;
+  z-index: 0;
 
   &::before {
     ${fillContainer};
@@ -35,6 +36,7 @@ const Container = styled.div`
     border-radius: 100px;
     opacity: 0.85;
     transition: 160ms;
+    z-index: -1;
   }
 
   &:hover::before {
@@ -44,6 +46,7 @@ const Container = styled.div`
   a, button {
     text-align: center;
     ${centerContent};
+    /* z-index: 1; */
     text-transform: uppercase;
     font-size: 20px;
     font-weight: 300;

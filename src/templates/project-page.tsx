@@ -42,6 +42,7 @@ const ProjectLogo = styled.div`
   background: #fff;
   overflow: hidden;
   flex-shrink: 0;
+  position: relative;
 
   ${mqMobile} {
     margin-right: 0;

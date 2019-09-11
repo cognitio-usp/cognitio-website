@@ -69,6 +69,7 @@ const Divider = styled.div`
 `;
 
 const ProjectLogo = styled.div`
+  position: relative;
   height: 180px;
   width: 100%;
 `;

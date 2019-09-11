@@ -49,6 +49,7 @@ const Header = styled(PlexusContainer)`
 
 const Title = styled.h1`
   ${centerContent};
+  position: relative;
   color: #fff;
   font-weight: 300;
   font-size: 42px;
