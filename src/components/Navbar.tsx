@@ -13,6 +13,7 @@ import {
   colorPrimary,
   fontCondensed,
   colorTertiary,
+  colorSecondary,
 } from '../style/theme';
 import { isBrowser } from '../utils/isBrowser';
 import { useOnWindowScroll } from '../utils/useOnWindowScroll';
@@ -21,6 +22,7 @@ import { mqTabletDown, mqMobile, mqMobileUp } from '../style/mediaQueries';
 import { useOnWindowResize } from '../utils/useOnWindowResize';
 import HamburguerMenu from './HamburguerMenu';
 import { ellipsis } from 'polished';
+import { rgba } from '@lucasols/utils';
 
 type Props = {
   home?: boolean;
@@ -221,7 +223,8 @@ const BgOverlay = styled.div`
   position: fixed;
   transition: 160ms;
   will-change: opacity, visibility;
-  background: rgba(255, 255, 255, 0.5);
+  background: ${colorGradient(0.8)};
+  backdrop-filter: blur(5px);
 `;
 
 const Navbar = ({ currentPage, home }: Props) => {
