@@ -10,6 +10,7 @@ import {
   fontPrimary,
 } from '../style/theme';
 import { rgba } from '@lucasols/utils';
+import { mqMobile } from '../style/mediaQueries';
 
 type Props = {
   className?: string;
@@ -69,6 +70,10 @@ const Content = styled.div`
     margin-top: 32px;
     margin-bottom: 12px;
     color: #000;
+
+    ${mqMobile} {
+      font-size: 28px;
+    }
   }
 
   h2 {

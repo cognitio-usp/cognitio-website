@@ -13,6 +13,7 @@ import { colorPrimary, colorTertiary } from '../style/theme';
 import { BlogPostByIdQuery, ImageSharpFluid } from '../typings/graphql';
 import PreviewCompatibleImage from '../components/PreviewCompatibleImage';
 import { isBrowser } from '../utils/isBrowser';
+import { mqMobile } from '../style/mediaQueries';
 
 type Props = {
   title?: string | null;
@@ -39,6 +40,10 @@ const Title = styled.h1`
   font-size: 48px;
   letter-spacing: 0.04em;
   color: ${colorPrimary};
+
+  ${mqMobile} {
+    font-size: 36px;
+  }
 `;
 
 const Details = styled.p`
