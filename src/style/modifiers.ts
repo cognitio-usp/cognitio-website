@@ -1,4 +1,5 @@
 import { css } from '@emotion/core';
+import { mqMobileUp } from './mediaQueries';
 
 export const fillContainer = css`
   position: absolute;
@@ -31,4 +32,10 @@ export const hide = css`
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
+`;
+
+export const mobileOnly = css`
+  ${mqMobileUp} {
+    display: none;
+  }
 `;

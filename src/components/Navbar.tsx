@@ -6,6 +6,7 @@ import {
   centerContent,
   centerContentCollum,
   fillContainer,
+  mobileOnly,
 } from '../style/modifiers';
 import {
   colorGradient,
@@ -16,7 +17,7 @@ import {
 import { isBrowser } from '../utils/isBrowser';
 import { useOnWindowScroll } from '../utils/useOnWindowScroll';
 import Logotype from './Logotype';
-import { mqTabletDown, mqMobile } from '../style/mediaQueries';
+import { mqTabletDown, mqMobile, mqMobileUp } from '../style/mediaQueries';
 import { useOnWindowResize } from '../utils/useOnWindowResize';
 import HamburguerMenu from './HamburguerMenu';
 import { ellipsis } from 'polished';
@@ -148,6 +149,10 @@ const NavBrand = styled(Link)`
     margin-top: 8px;
     margin-bottom: 12px;
   }
+
+  ${mqMobile} {
+    display: none;
+  }
 `;
 
 const MobileHeader = styled.div`
@@ -161,7 +166,11 @@ const MobileHeader = styled.div`
   ${centerContent};
   background: #fff;
 
-  svg {
+  ${mqMobileUp} {
+    display: none;
+  }
+
+  a {
     position: absolute;
     left: 12px;
 
@@ -195,6 +204,10 @@ const CurrentPage = styled.div`
   ${ellipsis('calc(100% - 120px)')};
   ${letterSpacing(16)};
   transition: 160ms;
+
+  ${mqMobileUp} {
+    display: none;
+  }
 `;
 
 const BgOverlay = styled.div`
@@ -268,17 +281,14 @@ const Navbar = ({ currentPage, home }: Props) => {
         aria-label="main-navigation"
       >
         <ContentContainer>
-          {!isMobile && (
-            <NavBrand to="/" title="Logo">
-              <Logotype />
-            </NavBrand>
-          )}
-          <NavMenu>
-            {isMobile && (
-              <Link to="/" activeClassName="active">
-                Início
-              </Link>
-            )}
+          <NavBrand to="/" title="Logo">
+            <Logotype />
+          </NavBrand>
+          <NavMenu style={{ opacity: isExpanded ? 1 : 0 }}>
+            <Link to="/" css={mobileOnly} activeClassName="active">
+              Início
+            </Link>
+
             <Link to="/sobre" activeClassName="active">
               Sobre
             </Link>
@@ -300,20 +310,18 @@ const Navbar = ({ currentPage, home }: Props) => {
           </NavMenu>
         </ContentContainer>
       </Nav>
-      {isMobile && (
-        <MobileHeader className={isExpanded ? 'is-expanded' : undefined}>
+      <MobileHeader className={isExpanded ? 'is-expanded' : undefined}>
+        <Link to="/">
           <Logotype height={34} />
-          {currentPage && (
-            <CurrentPage style={{ opacity: isExpanded ? 0 : 1 }}>
-              {currentPage}
-            </CurrentPage>
-          )}
-          <MenuButton
-            onClick={() => setIsExpanded(!isExpanded)}
-            showClose={isExpanded}
-          />
-        </MobileHeader>
-      )}
+        </Link>
+        <CurrentPage style={{ opacity: isExpanded ? 0 : 1 }}>
+          {currentPage}
+        </CurrentPage>
+        <MenuButton
+          onClick={() => setIsExpanded(!isExpanded)}
+          showClose={isExpanded}
+        />
+      </MobileHeader>
     </>
   );
 };

@@ -1,6 +1,10 @@
 import React, { FunctionComponent, useEffect } from 'react';
 import { Helmet } from 'react-helmet';
-import Footer, { mqFooterMobile, footerHeight, footerHeightMobile } from './Footer';
+import Footer, {
+  mqFooterMobile,
+  footerHeight,
+  footerHeightMobile,
+} from './Footer';
 import Navbar, { navHeight, navHeightTablet, mqNavbarTwoRows } from './Navbar';
 import useSiteMetadata from './SiteMetadata';
 import { withPrefix } from 'gatsby';
@@ -10,11 +14,12 @@ import styled from '@emotion/styled';
 import { __DEV__ } from '../utils/isDev';
 import { mqTabletDown, mqMobile } from '../style/mediaQueries';
 import Logotype from './Logotype';
+import GatsbyLink from '../lib/gatsby-link';
 
 type Props = {
   home?: boolean;
   pageTitle?: string;
-}
+};
 
 const Content = styled.div`
   width: 100%;
@@ -42,7 +47,7 @@ const Content = styled.div`
   }
 `;
 
-const MobileTopLogotype = styled.div`
+const MobileTopLogotype = styled(GatsbyLink)`
   margin: 12px 0;
   display: none;
 
@@ -51,7 +56,11 @@ const MobileTopLogotype = styled.div`
   }
 `;
 
-const TemplateWrapper: FunctionComponent<Props> = ({ children, home, pageTitle: currentPage }) => {
+const TemplateWrapper: FunctionComponent<Props> = ({
+  children,
+  home,
+  pageTitle: currentPage,
+}) => {
   const { title, description } = useSiteMetadata();
 
   useEffect(() => {
@@ -94,7 +103,11 @@ const TemplateWrapper: FunctionComponent<Props> = ({ children, home, pageTitle: 
       </Helmet>
       <Navbar home={home} currentPage={currentPage} />
       <Content>
-        {currentPage !== 'Sobre' && <MobileTopLogotype><Logotype /></MobileTopLogotype>}
+        {currentPage !== 'Sobre' && (
+          <MobileTopLogotype to="/">
+            <Logotype />
+          </MobileTopLogotype>
+        )}
         {children}
       </Content>
       <Footer />
