@@ -88,7 +88,7 @@ const NavMenu = styled.div`
 
   ${mqMobile} {
     font-family: inherit;
-    font-size: 22px;
+    font-size: 21px;
     ${centerContentCollum};
   }
 
@@ -106,8 +106,8 @@ const NavMenu = styled.div`
     }
 
     ${mqMobile} {
-      padding: 18px 14px;
-      margin: 4px 0;
+      padding: 16px 12px;
+      margin: 2px 0;
     }
 
     &:hover {
