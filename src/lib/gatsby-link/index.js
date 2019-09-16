@@ -17,12 +17,7 @@ import baseUrl from '../../utils/cognitioUrl';
 export { parsePath };
 
 export function withPrefix(path) {
-  return normalizePath(
-    [
-      '/',
-      path,
-    ].join(`/`),
-  );
+  return normalizePath(['/', path].join(`/`));
 }
 
 export function withAssetPrefix(path) {
@@ -77,14 +72,22 @@ class GatsbyLink extends React.Component {
   componentDidUpdate(prevProps, prevState) {
     // Preserve non IO functionality if no support
     if (this.props.to !== prevProps.to && !this.state.IOSupported) {
-      ___loader.enqueue(parsePath(this.props.to).pathname);
+      try {
+        ___loader.enqueue(parsePath(this.props.to).pathname);
+      } catch (err) {
+        console.error(err);
+      }
     }
   }
 
   componentDidMount() {
     // Preserve non IO functionality if no support
     if (!this.state.IOSupported) {
-      ___loader.enqueue(parsePath(this.props.to).pathname);
+      try {
+        ___loader.enqueue(parsePath(this.props.to).pathname);
+      } catch (err) {
+        console.erroror(err);
+      }
     }
   }
 
@@ -108,7 +111,11 @@ class GatsbyLink extends React.Component {
     if (this.state.IOSupported && ref) {
       // If IO supported and element reference found, setup Observer functionality
       this.io = createIntersectionObserver(ref, () => {
-        ___loader.enqueue(parsePath(this.props.to).pathname);
+        try {
+          ___loader.enqueue(parsePath(this.props.to).pathname);
+        } catch (err) {
+          console.error(err);
+        }
       });
     }
   }
@@ -161,7 +168,11 @@ class GatsbyLink extends React.Component {
           if (onMouseEnter) {
             onMouseEnter(e);
           }
-          ___loader.hovering(parsePath(to).pathname);
+          try {
+            ___loader.hovering(parsePath(to).pathname);
+          } catch (err) {
+            console.error(err);
+          }
         }}
         onClick={e => {
           if (onClick) {

@@ -1,13 +1,12 @@
 ---
 id: asfewfsdfdg
 templateKey: blog-post
-blogTitle: Teste Blog
-blogAuthor: Lucas Santoss
+blogTitle: Exemplo de notícia
+blogAuthor: Lucas Santos
 date: 2019-09-02T06:33:25.693Z
 image: /img/blog-index.jpg
-featured: '1'
-relatedProjects:
-  - Projeto Mobility
+featured: not
+relatedProjects: []
 ---
 The SCAA updated the wheel to reflect the finer `nuances` needed to describe flavors more precisely. The new descriptions are more detailed and hence allow cuppers to distinguish between more flavors.
 

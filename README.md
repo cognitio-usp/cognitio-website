@@ -2,4 +2,4 @@
 
 # Website for the research group [Cognitio USP](https://cognitio-usp.netlify.com)
 
-Created with Typescript + Gatsby + React + Netlify
+Created with Typescript + Gatsby + React + Netlify CMS + Emotion (CSS-in-JS)

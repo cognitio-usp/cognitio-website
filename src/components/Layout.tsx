@@ -15,6 +15,7 @@ import { __DEV__ } from '../utils/isDev';
 import { mqTabletDown, mqMobile } from '../style/mediaQueries';
 import Logotype from './Logotype';
 import GatsbyLink from '../lib/gatsby-link';
+import { isBrowser } from '../utils/isBrowser';
 
 type Props = {
   home?: boolean;
@@ -56,6 +57,16 @@ const MobileTopLogotype = styled(GatsbyLink)`
   }
 `;
 
+function updateTitle() {
+  if (window.top !== window) {
+    window.top.postMessage([window.location.pathname, document.title], '*');
+  }
+}
+
+if (isBrowser) {
+  window.setTimeout(updateTitle, 1000);
+}
+
 const TemplateWrapper: FunctionComponent<Props> = ({
   children,
   home,
@@ -63,11 +74,7 @@ const TemplateWrapper: FunctionComponent<Props> = ({
 }) => {
   const { title, description } = useSiteMetadata();
 
-  useEffect(() => {
-    if (window.top !== window) {
-      window.top.postMessage([window.location.pathname, document.title], '*');
-    }
-  }, [children]);
+  useEffect(updateTitle, [children]);
 
   return (
     <>

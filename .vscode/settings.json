@@ -6,5 +6,6 @@
   },
   "eslint.enable": true,
   "typescript.tsdk": "node_modules\\typescript\\lib",
-  "todo-tree.showTagsFromOpenFilesOnly": false
+  "todo-tree.showTagsFromOpenFilesOnly": false,
+  "todo-tree.tree.showTagsFromOpenFilesOnly": false
 }

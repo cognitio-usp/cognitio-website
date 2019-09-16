@@ -6,22 +6,17 @@ image: /img/15895233_1385606964843066_4028243722913222456_n.jpg
 memberRole: Aluno de graduação
 memberType: 4
 memberSince: 2017-06-01T03:00:00.000Z
-memberUntil: 2019-09-03T03:00:00.000Z
+memberUntil: ''
 isFormerMember: false
 memberEmail: hello@lucassantos.net
-memberLattes: 'https://www.linkedin.com/in/lucasols/'
+memberLattes: ''
 memberLinkedin: 'https://www.linkedin.com/in/lucasols/'
 memberOtherInfos:
-  - info: lucassantos.net
+  - info: ''
     label: Website
-    url: lucassantos.net
-  - info: Currículo lattes
-    url: lucassantos.net
-  - info: lucassantos.net
-    label: ''
-  - url: lucassantos.net
+    url: 'https://lucassantos.net'
 memberFeaturedLink:
-  label: LinkedIn
-  url: 'https://www.linkedin.com/in/lucasols/'
+  label: Website
+  url: 'https://lucassantos.net'
 ---
-zxcxzcdfsdfsdffds kjsdfkjjsdkfjsdkljfksdjfkljsdkfjksdjf kjsdfkjsdklfj ksjdflksjlfk jsdfj
+Aluno de Design na FAU-USP, Designer e desenvolvedor Front-End do Projeto Mobility (BMW) e consultor de design do projeto Engenheiros 5.0
