@@ -306,6 +306,9 @@ const Navbar = ({ currentPage, home }: Props) => {
             <Link to="/atividades-e-noticias/" activeClassName="active">
               Atividades
             </Link>
+            {/* <Link to="/noticias/" activeClassName="active">
+              Blog
+            </Link> */}
             <Link to="/membros/" activeClassName="active">
               Membros
             </Link>

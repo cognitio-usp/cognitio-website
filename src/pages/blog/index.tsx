@@ -9,10 +9,21 @@ const ActivitiesAndNewsPage = ({
 }: {
   data: ActivitiesAndNewsPageQuery;
 }) => (
-  <ActivitiesAndNewsPageTemplate data={data} title="Atividades e Notícias">
+  <ActivitiesAndNewsPageTemplate data={data} title="Blog">
     <div css={{ marginTop: 16, marginBottom: -24 }}>
-      <Button label="Atividades" to="atividades" small outline />
-      <Button css={{ marginLeft: 12 }} label="Notícias" to="noticias" small outline />
+      <Button
+        label="Atividades e Notícias"
+        to="atividades-e-noticias"
+        small
+        outline
+      />
+      <Button
+        css={{ marginLeft: 12 }}
+        label="Atividades"
+        to="atividades"
+        small
+        outline
+      />
     </div>
   </ActivitiesAndNewsPageTemplate>
 );
@@ -20,11 +31,9 @@ const ActivitiesAndNewsPage = ({
 export default ActivitiesAndNewsPage;
 
 export const activitiesandnewsPageQuery = graphql`
-  query ActivitiesAndNewsPage {
+  query BlogPostsPage {
     allMarkdownRemark(
-      filter: {
-        frontmatter: { templateKey: { in: ["blog-post", "activitie-post"] } }
-      }
+      filter: { frontmatter: { templateKey: { in: ["blog-post"] } } }
       sort: { fields: [frontmatter___date], order: DESC }
     ) {
       edges {

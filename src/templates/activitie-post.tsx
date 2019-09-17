@@ -117,7 +117,7 @@ export const ActivitiePostTemplate = ({
       <Tags
         css={{ marginTop: -32, marginBottom: 24 }}
         projects={[
-          ...(type ? [{ label: type, toLink: '/atividades-e-noticias' }] : []),
+          ...(type ? [{ label: type, toLink: '/atividades' }] : []),
           ...(relatedProjects
             ? relatedProjects.map(item => ({
                 label: oc(item).frontmatter.projectName('ERRO!'),

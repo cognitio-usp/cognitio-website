@@ -33,8 +33,8 @@ relatedProjects: &relatedProjects
 collections:
   - name: blog
     label: Notícias/Blog
-    preview_path: noticias-e-artigos/
-    folder: src/pages/noticias-e-artigos
+    preview_path: noticias/
+    folder: src/pages/noticias
     create: true
     identifier_field: blogTitle
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
@@ -204,10 +204,10 @@ collections:
           - label: Coordenadores
             name: coordinators
             widget: list
+            hint: Arraste e solte os itens para mudar a ordem de aparição dos coordenadores
             field:
               name: name
               widget: relation
-              hint: Arraste e solte os itens para mudar a ordem de aparição dos coordenadores
               collection: members
               required: true
               searchFields: [memberName]

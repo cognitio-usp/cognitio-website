@@ -70,6 +70,7 @@ const Content = styled.div`
     margin-top: 32px;
     margin-bottom: 12px;
     color: #000;
+    line-height: 1.3;
 
     ${mqMobile} {
       font-size: 28px;

@@ -4,7 +4,7 @@ templateKey: blog-post
 blogTitle: Exemplo de notícia
 blogAuthor: Lucas Santos
 date: 2019-09-02T06:33:25.693Z
-image: /img/blog-index.jpg
+image: ''
 featured: not
 relatedProjects: []
 ---

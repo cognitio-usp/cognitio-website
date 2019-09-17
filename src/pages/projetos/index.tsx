@@ -132,7 +132,7 @@ export const projectsPageQuery = graphql`
   query ProjectsPage {
     allMarkdownRemark(
       filter: { frontmatter: { templateKey: { eq: "project-page" } } }
-      sort: { fields: [frontmatter___projectStart], order: ASC }
+      sort: { fields: [frontmatter___projectStart], order: DESC }
     ) {
       ...Projects
     }

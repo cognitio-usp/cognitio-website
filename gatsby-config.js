@@ -86,7 +86,7 @@ module.exports = {
       options: {
         modulePath: `${__dirname}/src/cms/cms.js`, // Or another path if you don't want to create /src/cms/init.js
         manualInit: true,
-        htmlTitle: 'CMS · COGNITIO',
+        htmlTitle: '⚙ CMS · COGNITIO',
         htmlFavicon: 'static/img/favicon-32x32.png',
       },
     },

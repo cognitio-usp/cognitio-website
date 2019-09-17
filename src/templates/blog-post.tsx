@@ -41,6 +41,8 @@ const Title = styled.h1`
   font-size: 48px;
   letter-spacing: 0.04em;
   color: ${colorPrimary};
+  line-height: 1.2;
+  margin-bottom: 12px;
 
   ${mqMobile} {
     font-size: 36px;

@@ -67,7 +67,7 @@ const HeaderLeftContent = styled.div`
 
     ${mqMobile} {
       margin-top: 32px;
-      font-size: 42px;
+      font-size: 36px;
     }
   }
 
