@@ -2,9 +2,10 @@
 id: 1568748446929-MbXf98x9g
 templateKey: project-page
 projectName: Projeto Mobility Fase 1
+image: /img/icon.png
 date: 2019-09-17T19:27:27.120Z
 projectStart: 2015-07-01T19:27:27.186Z
-projectEnd: 2017-12-05T02:00:00.000Z
+projectEnd: 2015-12-05T02:00:00.000Z
 featured: not
 projectMembers:
   - kajflkjqkjlkjrlwjp
