@@ -45,6 +45,7 @@ const Project = styled(Link)`
   }
 
   h1 {
+    text-align: center;
     padding: 0 8px;
     font-size: 22px;
     font-weight: 400;
@@ -77,7 +78,6 @@ const Projects = ({ moreButton, projects }: Props) =>
             <Project key={i} to={oc(item).node.fields.slug('ERRO!')}>
               {image && <Image imageInfo={image} />}
               <h1
-                css={{ fontSize: !image ? '28px !important' : undefined }}
                 title={oc(item).node.frontmatter.projectName() || undefined}
               >
                 {oc(item).node.frontmatter.projectName()}
