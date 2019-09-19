@@ -11,7 +11,8 @@ isFormerMember: false
 memberEmail: lobonett@lsi.usp.br
 memberLattes: 'http://buscatextual.cnpq.br/buscatextual/visualizacv.do?id=K4787835Z9'
 memberOtherInfos:
-  - info: Research Gate
+  - info: //www.researchgate.net/profile/Marcio_Netto
+    label: Research Gate
     url: 'https://www.researchgate.net/profile/Marcio_Netto'
 memberFeaturedLink:
   label: CV Lattes
