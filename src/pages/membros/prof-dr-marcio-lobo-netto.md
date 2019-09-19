@@ -5,11 +5,14 @@ memberName: Prof. Dr. Marcio Lobo Netto
 image: /img/marciolobo.jpg
 memberRole: Coordenador
 memberType: 1
-isFormerMember: false
 memberSince: ''
 memberUntil: ''
+isFormerMember: false
 memberEmail: lobonett@lsi.usp.br
 memberLattes: 'http://buscatextual.cnpq.br/buscatextual/visualizacv.do?id=K4787835Z9'
+memberOtherInfos:
+  - info: Research Gate
+    url: 'https://www.researchgate.net/profile/Marcio_Netto'
 memberFeaturedLink:
   label: CV Lattes
   url: 'http://buscatextual.cnpq.br/buscatextual/visualizacv.do?id=K4787835Z9'
