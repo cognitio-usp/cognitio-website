@@ -9,7 +9,7 @@ featured: not
 activitieLink:
   label: Inscrições
 ---
-**PSI5xxx - Fundamentos de Ciência Cognitiva (1998 - 2013)**
+**PSI5xxx - Fundamentos de Ciência Cognitiva (1998 - 2013)     1st / 3rd period  (Portuguese)**
 
 Marcio Lobo Netto
 
