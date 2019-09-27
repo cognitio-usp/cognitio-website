@@ -7,9 +7,9 @@ activitieType: Undergrad Course
 featured: '2'
 activitieLink:
   label: Lectures
-  url: edisciplinas.usp.br/
+  url: 'https://edisciplinas.usp.br/course/view.php?id=67270'
 ---
-**PSI5xxx - Cognitive Systems (2018 - 2019)**
+**PSI3560 - Cognitive Systems (2018 - 2019)**
 
 Joao Eduardo Kogler Jr 
 
