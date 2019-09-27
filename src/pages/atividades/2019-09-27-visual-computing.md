@@ -9,7 +9,7 @@ activitieLink:
   label: Lectures
   url: 'https://edisciplinas.usp.br/course/view.php?id=71820'
 ---
-**PSI3572 - Computação Visual (2019)**
+**PSI3572 - Computação Visual (2018 - 2019) 2nd semester  (Portuguese)** 
 
 Roseli de Deus Lopes
 
