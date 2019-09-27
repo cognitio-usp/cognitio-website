@@ -1,7 +1,7 @@
 ---
 id: kajflkjqkjlkjrlwjp
 templateKey: member-page
-memberName: Prof. Dr. Marcio Lobo Netto
+memberName: 'Marcio Lobo Netto, Prof Dr'
 image: /img/marciolobo.jpg
 memberRole: Coordinator
 memberType: 1
