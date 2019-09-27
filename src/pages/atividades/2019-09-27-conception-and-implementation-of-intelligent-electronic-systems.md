@@ -11,10 +11,10 @@ activitieLink:
 ---
 PSI3472 - Concepção e Implementação de Sistemas Eletrônicos Inteligentes (2019)
 
-Docente: Emilio Del Moral Hernandez
+Emilio Del Moral Hernandez
 
-Docente: Hae Yong Kim
+Hae Yong Kim
 
-Docente: Marcio Lobo Netto
+Marcio Lobo Netto
 
-Docente: Mauricio Perez
+Mauricio Perez
