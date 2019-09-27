@@ -9,7 +9,7 @@ activitieLink:
   label: Lectures
   url: 'https://edisciplinas.usp.br/course/view.php?id=67270'
 ---
-**PSI3560 - Cognitive Systems (2018 - 2019)**
+**PSI3560 - Cognitive Systems (2018 - 2019)     1st semester   (English)**
 
 Joao Eduardo Kogler Jr 
 
