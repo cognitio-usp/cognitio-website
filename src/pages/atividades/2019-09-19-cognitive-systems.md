@@ -9,9 +9,7 @@ activitieLink:
   label: Lectures
   url: edisciplinas.usp.br/
 ---
-Undergrad course on cognitive systems
-
-
+**PSI5xxx - Cognitive Systems (2018 - 2019)**
 
 Joao Eduardo Kogler Jr 
 
