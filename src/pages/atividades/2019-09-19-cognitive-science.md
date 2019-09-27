@@ -9,4 +9,8 @@ featured: not
 activitieLink:
   label: Inscrições
 ---
-held from 1998 to 2013
+**PSI5xxx - Fundamentos de Ciência Cognitiva (1998 - 2013)**
+
+Marcio Lobo Netto
+
+Henrique Schützer Del Nero
