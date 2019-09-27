@@ -9,7 +9,7 @@ activitieLink:
   label: Lectures
   url: 'https://edisciplinas.usp.br/course/view.php?id=70199'
 ---
-**PSI3472 - Concepção e Implementação de Sistemas Eletrônicos Inteligentes (2019)**
+**PSI3472 - Concepção e Implementação de Sistemas Eletrônicos Inteligentes (2018 - 2019) 2nd semester (Portuguese)**
 
 Emilio Del Moral Hernandez
 
