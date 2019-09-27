@@ -9,6 +9,8 @@ projectEnd: 2015-12-31T02:00:00.000Z
 featured: not
 projectMembers:
   - kajflkjqkjlkjrlwjp
+  - 1569616886826-9a5CFK2lm
+  - 1569616979011-3S0QnNe74
 ---
 This project corresponds to the first phase of the EPUSP - BMW cooperation, on urban mobility issues. 
 
