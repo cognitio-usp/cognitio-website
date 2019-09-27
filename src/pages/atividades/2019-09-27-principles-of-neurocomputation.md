@@ -9,7 +9,7 @@ activitieLink:
   label: Lectures
   url: 'https://edisciplinas.usp.br/course/view.php?id=72284'
 ---
-**PSI5886 - Princípios de Neurocomputação (2019)**
+**PSI5886 - Princípios de Neurocomputação (2019)  3rd period (Portuguese)**
 
 Emilio Del Moral Hernandez
 
