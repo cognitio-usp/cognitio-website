@@ -3,17 +3,21 @@ id: kajflkjqkjlkjrlwjp
 templateKey: member-page
 memberName: Prof. Dr. Marcio Lobo Netto
 image: /img/marciolobo.jpg
-memberRole: Coordenador
+memberRole: Coordinator
 memberType: 1
-memberSince: ''
+memberSince: 1999-01-04T02:00:00.000Z
 memberUntil: ''
 isFormerMember: false
-memberEmail: lobonett@lsi.usp.br
+memberEmail: marcio.netto@usp.br
 memberLattes: 'http://buscatextual.cnpq.br/buscatextual/visualizacv.do?id=K4787835Z9'
+memberLinkedin: 'https://www.linkedin.com/in/marcio-lobo-netto-b84184/'
 memberOtherInfos:
-  - info: //www.researchgate.net/profile/Marcio_Netto
+  - info: Professional Network
     label: Research Gate
     url: 'https://www.researchgate.net/profile/Marcio_Netto'
+  - info: Photo Gallery
+    label: Flickr
+    url: 'https://www.flickr.com/photos/marcio_lobo_netto/'
 memberFeaturedLink:
   label: CV Lattes
   url: 'http://buscatextual.cnpq.br/buscatextual/visualizacv.do?id=K4787835Z9'
