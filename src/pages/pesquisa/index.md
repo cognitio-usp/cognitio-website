@@ -17,6 +17,20 @@ thesis:
         url: 'https://press.princeton.edu/titles/13362.html'
       - name: PDF
         url: 'https://press.princeton.edu/titles/13362.html'
+  - description: >-
+      A.L.I.V.E. Vida Artificial em Ambientes Virtuais: Uma plataforma
+      experimental em realidade virtual para estudos dos seres vivos e da
+      dinâmica da vida
+
+      September 2003
+
+      Thesis for: MasterAdvisor: Marcio Lobo Netto
+
+      Rogério NevesMarcio Lobo NettoMarcio Lobo Netto
+    links:
+      - name: pdf
+        url: >-
+          https://www.researchgate.net/publication/242107563_ALIVE_Vida_Artificial_em_Ambientes_Virtuais_Uma_plataforma_experimental_em_realidade_virtual_para_estudos_dos_seres_vivos_e_da_dinamica_da_vida
 books:
   - description: Exemplo de livro
 ---
