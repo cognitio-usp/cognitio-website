@@ -185,8 +185,8 @@ export const MemberPageTemplate = ({
   projects,
   projectsInWitchIsFormerMember,
 }: Props) => {
-  const memberUntilIsValid = memberUntil && memberUntil !== 'Invalid date';
-  const memberSinceIsValid = memberSince && memberSince !== 'Invalid date';
+  const memberUntilIsValid = typeof memberUntil === 'string' && memberUntil !== 'Invalid date';
+  const memberSinceIsValid = typeof memberSince === 'string' && memberSince !== 'Invalid date';
   const infoItens = [
     ...(email ? [{ label: 'Email', info: email, url: `mailto:${email}` }] : []),
     ...(lattes ? [{ label: 'Currículo Lattes', url: lattes }] : []),
@@ -372,6 +372,8 @@ export const memberPageQuery = graphql`
       memberRole
       memberName
       memberType
+      memberLattes
+      memberLinkedin
       isFormerMember
       image {
         childImageSharp {

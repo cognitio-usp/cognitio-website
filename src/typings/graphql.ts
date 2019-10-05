@@ -786,8 +786,10 @@ export enum FileFieldsEnum {
   childMarkdownRemark___frontmatter___projectStart = 'childMarkdownRemark___frontmatter___projectStart',
   childMarkdownRemark___frontmatter___projectEnd = 'childMarkdownRemark___frontmatter___projectEnd',
   childMarkdownRemark___frontmatter___blogTitle = 'childMarkdownRemark___frontmatter___blogTitle',
+  childMarkdownRemark___frontmatter___notListed = 'childMarkdownRemark___frontmatter___notListed',
   childMarkdownRemark___frontmatter___blogAuthor = 'childMarkdownRemark___frontmatter___blogAuthor',
   childMarkdownRemark___frontmatter___date = 'childMarkdownRemark___frontmatter___date',
+  childMarkdownRemark___frontmatter___dateEnd = 'childMarkdownRemark___frontmatter___dateEnd',
   childMarkdownRemark___frontmatter___featured = 'childMarkdownRemark___frontmatter___featured',
   childMarkdownRemark___frontmatter___activitieTitle = 'childMarkdownRemark___frontmatter___activitieTitle',
   childMarkdownRemark___frontmatter___activitieType = 'childMarkdownRemark___frontmatter___activitieType',
@@ -1007,8 +1009,10 @@ export type Frontmatter = {
   projectStart?: Maybe<Scalars['Date']>,
   projectEnd?: Maybe<Scalars['Date']>,
   blogTitle?: Maybe<Scalars['String']>,
+  notListed?: Maybe<Scalars['Boolean']>,
   blogAuthor?: Maybe<Scalars['String']>,
   date?: Maybe<Scalars['Date']>,
+  dateEnd?: Maybe<Scalars['Date']>,
   featured?: Maybe<Scalars['String']>,
   activitieTitle?: Maybe<Scalars['String']>,
   activitieType?: Maybe<Scalars['String']>,
@@ -1063,6 +1067,14 @@ export type FrontmatterDateArgs = {
   locale?: Maybe<Scalars['String']>
 };
 
+
+export type FrontmatterDateEndArgs = {
+  formatString?: Maybe<Scalars['String']>,
+  fromNow?: Maybe<Scalars['Boolean']>,
+  difference?: Maybe<Scalars['String']>,
+  locale?: Maybe<Scalars['String']>
+};
+
 export type FrontmatterFilterInput = {
   description?: Maybe<StringQueryOperatorInput>,
   id?: Maybe<StringQueryOperatorInput>,
@@ -1090,8 +1102,10 @@ export type FrontmatterFilterInput = {
   projectStart?: Maybe<DateQueryOperatorInput>,
   projectEnd?: Maybe<DateQueryOperatorInput>,
   blogTitle?: Maybe<StringQueryOperatorInput>,
+  notListed?: Maybe<BooleanQueryOperatorInput>,
   blogAuthor?: Maybe<StringQueryOperatorInput>,
   date?: Maybe<DateQueryOperatorInput>,
+  dateEnd?: Maybe<DateQueryOperatorInput>,
   featured?: Maybe<StringQueryOperatorInput>,
   activitieTitle?: Maybe<StringQueryOperatorInput>,
   activitieType?: Maybe<StringQueryOperatorInput>,
@@ -1857,8 +1871,10 @@ export enum MarkdownRemarkFieldsEnum {
   frontmatter___projectStart = 'frontmatter___projectStart',
   frontmatter___projectEnd = 'frontmatter___projectEnd',
   frontmatter___blogTitle = 'frontmatter___blogTitle',
+  frontmatter___notListed = 'frontmatter___notListed',
   frontmatter___blogAuthor = 'frontmatter___blogAuthor',
   frontmatter___date = 'frontmatter___date',
+  frontmatter___dateEnd = 'frontmatter___dateEnd',
   frontmatter___featured = 'frontmatter___featured',
   frontmatter___activitieTitle = 'frontmatter___activitieTitle',
   frontmatter___activitieType = 'frontmatter___activitieType',
@@ -1891,8 +1907,10 @@ export enum MarkdownRemarkFieldsEnum {
   frontmatter___relatedProjects___frontmatter___projectStart = 'frontmatter___relatedProjects___frontmatter___projectStart',
   frontmatter___relatedProjects___frontmatter___projectEnd = 'frontmatter___relatedProjects___frontmatter___projectEnd',
   frontmatter___relatedProjects___frontmatter___blogTitle = 'frontmatter___relatedProjects___frontmatter___blogTitle',
+  frontmatter___relatedProjects___frontmatter___notListed = 'frontmatter___relatedProjects___frontmatter___notListed',
   frontmatter___relatedProjects___frontmatter___blogAuthor = 'frontmatter___relatedProjects___frontmatter___blogAuthor',
   frontmatter___relatedProjects___frontmatter___date = 'frontmatter___relatedProjects___frontmatter___date',
+  frontmatter___relatedProjects___frontmatter___dateEnd = 'frontmatter___relatedProjects___frontmatter___dateEnd',
   frontmatter___relatedProjects___frontmatter___featured = 'frontmatter___relatedProjects___frontmatter___featured',
   frontmatter___relatedProjects___frontmatter___activitieTitle = 'frontmatter___relatedProjects___frontmatter___activitieTitle',
   frontmatter___relatedProjects___frontmatter___activitieType = 'frontmatter___relatedProjects___frontmatter___activitieType',
@@ -1958,8 +1976,10 @@ export enum MarkdownRemarkFieldsEnum {
   frontmatter___projectMembers___frontmatter___projectStart = 'frontmatter___projectMembers___frontmatter___projectStart',
   frontmatter___projectMembers___frontmatter___projectEnd = 'frontmatter___projectMembers___frontmatter___projectEnd',
   frontmatter___projectMembers___frontmatter___blogTitle = 'frontmatter___projectMembers___frontmatter___blogTitle',
+  frontmatter___projectMembers___frontmatter___notListed = 'frontmatter___projectMembers___frontmatter___notListed',
   frontmatter___projectMembers___frontmatter___blogAuthor = 'frontmatter___projectMembers___frontmatter___blogAuthor',
   frontmatter___projectMembers___frontmatter___date = 'frontmatter___projectMembers___frontmatter___date',
+  frontmatter___projectMembers___frontmatter___dateEnd = 'frontmatter___projectMembers___frontmatter___dateEnd',
   frontmatter___projectMembers___frontmatter___featured = 'frontmatter___projectMembers___frontmatter___featured',
   frontmatter___projectMembers___frontmatter___activitieTitle = 'frontmatter___projectMembers___frontmatter___activitieTitle',
   frontmatter___projectMembers___frontmatter___activitieType = 'frontmatter___projectMembers___frontmatter___activitieType',
@@ -2025,8 +2045,10 @@ export enum MarkdownRemarkFieldsEnum {
   frontmatter___projectFormerMembers___frontmatter___projectStart = 'frontmatter___projectFormerMembers___frontmatter___projectStart',
   frontmatter___projectFormerMembers___frontmatter___projectEnd = 'frontmatter___projectFormerMembers___frontmatter___projectEnd',
   frontmatter___projectFormerMembers___frontmatter___blogTitle = 'frontmatter___projectFormerMembers___frontmatter___blogTitle',
+  frontmatter___projectFormerMembers___frontmatter___notListed = 'frontmatter___projectFormerMembers___frontmatter___notListed',
   frontmatter___projectFormerMembers___frontmatter___blogAuthor = 'frontmatter___projectFormerMembers___frontmatter___blogAuthor',
   frontmatter___projectFormerMembers___frontmatter___date = 'frontmatter___projectFormerMembers___frontmatter___date',
+  frontmatter___projectFormerMembers___frontmatter___dateEnd = 'frontmatter___projectFormerMembers___frontmatter___dateEnd',
   frontmatter___projectFormerMembers___frontmatter___featured = 'frontmatter___projectFormerMembers___frontmatter___featured',
   frontmatter___projectFormerMembers___frontmatter___activitieTitle = 'frontmatter___projectFormerMembers___frontmatter___activitieTitle',
   frontmatter___projectFormerMembers___frontmatter___activitieType = 'frontmatter___projectFormerMembers___frontmatter___activitieType',
@@ -2092,8 +2114,10 @@ export enum MarkdownRemarkFieldsEnum {
   frontmatter___coordinators___frontmatter___projectStart = 'frontmatter___coordinators___frontmatter___projectStart',
   frontmatter___coordinators___frontmatter___projectEnd = 'frontmatter___coordinators___frontmatter___projectEnd',
   frontmatter___coordinators___frontmatter___blogTitle = 'frontmatter___coordinators___frontmatter___blogTitle',
+  frontmatter___coordinators___frontmatter___notListed = 'frontmatter___coordinators___frontmatter___notListed',
   frontmatter___coordinators___frontmatter___blogAuthor = 'frontmatter___coordinators___frontmatter___blogAuthor',
   frontmatter___coordinators___frontmatter___date = 'frontmatter___coordinators___frontmatter___date',
+  frontmatter___coordinators___frontmatter___dateEnd = 'frontmatter___coordinators___frontmatter___dateEnd',
   frontmatter___coordinators___frontmatter___featured = 'frontmatter___coordinators___frontmatter___featured',
   frontmatter___coordinators___frontmatter___activitieTitle = 'frontmatter___coordinators___frontmatter___activitieTitle',
   frontmatter___coordinators___frontmatter___activitieType = 'frontmatter___coordinators___frontmatter___activitieType',
@@ -2159,8 +2183,10 @@ export enum MarkdownRemarkFieldsEnum {
   frontmatter___formerMembers___frontmatter___projectStart = 'frontmatter___formerMembers___frontmatter___projectStart',
   frontmatter___formerMembers___frontmatter___projectEnd = 'frontmatter___formerMembers___frontmatter___projectEnd',
   frontmatter___formerMembers___frontmatter___blogTitle = 'frontmatter___formerMembers___frontmatter___blogTitle',
+  frontmatter___formerMembers___frontmatter___notListed = 'frontmatter___formerMembers___frontmatter___notListed',
   frontmatter___formerMembers___frontmatter___blogAuthor = 'frontmatter___formerMembers___frontmatter___blogAuthor',
   frontmatter___formerMembers___frontmatter___date = 'frontmatter___formerMembers___frontmatter___date',
+  frontmatter___formerMembers___frontmatter___dateEnd = 'frontmatter___formerMembers___frontmatter___dateEnd',
   frontmatter___formerMembers___frontmatter___featured = 'frontmatter___formerMembers___frontmatter___featured',
   frontmatter___formerMembers___frontmatter___activitieTitle = 'frontmatter___formerMembers___frontmatter___activitieTitle',
   frontmatter___formerMembers___frontmatter___activitieType = 'frontmatter___formerMembers___frontmatter___activitieType',
@@ -3694,7 +3720,7 @@ export type MemberFragment = (
 export type MemberCardFragment = (
   Pick<MarkdownRemark, 'id'>
   & { fields: Maybe<Pick<MarkdownRemarkFields, 'slug'>>, frontmatter: Maybe<(
-    Pick<Frontmatter, 'memberRole' | 'memberName' | 'memberType' | 'isFormerMember'>
+    Pick<Frontmatter, 'memberRole' | 'memberName' | 'memberType' | 'memberLattes' | 'memberLinkedin' | 'isFormerMember'>
     & { memberUntilTimestamp: Frontmatter['memberUntil'] }
     & { image: Maybe<{ childImageSharp: Maybe<{ fluid: Maybe<GatsbyImageSharpFluid_WithWebpFragment> }> }>, memberFeaturedLink: Maybe<Pick<FeaturedLink, 'label' | 'url'>> }
   )> }

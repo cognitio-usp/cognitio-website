@@ -28,6 +28,7 @@ const Container = styled.div`
   padding: 0 10px;
   margin-bottom: -24px;
   flex-wrap: wrap;
+  max-width: 1100px;
   align-items: flex-start;
 `;
 
@@ -113,7 +114,22 @@ const Members = ({ members, sectionLabel = 'Membros', sort }: Props) => {
 
           const image = oc(frontmatter).image.childImageSharp.fluid();
 
-          const featuredLink = oc(frontmatter).memberFeaturedLink();
+          const lattes = frontmatter?.memberLattes;
+          const linkedIn = frontmatter?.memberLinkedin;
+
+          const featuredLink = frontmatter?.memberFeaturedLink?.url
+            ? frontmatter.memberFeaturedLink
+            : lattes
+              ? {
+                  label: 'CV Lattes',
+                  url: lattes,
+                }
+              : linkedIn
+                ? {
+                    label: 'LinkedIn',
+                    url: linkedIn,
+                  }
+                : undefined;
 
           return (
             <Card key={i}>

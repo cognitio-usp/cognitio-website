@@ -17,13 +17,16 @@ const MemberPagePreview = ({ entry, widgetFor, widgetsFor, getAsset }) => {
     isFormerMember,
   } = toJSON(entry) || {};
 
+  console.log(!!memberSince);
+
+
   return (
     <MemberPageTemplate
       name={memberName}
       role={memberRole}
-      memberSince={memberSince && moment(memberSince).format('MMM [de] YYYY')}
-      memberUntil={memberUntil && moment(memberUntil).format('MMM [de] YYYY')}
-      memberUntilTimestamp={moment(memberUntil).unix()}
+      memberSince={(memberSince && moment(memberSince).format('MMM [de] YYYY')) || 'Invalid date'}
+      memberUntil={(memberUntil && moment(memberUntil).format('MMM [de] YYYY')) || 'Invalid date'}
+      memberUntilTimestamp={(memberUntil && moment(memberUntil).unix()) || null}
       email={memberEmail}
       lattes={memberLattes}
       linkedin={memberLinkedin}

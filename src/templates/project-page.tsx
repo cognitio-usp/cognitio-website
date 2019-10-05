@@ -63,7 +63,7 @@ const HeaderLeftContent = styled.div`
     color: #fff;
     font-weight: 300;
     line-height: 1.1;
-    font-size: 54px;
+    font-size: 48px;
 
     ${mqMobile} {
       margin-top: 32px;

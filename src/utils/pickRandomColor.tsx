@@ -5,11 +5,9 @@ const colors = [colorPrimary, colorTertiary, '#0070BD'];
 
 export function pickRandomColor() {
   if (pos < colors.length) {
-    const color = colors[pos];
-    pos++;
-    return color;
+    return colors[pos++];
   }
 
   pos = 0;
-  return colors[pos];
+  return colors[pos++];
 }

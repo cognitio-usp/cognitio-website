@@ -2,7 +2,7 @@
 templateKey: members-index-page
 coordinators:
   - kajflkjqkjlkjrlwjp
-formerMembers:
-  - Exemplo de Ex Membro
+  - 1569620210629-_xjAkxUyf
+formerMembers: []
 ---
 

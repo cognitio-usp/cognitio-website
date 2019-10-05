@@ -1,5 +1,8 @@
 media_folder: static/img
 public_folder: /img
+slug:
+  encoding: "ascii"
+  clean_accents: true
 
 featured: &featured
   - label: Destacar na página inicial
@@ -100,7 +103,7 @@ collections:
       - {label: Template Key, name: templateKey, widget: hidden, default: member-page}
       - {label: Nome, name: memberName, widget: string}
       - {label: Imagem do perfil, name: image, widget: image, allow_multiple: false, required: false}
-      - {label: Função, name: memberRole, widget: string}
+      - {label: Função, name: memberRole, widget: string, required: false}
       - label: Tipo de membro
         name: memberType
         hint: Esse campo é usado apenas para ordenar e agrupar membros. Use o campo Função para escolher o que será exibido na página do Membro
@@ -147,7 +150,7 @@ collections:
         name: memberFeaturedLink
         widget: object
         required: false
-        hint: Esse link ficara em destaque na miniatura do membro. Deixe os campos em branco para desativar o link
+        hint: Esse link ficara em destaque na miniatura do membro. Se não for selecionado, o curriculo lattes ou o linkedin serão destacados.
         fields:
           - {label: Rótulo, name: label, widget: string, required: false}
           - {label: Url, name: url, widget: string, required: false}

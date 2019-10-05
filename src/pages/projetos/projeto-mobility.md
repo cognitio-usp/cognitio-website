@@ -10,6 +10,9 @@ featured: '1'
 projectMembers:
   - kasdjfljqjjaflkj
   - kajflkjqkjlkjrlwjp
+  - 1569617176512-tm-p95A8Z
+  - 1569616886826-9a5CFK2lm
+  - 1569616979011-3S0QnNe74
 projectFormerMembers:
   - Lucas Oliveira Santos
   - Prof. Dr. Marcio Lobo Netto
