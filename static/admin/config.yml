@@ -110,8 +110,8 @@ collections:
         widget: select
         default: 5
         options:
-          - { label: "Coordenador (ordem: 1º)", value: 1 }
-          - { label: "Professor (ordem: 2º)", value: 2 }
+          - { label: "Coordenador do grupo (ordem: 1º)", value: 1 }
+          - { label: "Professor / Coordenador de projeto (ordem: 2º)", value: 2 }
           - { label: "Aluno Pós (ordem: 3º)", value: 3 }
           - { label: "Aluno Graduação (ordem: 4º)", value: 4 }
           - { label: "Outro (ordem: 5º)", value: 5 }

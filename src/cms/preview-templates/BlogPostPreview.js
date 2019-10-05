@@ -1,10 +1,16 @@
 import React, { useEffect } from 'react';
 import { BlogPostTemplate } from '../../templates/blog-post';
 import moment from 'moment';
+import { toJSON } from '../utils/toJSON';
+import { Warn } from '../utils/Warn';
 
-const BlogPostPreview = ({ entry, widgetFor, getAsset }) => {
+const BlogPostPreview = ({ entry, widgetFor, getAsset, fieldsMetaData }) => {
   const date = moment(entry.getIn(['data', 'date']));
   const image = entry.getIn(['data', 'image']);
+
+  const test = toJSON(fieldsMetaData) || {};
+
+  console.log(test);
 
   useEffect(() => {
     const imgs = document
@@ -31,15 +37,41 @@ const BlogPostPreview = ({ entry, widgetFor, getAsset }) => {
     });
   }, [entry]);
 
+  const { 1: urlPath } = /#\/collections\/blog\/(.+)/.exec(
+    window.location.hash,
+  );
+
+  /** @type string */
+  const title = entry.getIn(['data', 'blogTitle']) || '';
+  const link =
+    urlPath === 'new'
+      ? `${moment().format('YYYY-MM-DD-')}${title
+          .normalize('NFD')
+          .replace(/[\u0300-\u036f]/g, '')
+          .replace(/ +/g, '-')
+          .toLowerCase()}`
+      : urlPath;
+
   return (
-    <BlogPostTemplate
-      content={widgetFor('body')}
-      featuredImage={getAsset(image) && getAsset(image).toString()}
-      title={entry.getIn(['data', 'blogTitle'])}
-      author={entry.getIn(['data', 'blogAuthor'])}
-      date={date && date.format('DD/MM/YYYY')}
-      readingTime="# min"
-    />
+    <>
+      {entry.getIn(['data', 'notListed']) && (
+        <Warn>
+          Está publicação está marcada como 'não listada', para acessa-la use o
+          link:{' '}
+          <i css={{ textDecoration: 'underline' }}>
+            sites.usp/noticias/{`${link}`}
+          </i>
+        </Warn>
+      )}
+      <BlogPostTemplate
+        content={widgetFor('body')}
+        featuredImage={getAsset(image) && getAsset(image).toString()}
+        title={title}
+        author={entry.getIn(['data', 'blogAuthor'])}
+        date={date && date.format('DD/MM/YYYY')}
+        readingTime="# min"
+      />
+    </>
   );
 };
 

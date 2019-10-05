@@ -21,12 +21,9 @@ description: >-
 ---
 Cognitio was stablished in 2003 as a USP NAP (Research Center on Cognitive Sciences), and since 2013 it continued as a Research  Group.
 
-Cognitio is part of 
+Cognitio is part of:
 
-\    Laboratory of Integrated Systems                         (LSI)
-
-\    Department of Electronic Systems Engineering    (PSI)
-
-\    Polytechnic School                                                (EP)
-
-\    University of São Paulo                                          (USP)
+* Laboratory of Integrated Systems (LSI)
+* Department of Electronic Systems Engineering (PSI)
+* Polytechnic School (EP)
+* University of São Paulo (USP)

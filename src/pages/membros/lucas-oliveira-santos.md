@@ -6,7 +6,7 @@ image: /img/15895233_1385606964843066_4028243722913222456_n.jpg
 memberRole: Aluno de graduação
 memberType: 4
 memberSince: 2017-06-01T03:00:00.000Z
-memberUntil: ''
+memberUntil: 2020-06-30T03:00:00.000Z
 isFormerMember: false
 memberEmail: hello@lucassantos.net
 memberLattes: ''

@@ -55,7 +55,7 @@ const Description = styled(PlexusContainer)`
 
 const MoreInfoButton = styled(Button)`
   margin: 8px;
-  width: 370px;
+  min-width: 300px;
   max-width: calc(100% - 32px);
 `;
 
@@ -83,9 +83,8 @@ export const AboutPageTemplate = ({
     <SectionHeader label="Mais Informações" />
     <div
       css={css`
-        max-width: 1000px;
+        width: 100%;
         ${centerContentCollum};
-        flex-wrap: wrap;
       `}
     >
       <MoreInfoButton outline label="Projetos de pesquisa" to="/projetos" />

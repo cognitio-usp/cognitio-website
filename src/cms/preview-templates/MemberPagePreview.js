@@ -17,7 +17,7 @@ const MemberPagePreview = ({ entry, widgetFor, widgetsFor, getAsset }) => {
     isFormerMember,
   } = toJSON(entry) || {};
 
-  console.log(!!memberSince);
+  console.log(memberUntil);
 
 
   return (
@@ -26,7 +26,7 @@ const MemberPagePreview = ({ entry, widgetFor, widgetsFor, getAsset }) => {
       role={memberRole}
       memberSince={(memberSince && moment(memberSince).format('MMM [de] YYYY')) || 'Invalid date'}
       memberUntil={(memberUntil && moment(memberUntil).format('MMM [de] YYYY')) || 'Invalid date'}
-      memberUntilTimestamp={(memberUntil && moment(memberUntil).unix()) || null}
+      memberUntilTimestamp={(memberUntil && moment(memberUntil).unix() * 1000) || null}
       email={memberEmail}
       lattes={memberLattes}
       linkedin={memberLinkedin}

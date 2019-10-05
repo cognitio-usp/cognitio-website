@@ -80,11 +80,11 @@ const HeaderLeftContent = styled.div`
     color: #fff;
     font-weight: 400;
     line-height: 1.1;
-    font-size: 42px;
+    font-size: 38px;
 
     ${mqMobile} {
       margin-top: 24px;
-      font-size: 36px;
+      font-size: 34px;
     }
   }
 
@@ -353,7 +353,7 @@ export const memberPageQuery = graphql`
       memberLinkedin
       memberOtherInfos {
         info
-        link
+        url
         label
       }
       memberFeaturedLink {
