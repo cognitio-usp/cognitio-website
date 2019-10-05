@@ -3052,6 +3052,7 @@ export enum SitePageFieldsEnum {
   pluginCreator___pluginOptions___plugins___browserAPIs = 'pluginCreator___pluginOptions___plugins___browserAPIs',
   pluginCreator___pluginOptions___plugins___ssrAPIs = 'pluginCreator___pluginOptions___plugins___ssrAPIs',
   pluginCreator___pluginOptions___plugins___pluginFilepath = 'pluginCreator___pluginOptions___plugins___pluginFilepath',
+  pluginCreator___pluginOptions___trackingId = 'pluginCreator___pluginOptions___trackingId',
   pluginCreator___pluginOptions___fonts = 'pluginCreator___pluginOptions___fonts',
   pluginCreator___pluginOptions___display = 'pluginCreator___pluginOptions___display',
   pluginCreator___pluginOptions___path = 'pluginCreator___pluginOptions___path',
@@ -3063,6 +3064,7 @@ export enum SitePageFieldsEnum {
   pluginCreator___pluginOptions___manualInit = 'pluginCreator___pluginOptions___manualInit',
   pluginCreator___pluginOptions___htmlTitle = 'pluginCreator___pluginOptions___htmlTitle',
   pluginCreator___pluginOptions___htmlFavicon = 'pluginCreator___pluginOptions___htmlFavicon',
+  pluginCreator___pluginOptions___mergeSecurityHeaders = 'pluginCreator___pluginOptions___mergeSecurityHeaders',
   pluginCreator___pluginOptions___pathCheck = 'pluginCreator___pluginOptions___pathCheck',
   pluginCreator___nodeAPIs = 'pluginCreator___nodeAPIs',
   pluginCreator___browserAPIs = 'pluginCreator___browserAPIs',
@@ -3262,6 +3264,7 @@ export enum SitePluginFieldsEnum {
   pluginOptions___plugins___browserAPIs = 'pluginOptions___plugins___browserAPIs',
   pluginOptions___plugins___ssrAPIs = 'pluginOptions___plugins___ssrAPIs',
   pluginOptions___plugins___pluginFilepath = 'pluginOptions___plugins___pluginFilepath',
+  pluginOptions___trackingId = 'pluginOptions___trackingId',
   pluginOptions___fonts = 'pluginOptions___fonts',
   pluginOptions___display = 'pluginOptions___display',
   pluginOptions___path = 'pluginOptions___path',
@@ -3273,6 +3276,7 @@ export enum SitePluginFieldsEnum {
   pluginOptions___manualInit = 'pluginOptions___manualInit',
   pluginOptions___htmlTitle = 'pluginOptions___htmlTitle',
   pluginOptions___htmlFavicon = 'pluginOptions___htmlFavicon',
+  pluginOptions___mergeSecurityHeaders = 'pluginOptions___mergeSecurityHeaders',
   pluginOptions___pathCheck = 'pluginOptions___pathCheck',
   nodeAPIs = 'nodeAPIs',
   browserAPIs = 'browserAPIs',
@@ -3388,6 +3392,7 @@ export type SitePluginPackageJsonPeerDependenciesFilterListInput = {
 
 export type SitePluginPluginOptions = {
   plugins?: Maybe<Array<Maybe<SitePluginPluginOptionsPlugins>>>,
+  trackingId?: Maybe<Scalars['String']>,
   fonts?: Maybe<Array<Maybe<Scalars['String']>>>,
   display?: Maybe<Scalars['String']>,
   path?: Maybe<Scalars['String']>,
@@ -3399,11 +3404,13 @@ export type SitePluginPluginOptions = {
   manualInit?: Maybe<Scalars['Boolean']>,
   htmlTitle?: Maybe<Scalars['String']>,
   htmlFavicon?: Maybe<Scalars['String']>,
+  mergeSecurityHeaders?: Maybe<Scalars['Boolean']>,
   pathCheck?: Maybe<Scalars['Boolean']>,
 };
 
 export type SitePluginPluginOptionsFilterInput = {
   plugins?: Maybe<SitePluginPluginOptionsPluginsFilterListInput>,
+  trackingId?: Maybe<StringQueryOperatorInput>,
   fonts?: Maybe<StringQueryOperatorInput>,
   display?: Maybe<StringQueryOperatorInput>,
   path?: Maybe<StringQueryOperatorInput>,
@@ -3415,6 +3422,7 @@ export type SitePluginPluginOptionsFilterInput = {
   manualInit?: Maybe<BooleanQueryOperatorInput>,
   htmlTitle?: Maybe<StringQueryOperatorInput>,
   htmlFavicon?: Maybe<StringQueryOperatorInput>,
+  mergeSecurityHeaders?: Maybe<BooleanQueryOperatorInput>,
   pathCheck?: Maybe<BooleanQueryOperatorInput>,
 };
 
@@ -3549,7 +3557,49 @@ export type ActivitiesAndNewsPageQuery = { allMarkdownRemark: { edges: Array<{ n
           & { readingTime: Maybe<Pick<MarkdownRemarkFieldsReadingTime, 'text'>> }
         )>, frontmatter: Maybe<(
           Pick<Frontmatter, 'templateKey' | 'blogTitle' | 'blogAuthor' | 'activitieTitle' | 'activitieType' | 'activitieLocation' | 'date'>
-          & { image: Maybe<{ childImageSharp: Maybe<{ fluid: Maybe<GatsbyImageSharpFluidFragment> }> }> }
+          & { image: Maybe<{ childImageSharp: Maybe<{ fluid: Maybe<GatsbyImageSharpFluid_WithWebpFragment> }> }> }
+        )> }
+      ) }> } };
+
+export type ActivitiesQueryVariables = {};
+
+
+export type ActivitiesQuery = { allMarkdownRemark: { edges: Array<{ node: (
+        Pick<MarkdownRemark, 'excerpt'>
+        & { fields: Maybe<(
+          Pick<MarkdownRemarkFields, 'slug'>
+          & { readingTime: Maybe<Pick<MarkdownRemarkFieldsReadingTime, 'text'>> }
+        )>, frontmatter: Maybe<(
+          Pick<Frontmatter, 'templateKey' | 'blogTitle' | 'blogAuthor' | 'activitieTitle' | 'activitieType' | 'activitieLocation' | 'date'>
+          & { image: Maybe<{ childImageSharp: Maybe<{ fluid: Maybe<GatsbyImageSharpFluid_WithWebpFragment> }> }> }
+        )> }
+      ) }> } };
+
+export type BlogPostsPageQueryVariables = {};
+
+
+export type BlogPostsPageQuery = { allMarkdownRemark: { edges: Array<{ node: (
+        Pick<MarkdownRemark, 'excerpt'>
+        & { fields: Maybe<(
+          Pick<MarkdownRemarkFields, 'slug'>
+          & { readingTime: Maybe<Pick<MarkdownRemarkFieldsReadingTime, 'text'>> }
+        )>, frontmatter: Maybe<(
+          Pick<Frontmatter, 'templateKey' | 'blogTitle' | 'blogAuthor' | 'activitieTitle' | 'activitieType' | 'activitieLocation' | 'date'>
+          & { image: Maybe<{ childImageSharp: Maybe<{ fluid: Maybe<GatsbyImageSharpFluid_WithWebpFragment> }> }> }
+        )> }
+      ) }> } };
+
+export type NewsAndArticlesPageQueryVariables = {};
+
+
+export type NewsAndArticlesPageQuery = { allMarkdownRemark: { edges: Array<{ node: (
+        Pick<MarkdownRemark, 'excerpt'>
+        & { fields: Maybe<(
+          Pick<MarkdownRemarkFields, 'slug'>
+          & { readingTime: Maybe<Pick<MarkdownRemarkFieldsReadingTime, 'text'>> }
+        )>, frontmatter: Maybe<(
+          Pick<Frontmatter, 'templateKey' | 'blogTitle' | 'blogAuthor' | 'activitieTitle' | 'activitieType' | 'activitieLocation' | 'date'>
+          & { image: Maybe<{ childImageSharp: Maybe<{ fluid: Maybe<GatsbyImageSharpFluid_WithWebpFragment> }> }> }
         )> }
       ) }> } };
 
@@ -3588,7 +3638,7 @@ export type BlogPostByIdQuery = { markdownRemark: Maybe<(
     Pick<MarkdownRemark, 'html' | 'excerpt'>
     & { frontmatter: Maybe<(
       Pick<Frontmatter, 'blogTitle' | 'blogAuthor' | 'date'>
-      & { relatedProjects: Maybe<Array<Maybe<{ fields: Maybe<Pick<MarkdownRemarkFields, 'slug'>>, frontmatter: Maybe<Pick<Frontmatter, 'projectName'>> }>>>, image: Maybe<{ childImageSharp: Maybe<{ fluid: Maybe<GatsbyImageSharpFluidFragment> }> }> }
+      & { relatedProjects: Maybe<Array<Maybe<{ fields: Maybe<Pick<MarkdownRemarkFields, 'slug'>>, frontmatter: Maybe<Pick<Frontmatter, 'projectName'>> }>>>, image: Maybe<{ childImageSharp: Maybe<{ fluid: Maybe<GatsbyImageSharpFluid_WithWebpFragment> }> }> }
     )>, fields: Maybe<{ readingTime: Maybe<Pick<MarkdownRemarkFieldsReadingTime, 'text'>> }> }
   )> };
 
@@ -3602,14 +3652,14 @@ export type ContactPageTemplateQuery = { markdownRemark: Maybe<{ frontmatter: Ma
 
 export type HighlightFragment = { fields: Maybe<Pick<MarkdownRemarkFields, 'slug'>>, frontmatter: Maybe<(
     Pick<Frontmatter, 'templateKey' | 'blogTitle' | 'projectName' | 'activitieTitle' | 'activitieType' | 'activitieLocation' | 'date'>
-    & { image: Maybe<{ childImageSharp: Maybe<{ fluid: Maybe<GatsbyImageSharpFluidFragment> }> }> }
+    & { image: Maybe<{ childImageSharp: Maybe<{ fluid: Maybe<GatsbyImageSharpFluid_WithWebpFragment> }> }> }
   )> };
 
 export type ProjectsFragment = { edges: Array<{ node: (
       Pick<MarkdownRemark, 'excerpt'>
       & { fields: Maybe<Pick<MarkdownRemarkFields, 'slug'>>, frontmatter: Maybe<(
         Pick<Frontmatter, 'projectName'>
-        & { image: Maybe<{ childImageSharp: Maybe<{ fluid: Maybe<GatsbyImageSharpFluidFragment> }> }> }
+        & { image: Maybe<{ childImageSharp: Maybe<{ fluid: Maybe<GatsbyImageSharpFluid_WithWebpFragment> }> }> }
       )> }
     ) }> };
 
@@ -3637,7 +3687,7 @@ export type MemberFragment = (
   & { frontmatter: Maybe<(
     Pick<Frontmatter, 'memberRole' | 'memberName' | 'memberSince' | 'memberUntil' | 'memberEmail' | 'memberLattes' | 'isFormerMember' | 'memberLinkedin'>
     & { memberUntilTimestamp: Frontmatter['memberUntil'] }
-    & { image: Maybe<{ childImageSharp: Maybe<{ fluid: Maybe<GatsbyImageSharpFluidFragment> }> }>, memberOtherInfos: Maybe<Array<Pick<OtherInfos, 'info' | 'link' | 'label'>>>, memberFeaturedLink: Maybe<Pick<FeaturedLink, 'label' | 'url'>> }
+    & { image: Maybe<{ childImageSharp: Maybe<{ fluid: Maybe<GatsbyImageSharpFluid_WithWebpFragment> }> }>, memberOtherInfos: Maybe<Array<Pick<OtherInfos, 'info' | 'link' | 'label'>>>, memberFeaturedLink: Maybe<Pick<FeaturedLink, 'label' | 'url'>> }
   )> }
 );
 
@@ -3646,7 +3696,7 @@ export type MemberCardFragment = (
   & { fields: Maybe<Pick<MarkdownRemarkFields, 'slug'>>, frontmatter: Maybe<(
     Pick<Frontmatter, 'memberRole' | 'memberName' | 'memberType' | 'isFormerMember'>
     & { memberUntilTimestamp: Frontmatter['memberUntil'] }
-    & { image: Maybe<{ childImageSharp: Maybe<{ fluid: Maybe<GatsbyImageSharpFluidFragment> }> }>, memberFeaturedLink: Maybe<Pick<FeaturedLink, 'label' | 'url'>> }
+    & { image: Maybe<{ childImageSharp: Maybe<{ fluid: Maybe<GatsbyImageSharpFluid_WithWebpFragment> }> }>, memberFeaturedLink: Maybe<Pick<FeaturedLink, 'label' | 'url'>> }
   )> }
 );
 
@@ -3671,7 +3721,7 @@ export type ProjectPageByIdQuery = { markdownRemark: Maybe<(
     Pick<MarkdownRemark, 'html' | 'excerpt'>
     & { frontmatter: Maybe<(
       Pick<Frontmatter, 'projectName' | 'projectStart' | 'projectEnd'>
-      & { image: Maybe<{ childImageSharp: Maybe<{ fluid: Maybe<GatsbyImageSharpFluidFragment> }> }>, projectMembers: Maybe<Array<Maybe<MemberCardFragment>>>, projectFormerMembers: Maybe<Array<Maybe<MemberCardFragment>>> }
+      & { image: Maybe<{ childImageSharp: Maybe<{ fluid: Maybe<GatsbyImageSharpFluid_WithWebpFragment> }> }>, projectMembers: Maybe<Array<Maybe<MemberCardFragment>>>, projectFormerMembers: Maybe<Array<Maybe<MemberCardFragment>>> }
     )> }
   )>, posts: PostsFragment };
 

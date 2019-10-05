@@ -160,7 +160,7 @@ export const blogPostQuery = graphql`
         image {
           childImageSharp {
             fluid(maxWidth: 2000, quality: 100) {
-              ...GatsbyImageSharpFluid
+              ...GatsbyImageSharpFluid_withWebp
             }
           }
         }

@@ -340,7 +340,7 @@ export const memberPageQuery = graphql`
       image {
         childImageSharp {
           fluid(maxWidth: 240, quality: 100) {
-            ...GatsbyImageSharpFluid
+            ...GatsbyImageSharpFluid_withWebp
           }
         }
       }
@@ -376,7 +376,7 @@ export const memberPageQuery = graphql`
       image {
         childImageSharp {
           fluid(maxWidth: 240, quality: 100) {
-            ...GatsbyImageSharpFluid
+            ...GatsbyImageSharpFluid_withWebp
           }
         }
       }
