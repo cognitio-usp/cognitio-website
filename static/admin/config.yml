@@ -60,7 +60,9 @@ collections:
       - << : *uuid
       - {label: Template Key, name: templateKey, widget: hidden, default: activitie-post}
       - {label: Título, name: activitieTitle, widget: string}
-      - {label: Data e hora de início, name: date, widget: datetime}
+      - {label: Data e hora de início, name: date, widget: datetime, default: ''}
+      - {label: Data e hora do fim, name: dateEnd, widget: datetime, default: '', required: false}
+      - {label: Mostrar hora, name: showHour, widget: boolean, default: true, hint: Desmarque esse campo para eventos que não tem horário definido}
       - {label: Local, name: activitieLocation, widget: string, required: false}
       - {label: Tipo de atividade, name: activitieType, widget: string, default: Evento}
       - << : *featured
@@ -154,7 +156,7 @@ collections:
       - {label: Logo do Projeto, name: image, widget: image, allow_multiple: false, required: false}
       - {label: Descrição do projeto, name: body, widget: markdown}
       - {label: Data, name: date, widget: datetime, hint: Este campo é usado apenas para usar como referência na criação dos destaques da página inicial. Apenas o post mais recente de cada posição é selecionado}
-      - {label: Data de Início do Projeto, name: projectStart, widget: date}
+      - {label: Data de Início do Projeto, name: projectStart, widget: date, default: ''}
       - {label: Data do Término do Projeto, name: projectEnd, widget: date, default: '', hint: Deixe em branco se o projeto não tiver uma data de término definida, required: false}
       - << : *featured
       - label: Membros
