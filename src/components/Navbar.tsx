@@ -99,7 +99,7 @@ const NavMenu = styled.div`
     ${letterSpacing(4)};
     color: ${colorPrimary};
     text-transform: uppercase;
-    padding: 12px 18px;
+    padding: 12px 14px;
     opacity: 0.72;
     transition: opacity 160ms;
 
