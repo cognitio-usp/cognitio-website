@@ -16,6 +16,8 @@
     "validate-typescript": "tsc"
   },
   "dependencies": {
+    "@babel/plugin-proposal-nullish-coalescing-operator": "^7.4.4",
+    "@babel/plugin-proposal-optional-chaining": "^7.6.0",
     "@lucasols/utils": "^1.1.0",
     "@ncwidgets/id": "^0.5.0",
     "babel-plugin-polished": "^1.1.0",
@@ -69,7 +71,7 @@
     "netlify-cms-backend-fs": "^0.4.4",
     "npm-run-all": "^4.1.5",
     "prettier": "^1.18.2",
-    "typescript": "^3.6.2",
+    "typescript": "^3.7.0-beta",
     "typescript-eslint": "0.0.1-alpha.0",
     "yaml-loader": "^0.5.0"
   }

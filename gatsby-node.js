@@ -169,3 +169,13 @@ exports.onCreateWebpackConfig = ({ actions }) => {
     });
   }
 };
+
+exports.onCreateBabelConfig = ({ actions }) => {
+  actions.setBabelPlugin({
+    name: require.resolve('@babel/plugin-proposal-optional-chaining'),
+  });
+
+  actions.setBabelPlugin({
+    name: require.resolve('@babel/plugin-proposal-nullish-coalescing-operator'),
+  });
+};
