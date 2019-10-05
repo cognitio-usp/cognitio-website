@@ -137,8 +137,10 @@ exports.createSchemaCustomization = ({ actions }) => {
       projectStart: Date @dateformat
       projectEnd: Date @dateformat
       blogTitle: String
+      notListed: Boolean
       blogAuthor: String
       date: Date @dateformat
+      dateEnd: Date @dateformat
       featured: String
       activitieTitle: String
       activitieType: String

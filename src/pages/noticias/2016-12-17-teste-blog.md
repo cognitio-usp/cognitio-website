@@ -5,6 +5,7 @@ blogTitle: Exemplo de notícia
 blogAuthor: Lucas Santos
 date: 2019-09-02T06:33:25.693Z
 image: ''
+notListed: true
 featured: not
 relatedProjects: []
 ---

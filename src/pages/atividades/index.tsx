@@ -33,7 +33,7 @@ export default ActivitiesAndNewsPage;
 export const activitiesandnewsPageQuery = graphql`
   query Activities {
     allMarkdownRemark(
-      filter: { frontmatter: { templateKey: { in: ["activitie-post"] } } }
+      filter: { frontmatter: { templateKey: { in: ["activitie-post"] }, notListed: { in: [false, null] } } }
       sort: { fields: [frontmatter___date], order: DESC }
     ) {
       edges {

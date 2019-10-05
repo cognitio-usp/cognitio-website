@@ -1,17 +1,15 @@
 import { colorTertiary, colorPrimary } from '../style/theme';
 
-let usedColors: string[] = [];
+let pos = 0;
 const colors = [colorPrimary, colorTertiary, '#0070BD'];
 
 export function pickRandomColor() {
-  const notUsedColors = colors.filter(item => !usedColors.includes(item));
-
-  if (notUsedColors.length === 0) {
-    usedColors = [];
-    return colors[Math.floor(Math.random() * colors.length)];
+  if (pos < colors.length) {
+    const color = colors[pos];
+    pos++;
+    return color;
   }
 
-  const color = notUsedColors[Math.floor(Math.random() * notUsedColors.length)];
-  usedColors = [...usedColors, color];
-  return color;
+  pos = 0;
+  return colors[pos];
 }

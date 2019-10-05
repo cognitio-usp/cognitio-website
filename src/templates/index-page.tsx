@@ -229,7 +229,7 @@ export const pageQuery = graphql`
     posts: allMarkdownRemark(
       limit: 4
       filter: {
-        frontmatter: { templateKey: { in: ["blog-post", "activitie-post"] } }
+        frontmatter: { templateKey: { in: ["blog-post", "activitie-post"] }, notListed: { in: [false, null] } }
       }
       sort: { fields: [frontmatter___date], order: DESC }
     ) {

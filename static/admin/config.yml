@@ -19,6 +19,14 @@ uuid: &uuid
     widget: ncw-id
     timestamp: true
 
+not_listed: &not_listed
+  - label: Não listar
+    name: notListed
+    widget: boolean
+    required: false
+    hint: 'Com isso a publicação não será acessível através de outra página do site e terá que ser acessado diretamente por meio da sua url.'
+
+
 relatedProjects: &relatedProjects
   - label: Projetos Relacionados
     name: relatedProjects
@@ -45,6 +53,7 @@ collections:
       - {label: Autor, name: blogAuthor, widget: string, required: false}
       - {label: Data de Publicação, name: date, widget: datetime}
       - {label: Featured Image, name: image, widget: image, required: false}
+      - << : *not_listed
       - << : *featured
       - << : *relatedProjects
       - {label: Texto, name: body, widget: markdown}
@@ -65,6 +74,7 @@ collections:
       - {label: Mostrar hora, name: showHour, widget: boolean, default: true, hint: Desmarque esse campo para eventos que não tem horário definido}
       - {label: Local, name: activitieLocation, widget: string, required: false}
       - {label: Tipo de atividade, name: activitieType, widget: string, default: Evento}
+      - << : *not_listed
       - << : *featured
       - << : *relatedProjects
       - label: Link
@@ -75,7 +85,7 @@ collections:
         fields:
           - {label: Rótulo, name: label, widget: string, required: false, default: Inscrições}
           - {label: Url, name: url, widget: string, required: false}
-      - {label: Descrição, name: body, widget: markdown}
+      - {label: Detalhes da atividade, name: body, widget: markdown}
 
   - name: members
     label: Membros
