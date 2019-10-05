@@ -73,10 +73,14 @@ const ProjectCard = styled(Link)`
   h1 {
     width: 100%;
     font-weight: 400;
-    font-size: 28px;
+    font-size: 26px;
     ${letterSpacing(4)};
     color: #000;
     margin-top: 18px;
+    -webkit-line-clamp: 3;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
   }
 
   h2 {
@@ -174,7 +178,7 @@ const ActivitiesAndNewsPageTemplate: FunctionComponent<Props> = ({
                   {postType}
                 </PostTypeTag>
               )}
-              <h1>{activitieTitle || blogTitle}</h1>
+              <h1 title={(activitieTitle || blogTitle) ?? ''}>{activitieTitle || blogTitle}</h1>
               <h2>
                 {templateKey === 'blog-post' ? (
                   <>

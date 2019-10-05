@@ -51,13 +51,17 @@ const Card = styled(Link)`
   }
 
   h1 {
-    font-size: 32px;
+    font-size: 28px;
     margin-bottom: 6px;
     font-weight: 400;
     ${letterSpacing(4)};
+    -webkit-line-clamp: 2;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
 
     ${mqMobile} {
-      font-size: 26px;
+      font-size: 24px;
     }
   }
 
@@ -112,7 +116,7 @@ const ActivitiesAndNews = ({ posts, moreButton, sectionTitle }: Props) =>
               {postType && (
                 <PostTypeTag css={{ marginBottom: 8 }}>{postType}</PostTypeTag>
               )}
-              <h1>{blogTitle || activitieTitle}</h1>
+              <h1 title={(blogTitle || activitieTitle) ?? ''}>{blogTitle || activitieTitle}</h1>
               <h2>
                 {templateKey === 'blog-post' ? (
                   <>
