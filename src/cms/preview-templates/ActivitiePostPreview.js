@@ -22,12 +22,12 @@ const ActivitiePostPreview = ({ entry, widgetFor, widgetsFor }) => {
   const url = widgetsFor('activitieLink').getIn(['data', 'url']);
   const label = widgetsFor('activitieLink').getIn(['data', 'label']);
 
-  const { 1: urlPath } = /#\/collections\/blog\/(.+)/.exec(
+  const { 1: urlPath } = /#.+\/(.+)/.exec(
     window.location.hash,
-  );
+  ) || {};
 
   /** @type string */
-  const title = entry.getIn(['data', 'blogTitle']) || '';
+  const title = entry.getIn(['data', 'activitieTitle']) || '';
   const link =
     urlPath === 'new'
       ? `${moment().format('YYYY-MM-DD-')}${title
@@ -36,6 +36,11 @@ const ActivitiePostPreview = ({ entry, widgetFor, widgetsFor }) => {
           .replace(/ +/g, '-')
           .toLowerCase()}`
       : urlPath;
+
+  const dateStart = entry.getIn(['data', 'date']) &&
+    moment(entry.getIn(['data', 'date']));
+  const dateEnd = entry.getIn(['data', 'dateEnd']) &&
+    moment(entry.getIn(['data', 'dateEnd']));
 
   return (
     <>
@@ -53,10 +58,15 @@ const ActivitiePostPreview = ({ entry, widgetFor, widgetsFor }) => {
         title={entry.getIn(['data', 'activitieTitle'])}
         type={entry.getIn(['data', 'activitieType'])}
         location={entry.getIn(['data', 'activitieLocation'])}
-        datetime={
-          entry.getIn(['data', 'date']) &&
-          moment(entry.getIn(['data', 'date'])).format('MM/DD/YYYY [às] HH:mm')
-        }
+        dateTime={dateStart && dateStart.format('DD/MM/YYYY, HH:mm')}
+        dateOnly={dateStart && dateStart.format('DD/MM/YYYY')}
+        yearOnly={dateStart && dateStart.format('YYYY')}
+        monthAndYear={dateStart && dateStart.format('MMM YYYY')}
+        endDateTime={dateEnd && dateEnd.format('DD/MM/YYYY, HH:mm')}
+        endDateOnly={dateEnd && dateEnd.format('DD/MM/YYYY')}
+        endYearOnly={dateEnd && dateEnd.format('YYYY')}
+        endMonthAndYear={dateEnd && dateEnd.format('MMM YYYY')}
+        dateFormat={entry.getIn(['data', 'dateFormat'])}
         link={{
           url,
           label,

@@ -44,7 +44,7 @@ const ProjectCard = styled(Link)`
   h1 {
     font-weight: 400;
     margin-top: 16px;
-    font-size: 26px;
+    font-size: 24px;
     ${letterSpacing(4)};
     color: #000;
   }

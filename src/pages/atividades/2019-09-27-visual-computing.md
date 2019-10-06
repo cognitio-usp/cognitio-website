@@ -2,7 +2,9 @@
 id: 1569619056101-kDddI6UMw
 templateKey: activitie-post
 activitieTitle: Visual Computing
-date: 2019-09-27T21:17:36.151Z
+date: 2018-06-01T21:17:00.000Z
+dateEnd: 2019-12-01T22:24:00.000Z
+dateFormat: 4
 activitieType: Undergrad Course
 featured: not
 activitieLink:

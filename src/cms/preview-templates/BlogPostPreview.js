@@ -37,9 +37,9 @@ const BlogPostPreview = ({ entry, widgetFor, getAsset, fieldsMetaData }) => {
     });
   }, [entry]);
 
-  const { 1: urlPath } = /#\/collections\/blog\/(.+)/.exec(
+  const { 1: urlPath } = /#.+\/(.+)/.exec(
     window.location.hash,
-  );
+  ) || {};
 
   /** @type string */
   const title = entry.getIn(['data', 'blogTitle']) || '';

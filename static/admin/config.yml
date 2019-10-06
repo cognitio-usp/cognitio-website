@@ -74,7 +74,16 @@ collections:
       - {label: Título, name: activitieTitle, widget: string}
       - {label: Data e hora de início, name: date, widget: datetime, default: ''}
       - {label: Data e hora do fim, name: dateEnd, widget: datetime, default: '', required: false}
-      - {label: Mostrar hora, name: showHour, widget: boolean, default: true, hint: Desmarque esse campo para eventos que não tem horário definido}
+      - label: Formato da data e hora
+        name: dateFormat
+        hint: Altera a forma de exibição da data e hora
+        widget: select
+        options:
+          - { label: "Data e hora, ex: 16/04/2019 às 16:00", value: 1 }
+          - { label: "Atividade sem hora definida, ex: 16/04/2019", value: 2 }
+          - { label: "Mês e ano, ex: Jan de 2019", value: 3 }
+          - { label: "Ano apenas, ex: 2019", value: 4 }
+          - { label: "Esconder data e hora", value: 5 }
       - {label: Local, name: activitieLocation, widget: string, required: false}
       - {label: Tipo de atividade, name: activitieType, widget: string, default: Evento}
       - << : *not_listed

@@ -10,6 +10,7 @@ import { PostsFragment } from '../typings/graphql';
 import { postsType } from './HomeHighlights';
 import PostTypeTag from './PostTypeTag';
 import SectionHeader from './SectionHeader';
+import { formatActivitieDate } from '../utils/formatActivitieDate';
 import { mqMobile } from '../style/mediaQueries';
 
 type Props = {
@@ -102,6 +103,15 @@ const ActivitiesAndNews = ({ posts, moreButton, sectionTitle }: Props) =>
             blogTitle,
             blogAuthor,
             date,
+            yearOnly,
+            monthAndYear,
+            dateTime,
+            dateOnly,
+            endYearOnly,
+            endMonthAndYear,
+            endDateTime,
+            endDateOnly,
+            dateFormat,
             activitieTitle,
             activitieLocation,
             activitieType,
@@ -110,6 +120,18 @@ const ActivitiesAndNews = ({ posts, moreButton, sectionTitle }: Props) =>
 
           const postType =
             activitieType || (templateKey && postsType[templateKey]);
+
+          const activitieDate = formatActivitieDate({
+            yearOnly,
+            monthAndYear,
+            dateTime,
+            dateFormat,
+            dateOnly,
+            endDateTime,
+            endDateOnly,
+            endMonthAndYear,
+            endYearOnly,
+          });
 
           return (
             <Card key={i} to={oc(fields).slug('error')}>
@@ -131,7 +153,9 @@ const ActivitiesAndNews = ({ posts, moreButton, sectionTitle }: Props) =>
                   </>
                 ) : (
                   <>
-                    {<time>Data: {date}</time>}
+                    {activitieDate && <time>
+                      {activitieDate}
+                    </time>}
                     {activitieLocation && <span>Local: {activitieLocation}</span>}
                   </>
                 )}

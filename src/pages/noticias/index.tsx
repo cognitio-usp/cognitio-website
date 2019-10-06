@@ -51,6 +51,17 @@ export const activitiesandnewsPageQuery = graphql`
             blogAuthor
             activitieTitle
             activitieType
+            dateFormat
+
+            yearOnly: date(formatString: "YYYY")
+            monthAndYear: date(formatString: "MMM YYYY")
+            dateTime: date(formatString: "DD/MM/YYYY, HH:mm")
+            dateOnly: date(formatString: "DD/MM/YYYY")
+
+            endYearOnly: dateEnd(formatString: "YYYY")
+            endMonthAndYear: dateEnd(formatString: "MMM YYYY")
+            endDateTime: dateEnd(formatString: "DD/MM/YYYY, HH:mm")
+            endDateOnly: dateEnd(formatString: "DD/MM/YYYY")
             image {
               childImageSharp {
                 fluid(maxWidth: 500, quality: 100) {

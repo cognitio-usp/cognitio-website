@@ -145,6 +145,7 @@ exports.createSchemaCustomization = ({ actions }) => {
       activitieTitle: String
       activitieType: String
       activitieLocation: String
+      dateFormat: Int
       activitieLink: FeaturedLink
       relatedProjects: [MarkdownRemark] @link(by: "frontmatter.id")
       projectMembers: [MarkdownRemark] @link(by: "frontmatter.id")

@@ -2,7 +2,9 @@
 id: 1568936809356-VqWvMRypH
 templateKey: activitie-post
 activitieTitle: Cognitive Science
-date: 2019-09-19T23:46:49.408Z
+date: 1998-01-01T02:00:00.000Z
+dateEnd: 2013-12-01T02:00:00.000Z
+dateFormat: 4
 activitieLocation: 'Electrical Engineering Building '
 activitieType: Seminar / Grad Course
 featured: not
@@ -11,6 +13,5 @@ activitieLink:
 ---
 **PSI5xxx - Fundamentos de Ciência Cognitiva (1998 - 2013)     1st / 3rd period  (Portuguese)**
 
-Marcio Lobo Netto
-
-Henrique Schützer Del Nero
+* Marcio Lobo Netto
+* Henrique Schützer Del Nero

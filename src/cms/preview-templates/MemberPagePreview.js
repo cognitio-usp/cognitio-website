@@ -19,7 +19,6 @@ const MemberPagePreview = ({ entry, widgetFor, widgetsFor, getAsset }) => {
 
   console.log(memberUntil);
 
-
   return (
     <MemberPageTemplate
       name={memberName}

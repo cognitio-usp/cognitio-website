@@ -20,6 +20,7 @@ import { colorSecondary, colorTertiary, fontSecondary } from '../style/theme';
 import { ActivitiesAndNewsPageQuery } from '../typings/graphql';
 import { pickRandomColor } from '../utils/pickRandomColor';
 import { mqMobile } from '../style/mediaQueries';
+import { formatActivitieDate } from '../utils/formatActivitieDate';
 
 type Props = {
   data: ActivitiesAndNewsPageQuery;
@@ -141,12 +142,33 @@ const ActivitiesAndNewsPageTemplate: FunctionComponent<Props> = ({
             templateKey,
             blogAuthor,
             date,
+            yearOnly,
+            monthAndYear,
+            dateTime,
+            dateOnly,
+            endYearOnly,
+            endMonthAndYear,
+            endDateTime,
+            endDateOnly,
+            dateFormat,
             activitieLocation,
             activitieType,
           } = oc(node).frontmatter() || {};
 
           const postType =
             activitieType || (templateKey && postsType[templateKey]);
+
+          const activitieDate = formatActivitieDate({
+            yearOnly,
+            monthAndYear,
+            dateTime,
+            dateFormat,
+            dateOnly,
+            endDateTime,
+            endDateOnly,
+            endMonthAndYear,
+            endYearOnly,
+          });
 
           return (
             <ProjectCard key={i} to={oc(node).fields.slug() || 'ERROR'}>
@@ -190,7 +212,9 @@ const ActivitiesAndNewsPageTemplate: FunctionComponent<Props> = ({
                   </>
                 ) : (
                   <>
-                    {<time>{date}</time>}
+                    {activitieDate && <time>
+                      {activitieDate}
+                    </time>}
                     {activitieLocation && (
                       <span>Local: {activitieLocation}</span>
                     )}

@@ -1,37 +1,36 @@
 import styled from '@emotion/styled';
 import { graphql } from 'gatsby';
-import { ellipsis } from 'polished';
 import React, { ReactNode } from 'react';
+import Helmet from 'react-helmet';
+import { oc } from 'ts-optchain.macro';
+import Button from '../components/Button';
+import Icon from '../components/Icon';
 import Layout from '../components/Layout';
 import PlexusContainer from '../components/PlexusContainer';
-import SectionHeader from '../components/SectionHeader';
-import TextSection from '../components/TextSection';
-import { circle, letterSpacing, joinWith } from '../style/helpers';
-import { centerContent, centerContentCollum } from '../style/modifiers';
-import {
-  colorTertiary,
-  colorSecondary,
-  fontCondensed,
-  colorPrimary,
-} from '../style/theme';
-import { ActivitiePostByIdQuery } from '../typings/graphql';
-import urlPrettier from '../utils/urlPrettier';
-import Helmet from 'react-helmet';
 import SocialButtons from '../components/SocialButtons';
-import Icon from '../components/Icon';
-import Button from '../components/Button';
-import { rgba } from '@lucasols/utils';
 import Tags from '../components/Tags';
-import { oc } from 'ts-optchain.macro';
-import { isBrowser } from '../utils/isBrowser';
+import TextSection from '../components/TextSection';
 import { mqMobile } from '../style/mediaQueries';
+import { centerContent, centerContentCollum } from '../style/modifiers';
+import { colorSecondary } from '../style/theme';
+import { ActivitiePostByIdQuery } from '../typings/graphql';
+import { formatActivitieDate } from '../utils/formatActivitieDate';
+import { isBrowser } from '../utils/isBrowser';
 
 type Props = {
   title?: string | null;
   contentHTML?: string | null;
   content?: ReactNode;
   type?: string | null;
-  datetime?: string | null;
+  yearOnly?: string | null;
+  monthAndYear?: string | null;
+  dateTime?: string | null;
+  dateOnly?: string | null;
+  endYearOnly?: string | null;
+  endMonthAndYear?: string | null;
+  endDateTime?: string | null;
+  endDateOnly?: string | null;
+  dateFormat?: number | null;
   location?: string | null;
   relatedProjects?: NonNullable<
     NonNullable<ActivitiePostByIdQuery['markdownRemark']>['frontmatter']
@@ -104,74 +103,104 @@ const Link = styled(Button)`
 
 export const ActivitiePostTemplate = ({
   title,
-  datetime,
+  dateFormat,
+  yearOnly,
+  monthAndYear,
+  dateTime,
+  dateOnly,
   content,
   type,
   relatedProjects,
   contentHTML,
   location,
   link,
-}: Props) => (
-  <>
-    <Header>
-      <Tags
-        css={{ marginTop: -32, marginBottom: 24 }}
-        projects={[
-          ...(type ? [{ label: type, toLink: '/atividades' }] : []),
-          ...(relatedProjects
-            ? relatedProjects.map(item => ({
-                label: oc(item).frontmatter.projectName('ERRO!'),
-                toLink: oc(item).fields.slug('ERRO!'),
-              }))
-            : []),
-        ]}
-      />
-      <Title>{title}</Title>
-      <DetailContainer>
-        {datetime && (
-          <Detail>
-            <DetailIcon name="calendar" color={colorSecondary} />
-            {datetime}
-          </Detail>
-        )}
-        {location && (
-          <Detail>
-            <DetailIcon name="location" color={colorSecondary} />
-            {location}
-          </Detail>
-        )}
-      </DetailContainer>
-      {link && link.url && (
-        <Link
-          label={link.label || 'ERRO: Rótulo não definido'}
-          href={link.url || undefined}
-          leadingIcon="link"
+  endDateTime,
+  endDateOnly,
+  endMonthAndYear,
+  endYearOnly,
+}: Props) => {
+  const date = formatActivitieDate({
+    yearOnly,
+    monthAndYear,
+    dateTime,
+    dateFormat,
+    dateOnly,
+    endDateTime,
+    endDateOnly,
+    endMonthAndYear,
+    endYearOnly,
+  });
+
+  return (
+    <>
+      <Header>
+        <Tags
+          css={{ marginTop: -32, marginBottom: 24 }}
+          projects={[
+            ...(type ? [{ label: type, toLink: '/atividades' }] : []),
+            ...(relatedProjects
+              ? relatedProjects.map(item => ({
+                  label: oc(item).frontmatter.projectName('ERRO!'),
+                  toLink: oc(item).fields.slug('ERRO!'),
+                }))
+              : []),
+          ]}
         />
-      )}
-    </Header>
+        <Title>{title}</Title>
+        <DetailContainer>
+          {date && (
+            <Detail>
+              <DetailIcon name="calendar" color={colorSecondary} />
+              {date}
+            </Detail>
+          )}
+          {location && (
+            <Detail>
+              <DetailIcon name="location" color={colorSecondary} />
+              {location}
+            </Detail>
+          )}
+        </DetailContainer>
+        {link && link.url && (
+          <Link
+            label={link.label || 'ERRO: Rótulo não definido'}
+            href={link.url || undefined}
+            leadingIcon="link"
+          />
+        )}
+      </Header>
 
-    <TextSection
-      css={{ marginTop: 46 }}
-      contentHTML={contentHTML}
-      content={content}
-    />
+      <TextSection
+        css={{ marginTop: 46 }}
+        contentHTML={contentHTML}
+        content={content}
+      />
 
-    <SocialButtons
-      pageUrl={isBrowser ? window.location.href : ''}
-      pageTitle={`COGNITIO · ${title}`}
-    />
-  </>
-);
+      <SocialButtons
+        pageUrl={isBrowser ? window.location.href : ''}
+        pageTitle={`COGNITIO · ${title}`}
+      />
+    </>
+  );
+};
 
 const ActivitiePost = ({ data }: { data: ActivitiePostByIdQuery }) => {
   const { frontmatter, html, excerpt } = oc(data).markdownRemark() || {};
   const {
     activitieTitle,
     activitieType,
-    date,
     activitieLocation,
     relatedProjects,
     activitieLink,
+    dateFormat,
+    yearOnly,
+    monthAndYear,
+    dateTime,
+    dateOnly,
+    endDateTime,
+    endDateOnly,
+    endYearOnly,
+    endMonthAndYear,
   } = frontmatter || {};
 
   return (
@@ -183,7 +212,15 @@ const ActivitiePost = ({ data }: { data: ActivitiePostByIdQuery }) => {
       <ActivitiePostTemplate
         title={activitieTitle}
         type={activitieType}
-        datetime={date}
+        dateTime={dateTime}
+        dateOnly={dateOnly}
+        yearOnly={yearOnly}
+        monthAndYear={monthAndYear}
+        endDateTime={endDateTime}
+        endDateOnly={endDateOnly}
+        endYearOnly={endYearOnly}
+        endMonthAndYear={endMonthAndYear}
+        dateFormat={dateFormat}
         location={activitieLocation}
         contentHTML={html}
         relatedProjects={relatedProjects}
@@ -211,7 +248,18 @@ export const activitiePostQuery = graphql`
             projectName
           }
         }
-        date(formatString: "DD/MM/YYYY [às] HH:mm", locale: "pt-Br")
+        dateFormat
+
+        yearOnly: date(formatString: "YYYY")
+        monthAndYear: date(formatString: "MMM YYYY")
+        dateTime: date(formatString: "DD/MM/YYYY, HH:mm")
+        dateOnly: date(formatString: "DD/MM/YYYY")
+
+        endYearOnly: dateEnd(formatString: "YYYY")
+        endMonthAndYear: dateEnd(formatString: "MMM YYYY")
+        endDateTime: dateEnd(formatString: "DD/MM/YYYY, HH:mm")
+        endDateOnly: dateEnd(formatString: "DD/MM/YYYY")
+
         activitieLocation
         activitieLink {
           label

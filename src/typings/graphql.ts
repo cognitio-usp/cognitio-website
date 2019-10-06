@@ -794,6 +794,7 @@ export enum FileFieldsEnum {
   childMarkdownRemark___frontmatter___activitieTitle = 'childMarkdownRemark___frontmatter___activitieTitle',
   childMarkdownRemark___frontmatter___activitieType = 'childMarkdownRemark___frontmatter___activitieType',
   childMarkdownRemark___frontmatter___activitieLocation = 'childMarkdownRemark___frontmatter___activitieLocation',
+  childMarkdownRemark___frontmatter___dateFormat = 'childMarkdownRemark___frontmatter___dateFormat',
   childMarkdownRemark___frontmatter___activitieLink___label = 'childMarkdownRemark___frontmatter___activitieLink___label',
   childMarkdownRemark___frontmatter___activitieLink___url = 'childMarkdownRemark___frontmatter___activitieLink___url',
   childMarkdownRemark___frontmatter___relatedProjects = 'childMarkdownRemark___frontmatter___relatedProjects',
@@ -858,6 +859,7 @@ export enum FileFieldsEnum {
   childMarkdownRemark___frontmatter___formerMembers___children = 'childMarkdownRemark___frontmatter___formerMembers___children',
   childMarkdownRemark___frontmatter___title = 'childMarkdownRemark___frontmatter___title',
   childMarkdownRemark___frontmatter___templateKey = 'childMarkdownRemark___frontmatter___templateKey',
+  childMarkdownRemark___frontmatter___showHour = 'childMarkdownRemark___frontmatter___showHour',
   childMarkdownRemark___excerpt = 'childMarkdownRemark___excerpt',
   childMarkdownRemark___rawMarkdownBody = 'childMarkdownRemark___rawMarkdownBody',
   childMarkdownRemark___fileAbsolutePath = 'childMarkdownRemark___fileAbsolutePath',
@@ -1017,6 +1019,7 @@ export type Frontmatter = {
   activitieTitle?: Maybe<Scalars['String']>,
   activitieType?: Maybe<Scalars['String']>,
   activitieLocation?: Maybe<Scalars['String']>,
+  dateFormat?: Maybe<Scalars['Int']>,
   activitieLink?: Maybe<FeaturedLink>,
   relatedProjects?: Maybe<Array<Maybe<MarkdownRemark>>>,
   projectMembers?: Maybe<Array<Maybe<MarkdownRemark>>>,
@@ -1025,6 +1028,7 @@ export type Frontmatter = {
   formerMembers?: Maybe<Array<Maybe<MarkdownRemark>>>,
   title?: Maybe<Scalars['String']>,
   templateKey?: Maybe<Scalars['String']>,
+  showHour?: Maybe<Scalars['Boolean']>,
 };
 
 
@@ -1110,6 +1114,7 @@ export type FrontmatterFilterInput = {
   activitieTitle?: Maybe<StringQueryOperatorInput>,
   activitieType?: Maybe<StringQueryOperatorInput>,
   activitieLocation?: Maybe<StringQueryOperatorInput>,
+  dateFormat?: Maybe<IntQueryOperatorInput>,
   activitieLink?: Maybe<FeaturedLinkFilterInput>,
   relatedProjects?: Maybe<MarkdownRemarkFilterListInput>,
   projectMembers?: Maybe<MarkdownRemarkFilterListInput>,
@@ -1118,6 +1123,7 @@ export type FrontmatterFilterInput = {
   formerMembers?: Maybe<MarkdownRemarkFilterListInput>,
   title?: Maybe<StringQueryOperatorInput>,
   templateKey?: Maybe<StringQueryOperatorInput>,
+  showHour?: Maybe<BooleanQueryOperatorInput>,
 };
 
 export enum ImageCropFocus {
@@ -1879,6 +1885,7 @@ export enum MarkdownRemarkFieldsEnum {
   frontmatter___activitieTitle = 'frontmatter___activitieTitle',
   frontmatter___activitieType = 'frontmatter___activitieType',
   frontmatter___activitieLocation = 'frontmatter___activitieLocation',
+  frontmatter___dateFormat = 'frontmatter___dateFormat',
   frontmatter___activitieLink___label = 'frontmatter___activitieLink___label',
   frontmatter___activitieLink___url = 'frontmatter___activitieLink___url',
   frontmatter___relatedProjects = 'frontmatter___relatedProjects',
@@ -1915,6 +1922,7 @@ export enum MarkdownRemarkFieldsEnum {
   frontmatter___relatedProjects___frontmatter___activitieTitle = 'frontmatter___relatedProjects___frontmatter___activitieTitle',
   frontmatter___relatedProjects___frontmatter___activitieType = 'frontmatter___relatedProjects___frontmatter___activitieType',
   frontmatter___relatedProjects___frontmatter___activitieLocation = 'frontmatter___relatedProjects___frontmatter___activitieLocation',
+  frontmatter___relatedProjects___frontmatter___dateFormat = 'frontmatter___relatedProjects___frontmatter___dateFormat',
   frontmatter___relatedProjects___frontmatter___relatedProjects = 'frontmatter___relatedProjects___frontmatter___relatedProjects',
   frontmatter___relatedProjects___frontmatter___projectMembers = 'frontmatter___relatedProjects___frontmatter___projectMembers',
   frontmatter___relatedProjects___frontmatter___projectFormerMembers = 'frontmatter___relatedProjects___frontmatter___projectFormerMembers',
@@ -1922,6 +1930,7 @@ export enum MarkdownRemarkFieldsEnum {
   frontmatter___relatedProjects___frontmatter___formerMembers = 'frontmatter___relatedProjects___frontmatter___formerMembers',
   frontmatter___relatedProjects___frontmatter___title = 'frontmatter___relatedProjects___frontmatter___title',
   frontmatter___relatedProjects___frontmatter___templateKey = 'frontmatter___relatedProjects___frontmatter___templateKey',
+  frontmatter___relatedProjects___frontmatter___showHour = 'frontmatter___relatedProjects___frontmatter___showHour',
   frontmatter___relatedProjects___excerpt = 'frontmatter___relatedProjects___excerpt',
   frontmatter___relatedProjects___rawMarkdownBody = 'frontmatter___relatedProjects___rawMarkdownBody',
   frontmatter___relatedProjects___fileAbsolutePath = 'frontmatter___relatedProjects___fileAbsolutePath',
@@ -1984,6 +1993,7 @@ export enum MarkdownRemarkFieldsEnum {
   frontmatter___projectMembers___frontmatter___activitieTitle = 'frontmatter___projectMembers___frontmatter___activitieTitle',
   frontmatter___projectMembers___frontmatter___activitieType = 'frontmatter___projectMembers___frontmatter___activitieType',
   frontmatter___projectMembers___frontmatter___activitieLocation = 'frontmatter___projectMembers___frontmatter___activitieLocation',
+  frontmatter___projectMembers___frontmatter___dateFormat = 'frontmatter___projectMembers___frontmatter___dateFormat',
   frontmatter___projectMembers___frontmatter___relatedProjects = 'frontmatter___projectMembers___frontmatter___relatedProjects',
   frontmatter___projectMembers___frontmatter___projectMembers = 'frontmatter___projectMembers___frontmatter___projectMembers',
   frontmatter___projectMembers___frontmatter___projectFormerMembers = 'frontmatter___projectMembers___frontmatter___projectFormerMembers',
@@ -1991,6 +2001,7 @@ export enum MarkdownRemarkFieldsEnum {
   frontmatter___projectMembers___frontmatter___formerMembers = 'frontmatter___projectMembers___frontmatter___formerMembers',
   frontmatter___projectMembers___frontmatter___title = 'frontmatter___projectMembers___frontmatter___title',
   frontmatter___projectMembers___frontmatter___templateKey = 'frontmatter___projectMembers___frontmatter___templateKey',
+  frontmatter___projectMembers___frontmatter___showHour = 'frontmatter___projectMembers___frontmatter___showHour',
   frontmatter___projectMembers___excerpt = 'frontmatter___projectMembers___excerpt',
   frontmatter___projectMembers___rawMarkdownBody = 'frontmatter___projectMembers___rawMarkdownBody',
   frontmatter___projectMembers___fileAbsolutePath = 'frontmatter___projectMembers___fileAbsolutePath',
@@ -2053,6 +2064,7 @@ export enum MarkdownRemarkFieldsEnum {
   frontmatter___projectFormerMembers___frontmatter___activitieTitle = 'frontmatter___projectFormerMembers___frontmatter___activitieTitle',
   frontmatter___projectFormerMembers___frontmatter___activitieType = 'frontmatter___projectFormerMembers___frontmatter___activitieType',
   frontmatter___projectFormerMembers___frontmatter___activitieLocation = 'frontmatter___projectFormerMembers___frontmatter___activitieLocation',
+  frontmatter___projectFormerMembers___frontmatter___dateFormat = 'frontmatter___projectFormerMembers___frontmatter___dateFormat',
   frontmatter___projectFormerMembers___frontmatter___relatedProjects = 'frontmatter___projectFormerMembers___frontmatter___relatedProjects',
   frontmatter___projectFormerMembers___frontmatter___projectMembers = 'frontmatter___projectFormerMembers___frontmatter___projectMembers',
   frontmatter___projectFormerMembers___frontmatter___projectFormerMembers = 'frontmatter___projectFormerMembers___frontmatter___projectFormerMembers',
@@ -2060,6 +2072,7 @@ export enum MarkdownRemarkFieldsEnum {
   frontmatter___projectFormerMembers___frontmatter___formerMembers = 'frontmatter___projectFormerMembers___frontmatter___formerMembers',
   frontmatter___projectFormerMembers___frontmatter___title = 'frontmatter___projectFormerMembers___frontmatter___title',
   frontmatter___projectFormerMembers___frontmatter___templateKey = 'frontmatter___projectFormerMembers___frontmatter___templateKey',
+  frontmatter___projectFormerMembers___frontmatter___showHour = 'frontmatter___projectFormerMembers___frontmatter___showHour',
   frontmatter___projectFormerMembers___excerpt = 'frontmatter___projectFormerMembers___excerpt',
   frontmatter___projectFormerMembers___rawMarkdownBody = 'frontmatter___projectFormerMembers___rawMarkdownBody',
   frontmatter___projectFormerMembers___fileAbsolutePath = 'frontmatter___projectFormerMembers___fileAbsolutePath',
@@ -2122,6 +2135,7 @@ export enum MarkdownRemarkFieldsEnum {
   frontmatter___coordinators___frontmatter___activitieTitle = 'frontmatter___coordinators___frontmatter___activitieTitle',
   frontmatter___coordinators___frontmatter___activitieType = 'frontmatter___coordinators___frontmatter___activitieType',
   frontmatter___coordinators___frontmatter___activitieLocation = 'frontmatter___coordinators___frontmatter___activitieLocation',
+  frontmatter___coordinators___frontmatter___dateFormat = 'frontmatter___coordinators___frontmatter___dateFormat',
   frontmatter___coordinators___frontmatter___relatedProjects = 'frontmatter___coordinators___frontmatter___relatedProjects',
   frontmatter___coordinators___frontmatter___projectMembers = 'frontmatter___coordinators___frontmatter___projectMembers',
   frontmatter___coordinators___frontmatter___projectFormerMembers = 'frontmatter___coordinators___frontmatter___projectFormerMembers',
@@ -2129,6 +2143,7 @@ export enum MarkdownRemarkFieldsEnum {
   frontmatter___coordinators___frontmatter___formerMembers = 'frontmatter___coordinators___frontmatter___formerMembers',
   frontmatter___coordinators___frontmatter___title = 'frontmatter___coordinators___frontmatter___title',
   frontmatter___coordinators___frontmatter___templateKey = 'frontmatter___coordinators___frontmatter___templateKey',
+  frontmatter___coordinators___frontmatter___showHour = 'frontmatter___coordinators___frontmatter___showHour',
   frontmatter___coordinators___excerpt = 'frontmatter___coordinators___excerpt',
   frontmatter___coordinators___rawMarkdownBody = 'frontmatter___coordinators___rawMarkdownBody',
   frontmatter___coordinators___fileAbsolutePath = 'frontmatter___coordinators___fileAbsolutePath',
@@ -2191,6 +2206,7 @@ export enum MarkdownRemarkFieldsEnum {
   frontmatter___formerMembers___frontmatter___activitieTitle = 'frontmatter___formerMembers___frontmatter___activitieTitle',
   frontmatter___formerMembers___frontmatter___activitieType = 'frontmatter___formerMembers___frontmatter___activitieType',
   frontmatter___formerMembers___frontmatter___activitieLocation = 'frontmatter___formerMembers___frontmatter___activitieLocation',
+  frontmatter___formerMembers___frontmatter___dateFormat = 'frontmatter___formerMembers___frontmatter___dateFormat',
   frontmatter___formerMembers___frontmatter___relatedProjects = 'frontmatter___formerMembers___frontmatter___relatedProjects',
   frontmatter___formerMembers___frontmatter___projectMembers = 'frontmatter___formerMembers___frontmatter___projectMembers',
   frontmatter___formerMembers___frontmatter___projectFormerMembers = 'frontmatter___formerMembers___frontmatter___projectFormerMembers',
@@ -2198,6 +2214,7 @@ export enum MarkdownRemarkFieldsEnum {
   frontmatter___formerMembers___frontmatter___formerMembers = 'frontmatter___formerMembers___frontmatter___formerMembers',
   frontmatter___formerMembers___frontmatter___title = 'frontmatter___formerMembers___frontmatter___title',
   frontmatter___formerMembers___frontmatter___templateKey = 'frontmatter___formerMembers___frontmatter___templateKey',
+  frontmatter___formerMembers___frontmatter___showHour = 'frontmatter___formerMembers___frontmatter___showHour',
   frontmatter___formerMembers___excerpt = 'frontmatter___formerMembers___excerpt',
   frontmatter___formerMembers___rawMarkdownBody = 'frontmatter___formerMembers___rawMarkdownBody',
   frontmatter___formerMembers___fileAbsolutePath = 'frontmatter___formerMembers___fileAbsolutePath',
@@ -2228,6 +2245,7 @@ export enum MarkdownRemarkFieldsEnum {
   frontmatter___formerMembers___internal___type = 'frontmatter___formerMembers___internal___type',
   frontmatter___title = 'frontmatter___title',
   frontmatter___templateKey = 'frontmatter___templateKey',
+  frontmatter___showHour = 'frontmatter___showHour',
   excerpt = 'excerpt',
   rawMarkdownBody = 'rawMarkdownBody',
   fileAbsolutePath = 'fileAbsolutePath',
@@ -3582,7 +3600,8 @@ export type ActivitiesAndNewsPageQuery = { allMarkdownRemark: { edges: Array<{ n
           Pick<MarkdownRemarkFields, 'slug'>
           & { readingTime: Maybe<Pick<MarkdownRemarkFieldsReadingTime, 'text'>> }
         )>, frontmatter: Maybe<(
-          Pick<Frontmatter, 'templateKey' | 'blogTitle' | 'blogAuthor' | 'activitieTitle' | 'activitieType' | 'activitieLocation' | 'date'>
+          Pick<Frontmatter, 'templateKey' | 'blogTitle' | 'blogAuthor' | 'activitieTitle' | 'activitieType' | 'dateFormat' | 'activitieLocation' | 'date'>
+          & { yearOnly: Frontmatter['date'], monthAndYear: Frontmatter['date'], dateTime: Frontmatter['date'], dateOnly: Frontmatter['date'], endYearOnly: Frontmatter['dateEnd'], endMonthAndYear: Frontmatter['dateEnd'], endDateTime: Frontmatter['dateEnd'], endDateOnly: Frontmatter['dateEnd'] }
           & { image: Maybe<{ childImageSharp: Maybe<{ fluid: Maybe<GatsbyImageSharpFluid_WithWebpFragment> }> }> }
         )> }
       ) }> } };
@@ -3596,7 +3615,8 @@ export type ActivitiesQuery = { allMarkdownRemark: { edges: Array<{ node: (
           Pick<MarkdownRemarkFields, 'slug'>
           & { readingTime: Maybe<Pick<MarkdownRemarkFieldsReadingTime, 'text'>> }
         )>, frontmatter: Maybe<(
-          Pick<Frontmatter, 'templateKey' | 'blogTitle' | 'blogAuthor' | 'activitieTitle' | 'activitieType' | 'activitieLocation' | 'date'>
+          Pick<Frontmatter, 'templateKey' | 'blogTitle' | 'blogAuthor' | 'activitieTitle' | 'activitieType' | 'dateFormat' | 'activitieLocation' | 'date'>
+          & { yearOnly: Frontmatter['date'], monthAndYear: Frontmatter['date'], dateTime: Frontmatter['date'], dateOnly: Frontmatter['date'], endYearOnly: Frontmatter['dateEnd'], endMonthAndYear: Frontmatter['dateEnd'], endDateTime: Frontmatter['dateEnd'], endDateOnly: Frontmatter['dateEnd'] }
           & { image: Maybe<{ childImageSharp: Maybe<{ fluid: Maybe<GatsbyImageSharpFluid_WithWebpFragment> }> }> }
         )> }
       ) }> } };
@@ -3610,7 +3630,8 @@ export type BlogPostsPageQuery = { allMarkdownRemark: { edges: Array<{ node: (
           Pick<MarkdownRemarkFields, 'slug'>
           & { readingTime: Maybe<Pick<MarkdownRemarkFieldsReadingTime, 'text'>> }
         )>, frontmatter: Maybe<(
-          Pick<Frontmatter, 'templateKey' | 'blogTitle' | 'blogAuthor' | 'activitieTitle' | 'activitieType' | 'activitieLocation' | 'date'>
+          Pick<Frontmatter, 'templateKey' | 'blogTitle' | 'blogAuthor' | 'activitieTitle' | 'activitieType' | 'dateFormat' | 'activitieLocation' | 'date'>
+          & { yearOnly: Frontmatter['date'], monthAndYear: Frontmatter['date'], dateTime: Frontmatter['date'], dateOnly: Frontmatter['date'], endYearOnly: Frontmatter['dateEnd'], endMonthAndYear: Frontmatter['dateEnd'], endDateTime: Frontmatter['dateEnd'], endDateOnly: Frontmatter['dateEnd'] }
           & { image: Maybe<{ childImageSharp: Maybe<{ fluid: Maybe<GatsbyImageSharpFluid_WithWebpFragment> }> }> }
         )> }
       ) }> } };
@@ -3624,7 +3645,8 @@ export type NewsAndArticlesPageQuery = { allMarkdownRemark: { edges: Array<{ nod
           Pick<MarkdownRemarkFields, 'slug'>
           & { readingTime: Maybe<Pick<MarkdownRemarkFieldsReadingTime, 'text'>> }
         )>, frontmatter: Maybe<(
-          Pick<Frontmatter, 'templateKey' | 'blogTitle' | 'blogAuthor' | 'activitieTitle' | 'activitieType' | 'activitieLocation' | 'date'>
+          Pick<Frontmatter, 'templateKey' | 'blogTitle' | 'blogAuthor' | 'activitieTitle' | 'activitieType' | 'dateFormat' | 'activitieLocation' | 'date'>
+          & { yearOnly: Frontmatter['date'], monthAndYear: Frontmatter['date'], dateTime: Frontmatter['date'], dateOnly: Frontmatter['date'], endYearOnly: Frontmatter['dateEnd'], endMonthAndYear: Frontmatter['dateEnd'], endDateTime: Frontmatter['dateEnd'], endDateOnly: Frontmatter['dateEnd'] }
           & { image: Maybe<{ childImageSharp: Maybe<{ fluid: Maybe<GatsbyImageSharpFluid_WithWebpFragment> }> }> }
         )> }
       ) }> } };
@@ -3650,7 +3672,8 @@ export type ActivitiePostByIdQueryVariables = {
 export type ActivitiePostByIdQuery = { markdownRemark: Maybe<(
     Pick<MarkdownRemark, 'html' | 'excerpt'>
     & { frontmatter: Maybe<(
-      Pick<Frontmatter, 'activitieTitle' | 'activitieType' | 'date' | 'activitieLocation'>
+      Pick<Frontmatter, 'activitieTitle' | 'activitieType' | 'dateFormat' | 'activitieLocation'>
+      & { yearOnly: Frontmatter['date'], monthAndYear: Frontmatter['date'], dateTime: Frontmatter['date'], dateOnly: Frontmatter['date'], endYearOnly: Frontmatter['dateEnd'], endMonthAndYear: Frontmatter['dateEnd'], endDateTime: Frontmatter['dateEnd'], endDateOnly: Frontmatter['dateEnd'] }
       & { relatedProjects: Maybe<Array<Maybe<{ fields: Maybe<Pick<MarkdownRemarkFields, 'slug'>>, frontmatter: Maybe<Pick<Frontmatter, 'projectName'>> }>>>, activitieLink: Maybe<Pick<FeaturedLink, 'label' | 'url'>> }
     )> }
   )> };
@@ -3694,7 +3717,10 @@ export type PostsFragment = { edges: Array<{ node: (
       & { fields: Maybe<(
         Pick<MarkdownRemarkFields, 'slug'>
         & { readingTime: Maybe<Pick<MarkdownRemarkFieldsReadingTime, 'text'>> }
-      )>, frontmatter: Maybe<Pick<Frontmatter, 'templateKey' | 'blogTitle' | 'blogAuthor' | 'activitieTitle' | 'activitieType' | 'activitieLocation' | 'date'>> }
+      )>, frontmatter: Maybe<(
+        Pick<Frontmatter, 'templateKey' | 'blogTitle' | 'blogAuthor' | 'activitieTitle' | 'activitieType' | 'activitieLocation' | 'dateFormat' | 'date'>
+        & { yearOnly: Frontmatter['date'], monthAndYear: Frontmatter['date'], dateTime: Frontmatter['date'], dateOnly: Frontmatter['date'], endYearOnly: Frontmatter['dateEnd'], endMonthAndYear: Frontmatter['dateEnd'], endDateTime: Frontmatter['dateEnd'], endDateOnly: Frontmatter['dateEnd'] }
+      )> }
     ) }> };
 
 export type IndexPageTemplateQueryVariables = {};
@@ -3713,7 +3739,7 @@ export type MemberFragment = (
   & { frontmatter: Maybe<(
     Pick<Frontmatter, 'memberRole' | 'memberName' | 'memberSince' | 'memberUntil' | 'memberEmail' | 'memberLattes' | 'isFormerMember' | 'memberLinkedin'>
     & { memberUntilTimestamp: Frontmatter['memberUntil'] }
-    & { image: Maybe<{ childImageSharp: Maybe<{ fluid: Maybe<GatsbyImageSharpFluid_WithWebpFragment> }> }>, memberOtherInfos: Maybe<Array<Pick<OtherInfos, 'info' | 'link' | 'label'>>>, memberFeaturedLink: Maybe<Pick<FeaturedLink, 'label' | 'url'>> }
+    & { image: Maybe<{ childImageSharp: Maybe<{ fluid: Maybe<GatsbyImageSharpFluid_WithWebpFragment> }> }>, memberOtherInfos: Maybe<Array<Pick<OtherInfos, 'info' | 'url' | 'label'>>>, memberFeaturedLink: Maybe<Pick<FeaturedLink, 'label' | 'url'>> }
   )> }
 );
 
