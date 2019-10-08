@@ -8,7 +8,7 @@ dateFormat: 3
 activitieLocation: Electrical Engineering Building
 activitieType: POSTGRAD COURSE
 notListed: false
-featured: not
+featured: '3'
 activitieLink:
   label: Inscrições
 ---
