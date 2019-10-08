@@ -15,6 +15,7 @@ memberOtherInfos:
   - info: ''
     label: Website
     url: 'https://lucassantos.net'
+  - info: 'Project Team: SMART_2'
 memberFeaturedLink:
   label: Website
   url: 'https://lucassantos.net'
