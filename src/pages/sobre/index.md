@@ -27,3 +27,10 @@ Cognitio is part of:
 * Department of Electronic Systems Engineering (PSI)
 * Polytechnic School (EP)
 * University of São Paulo (USP)
+
+
+
+Partnership
+
+* ...
+*
