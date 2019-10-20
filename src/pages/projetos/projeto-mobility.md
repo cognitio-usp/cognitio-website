@@ -1,7 +1,7 @@
 ---
 id: Projeto Mobility
 templateKey: project-page
-projectName: 'SMART_2: Mobility (Phase 2)'
+projectName: SMART_2
 image: /img/icon.png
 date: 2019-09-02T18:52:31.652Z
 projectStart: 2017-01-01T21:51:23.752Z
@@ -17,11 +17,11 @@ projectFormerMembers:
   - Lucas Oliveira Santos
   - Prof. Dr. Marcio Lobo Netto
 ---
+Mobility (Phase 2)
+
 In this second phase of the EPUSP - BMW project cooperation some inference tools using machine learning technologies have been developed and assessed in the Sao Paulo Metropolitan area.
 
 keywords: machine learning / urban mobility assistance tools 
-
- 
 
 \====================================================================
 
