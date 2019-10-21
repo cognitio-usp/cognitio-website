@@ -5,6 +5,7 @@ activitieTitle: Conception and Implementation of Intelligent Electronic Systems
 date: 2018-01-01T20:19:32.239Z
 dateEnd: 2019-12-01T06:53:00.403Z
 dateFormat: 4
+activitieLocation: Electrical Engineering Building
 activitieType: Undergrad Course
 featured: not
 activitieLink:
