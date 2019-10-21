@@ -7,7 +7,7 @@ dateEnd: 2019-12-01T22:24:00.000Z
 dateFormat: 4
 activitieLocation: Electrical Engineering Building
 activitieType: Undergrad Course
-featured: '2'
+featured: '3'
 activitieLink:
   label: Lectures
   url: 'https://edisciplinas.usp.br/course/view.php?id=71820'
