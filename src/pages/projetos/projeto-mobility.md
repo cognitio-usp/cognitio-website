@@ -6,7 +6,7 @@ image: /img/icon.png
 date: 2019-09-02T18:52:31.652Z
 projectStart: 2017-01-01T21:51:23.752Z
 projectEnd: 2019-03-12T03:00:00.000Z
-featured: '1'
+featured: not
 projectMembers:
   - kasdjfljqjjaflkj
   - kajflkjqkjlkjrlwjp
