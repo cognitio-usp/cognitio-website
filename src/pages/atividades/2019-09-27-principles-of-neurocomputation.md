@@ -7,7 +7,7 @@ dateEnd: ''
 dateFormat: 4
 activitieLocation: Electrical Engineering Building
 activitieType: Postgrad Course
-featured: not
+featured: '2'
 activitieLink:
   label: Lectures
   url: 'https://edisciplinas.usp.br/course/view.php?id=72284'
