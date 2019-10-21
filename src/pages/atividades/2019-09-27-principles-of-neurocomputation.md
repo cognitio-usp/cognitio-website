@@ -5,6 +5,7 @@ activitieTitle: Principles of Neurocomputation
 date: 2019-09-27T21:13:50.395Z
 dateEnd: ''
 dateFormat: 4
+activitieLocation: Electrical Engineering Building
 activitieType: Postgrad Course
 featured: not
 activitieLink:
