@@ -5,6 +5,7 @@ activitieTitle: Visual Computing
 date: 2018-06-01T21:17:00.000Z
 dateEnd: 2019-12-01T22:24:00.000Z
 dateFormat: 4
+activitieLocation: Electrical Engineering Building
 activitieType: Undergrad Course
 featured: not
 activitieLink:
