@@ -36,17 +36,289 @@ articles:
       An Artificial Life Approach for the Animation of Cognitive Characters.
       Computers & Graphics, v. 25, n.6, p. 955-964.
 thesis:
+  - description: >-
+      [DOCTOR THESIS]
+
+      Mauro Enrique de Souza Muñoz (2015) Desenvolvimento Artificial Autonomo de
+      um Grafo Sensorio-Motor Auto-Oraganizavel. Tese (Doutorado em Sistemas
+      Eletrônicos) - Escola Politécnica da Usp, Coordenação de Aperfeiçoamento
+      de Pessoal de Nível Superior. Orientador: Marcio Lobo Netto.
+  - description: >+
+      [DOCTOR THESIS]
+
+      Luciene Cristina Alves Rinaldi (2014) Proposição e avaliação de um modelo
+      de transmissão de conhecimento coerente com comportamentos observados. 0
+      f. Tese (Doutorado em Sistemas Eletrônicos) - Escola Politécnica da Usp,
+      Conselho Nacional de Desenvolvimento Científico e Tecnológico. Orientador:
+      Marcio Lobo Netto.
+
   - description: >
-      Neves, Rogerio (2003 / Sep) A.L.I.V.E. Vida Artificial em Ambientes
-      Virtuais: Uma plataforma experimental em realidade virtual para estudos
-      dos seres vivos e da dinâmica da vida /
+      [DOCTOR THESIS]
+
+      Daniel Costa de Paiva (2011) MODELAGEM E SIMULAÇÃO DE AGENTES COM ASPECTOS
+      COGNITIVOS PARA AVALIAÇÃO DE COMPORTAMENTO SOCIAL. Tese (Doutorado em
+      Sistemas Eletrônicos) - Escola Politécnica da Usp, Fundação de Amparo à
+      Pesquisa do Estado de São Paulo. Orientador: Marcio Lobo Netto.
+  - description: >-
+      [DOCTOR THESIS]
+
+      João Henrique Ranhel Ribeiro (2011) Computação por Assembléias Neurais em
+      Redes Neurais Pulsadas. Tese (Doutorado em Sistemas Eletrônicos) - Escola
+      Politécnica da Usp, . Orientador: Marcio Lobo Netto.
+  - description: >
+      [DOCTOR THESIS]
+
+      Caio Augustus Morais Bolzani (2010) Análise de Arquiteturas e
+      Desenvolvimento de uma Plataforma para Residências Inteligentes. 0 f. Tese
+      (Doutorado em Sistemas Eletrônicos) - Escola Politécnica da Usp, .
+      Orientador: Marcio Lobo Netto.
+  - description: >+
+      [DOCTOR THESIS] 
+
+      Jose Osvaldo de Souza Guimarães (2009) Computação Evolutiva na Resolução
+      de Equações Diferenciais Ordinárias Não Lineares no Espaço de Hilbert. 0
+      f. Tese (Doutorado em Sistemas Eletrônicos) - Escola Politécnica da Usp, .
+      Orientador: Marcio Lobo Netto.
 
 
-      Master Thesis    Advisor: Marcio Lobo Netto
-    links:
-      - name: pdf
-        url: >-
-          https://www.researchgate.net/publication/242107563_ALIVE_Vida_Artificial_em_Ambientes_Virtuais_Uma_plataforma_experimental_em_realidade_virtual_para_estudos_dos_seres_vivos_e_da_dinamica_da_vida
+  - description: >-
+      [DOCTOR THESIS]
+
+      Nilton Cezar Furtando Canto (2008) Uma Abordagem Evolutiva para
+      Identificação de Procedimentos de Raciocínio Humano. 0 f. Tese (Doutorado
+      em Sistemas Eletrônicos) - Escola Politécnica da Usp, . Orientador: Marcio
+      Lobo Netto.
+  - description: >-
+      [MASTER THESIS]
+
+      Giovani Balen Meneghel. Proposta de Metodologia para Avaliação de Métodos
+      de Iluminação Global em Síntese de Imagens. 2015. Dissertação (Mestrado em
+      Engenharia Elétronica - Sistemas Eletrônicos) - Escola Politécnica da Usp,
+      . Orientador: Marcio Lobo Netto.
+  - description: >+
+      [MASTER THESIS]
+
+      Eugenio Appolinari Monticone. GERENCIAMENTO DE FLUXOS VEICULARES URBANOS
+      POR MEIO DE UM SIMULADOR AGREGADO: PROPOSTA DE UM NOVO TIPO DE SIMULAÇÃO
+      POR SISTEMAS HÍBRIDOS. 2015. Dissertação (Mestrado em Engenharia
+      Elétronica - Sistemas Eletrônicos) - Escola Politécnica da Usp, .
+      Orientador: Marcio Lobo Netto.
+
+  - description: >+
+      [MASTER THESIS]
+
+      Franc Araujo de Abreu Cara. Uma Estrategia Ganha-Ganha para Formacao de
+      Coalizoes em Sistemas Multiagentes. 2013. Dissertação (Mestrado em
+      Engenharia Elétronica - Sistemas Eletrônicos) - Escola Politécnica da Usp,
+      . Orientador: Marcio Lobo Netto.
+
+  - description: >+
+      [MASTER THESIS]
+
+      Bruno Sarno Mugnela. Prototipagem e Aplicação de um Simulador de Trânsito
+      Voltado para Otimização de Sinalização Semafórica por Meio de Algoritmos
+      Genéticos. 2012. Dissertação (Mestrado em Engenharia Elétronica - Sistemas
+      Eletrônicos) - Escola Politécnica da Usp, Coordenação de Aperfeiçoamento
+      de Pessoal de Nível Superior. Orientador: Marcio Lobo Netto.
+
+  - description: >+
+      [MASTER THESIS]
+
+      Cesar Gomes Miguel. Evolução Estrutural e Paramétrica de Redes Neurais
+      Dinâmicas em Vida Artificial. 2009. 0 f. Dissertação (Mestrado em
+      Engenharia Elétronica - Sistemas Eletrônicos) - Escola Politécnica da Usp,
+      . Orientador: Marcio Lobo Netto.
+
+  - description: >+
+      [MASTER THESIS]
+
+      Ana Teresa Ribeiro Contier. Um Modelo de Extração de Propriedades de
+      Textos Usando Pensamento Narrativo e Paradigmático. 2007. 0 f. Dissertação
+      (Mestrado em Engenharia Elétronica - Sistemas Eletrônicos) - Escola
+      Politécnica da Usp, . Orientador: Marcio Lobo Netto.
+
+  - description: >+
+      [MASTER THESIS]
+
+      Silvio Luis Marangom. Análise de Métodos para Programação de
+      Contextualização. 2006. 0 f. Dissertação (Mestrado em Engenharia
+      Elétronica - Sistemas Eletrônicos) - Escola Politécnica da Usp, .
+      Orientador: Marcio Lobo Netto.
+
+  - description: >+
+      [MASTER THESIS]
+
+      Marcos Antonio Cavalhieri. Modelo Comportamental Baseado em Crenças e
+      Teoria Bayesiana para Simulações de Vida Artificial com Humanos Virtuais.
+      2006. 0 f. Dissertação (Mestrado em Engenharia Elétronica - Sistemas
+      Eletrônicos) - Escola Politécnica da Usp, Conselho Nacional de
+      Desenvolvimento Científico e Tecnológico. Orientador: Marcio Lobo Netto.
+
+  - description: >+
+      [MASTER THESIS]
+
+      Fabio Roberto Miranda. Aplicação de Vida Artificial e Computação
+      Evolucionária à Síntese de Personagens Animados. 2004. 0 f. Dissertação
+      (Mestrado em Engenharia Elétronica - Sistemas Eletrônicos) - Escola
+      Politécnica da Usp, . Orientador: Marcio Lobo Netto.
+
+  - description: >+
+      [MASTER THESIS]
+
+      Rodrigo Filev Maia. Sistema Multi-Agentes para Acompanhamento e Auxílio de
+      Avaliação de Alunos em Ambientes de Ensino à Distância. 2004. 167 f.
+      Dissertação (Mestrado em Engenharia Elétronica - Sistemas Eletrônicos) -
+      Escola Politécnica da Usp, . Orientador: Marcio Lobo Netto.
+
+  - description: >+
+      [MASTER THESIS]
+
+      Caio Augustus Morais Bolzani. Desenvolvimento de um Simulador de Controle
+      de Dispositivos Residenciais Inteligentes: Uma Introdução aos Sistemas
+      Domóticos. 2004. 114 f. Dissertação (Mestrado em Engenharia Elétronica -
+      Sistemas Eletrônicos) - Escola Politécnica da Usp, . Orientador: Marcio
+      Lobo Netto.
+
+  - description: >+
+      [MASTER THESIS]
+
+      Rogerio Perino de Oliveira Neves. A.L.I.V.E. Vida Artificial em Ambientes
+      Virtuais: Uma Plataforma Experimental em Realidade Virtual para Estudos
+      dos Seres Vivos e da Dinâmica da Vida. 2003. 0 f. Dissertação (Mestrado em
+      Engenharia Elétronica - Sistemas Eletrônicos) - Escola Politécnica da Usp,
+      Conselho Nacional de Desenvolvimento Científico e Tecnológico. Orientador:
+      Marcio Lobo Netto.
+
+  - description: >-
+      [MASTER THESIS]
+
+      Elaine Elizabeth de Souza. Sistemas Multiagentes Aplicados à Mídia
+      Interativa. 2002. 0 f. Dissertação (Mestrado em Engenharia Elétronica -
+      Sistemas Eletrônicos) - Escola Politécnica da Usp, Conselho Nacional de
+      Desenvolvimento Científico e Tecnológico. Orientador: Marcio Lobo Netto.
+  - description: >-
+      Iniciação científica
+
+      1.
+
+      Alexandre Gomes Rabelo de Almeida. UM SISTEMA DE SIMULAÇÃO COMPUTACIONAL
+      PARA ANÁLISE DE TRANSMISSÃO SOCIAL DE INFORMAÇÕES. 2012. Iniciação
+      Científica. (Graduando em Engenharia de Sistemas Eletrônicos) - Escola
+      Politécnica da Usp, Conselho Nacional de Desenvolvimento Científico e
+      Tecnológico. Orientador: Marcio Lobo Netto.
+
+
+      2.
+
+      Eduardo Pimenta Neves Caraver. Humanos Virtuais. 2004. 0 f. Iniciação
+      Científica. (Graduando em Engenharia de Sistemas Eletrônicos) - Escola
+      Politécnica da Usp, Conselho Nacional de Desenvolvimento Científico e
+      Tecnológico. Orientador: Marcio Lobo Netto.
+
+
+      3.
+
+      Claudio Ranieri. Implementação do Projeto ALGA. 2003. 0 f. Iniciação
+      Científica. (Graduando em Engenharia de Sistemas Eletrônicos) - Escola
+      Politécnica da Usp, Conselho Nacional de Desenvolvimento Científico e
+      Tecnológico. Orientador: Marcio Lobo Netto.
+
+
+      4.
+
+      Rodrigo Pimenta Braga. Analise e Controle do Comportamento Coletivo de
+      Agentes Co-existindo em um Ambiente Virtual de Vida Artificial. 2001.
+      Iniciação Científica. (Graduando em Engenharia de Sistemas Eletrônicos) -
+      Escola Politécnica da Usp, Conselho Nacional de Desenvolvimento Científico
+      e Tecnológico. Orientador: Marcio Lobo Netto.
+
+
+      5.
+
+      Carlos da Silva dos Santos. Estudo e Implementação de Mecanismos de
+      Comunicação entre Processos para Automação de Processamento de Imagens.
+      2000. Iniciação Científica. (Graduando em Engenharia de Sistemas
+      Eletrônicos) - Escola Politécnica da Usp, Conselho Nacional de
+      Desenvolvimento Científico e Tecnológico. Orientador: Marcio Lobo Netto.
+  - description: >+
+      Trabalho de conclusão de curso de graduação
+
+      1.
+
+      Daniel Ferreira Silva. Estudo de Rotas de Onibus Circulares na Cidade
+      Universitaria. 2017. Trabalho de Conclusão de Curso. (Graduação em
+      Engenharia de Sistemas Eletrônicos) - Escola Politécnica da Usp.
+      Orientador: Marcio Lobo Netto.
+
+
+      2.
+
+      Gabriel Costa Ribeiro Tavares de Almeida. Estudo de Rotas de Onibus
+      Circulares na Cidade Universitaria. 2017. Trabalho de Conclusão de Curso.
+      (Graduação em Engenharia de Sistemas Eletrônicos) - Escola Politécnica da
+      Usp. Orientador: Marcio Lobo Netto.
+
+
+      3.
+
+      Vinicius Rodrigues de Souza. FERRAMENTA BASEADA NA SIMULAÇÃO DE TRÂNSITO
+      DA CIDADE DE SÃO PAULO PARA ESCOLHA DOS TEMPOS DE SEMÁFOROS POR MEIO DE
+      ALGORITMOS GENÉTICOS. 2017. Trabalho de Conclusão de Curso. (Graduação em
+      Engenharia de Sistemas Eletrônicos) - Escola Politécnica da Usp.
+      Orientador: Marcio Lobo Netto.
+
+
+      4.
+
+      Dinah Navas Elias. Sistema de Temporização Semaforica Utilizando
+      Algoritmos Genéticos e Sistema Multi-Agentes. 2013. Trabalho de Conclusão
+      de Curso. (Graduação em Engenharia de Sistemas Eletrônicos) - Escola
+      Politécnica da Usp. Orientador: Marcio Lobo Netto.
+
+
+      5.
+
+      Luis Gustavo Rocha Vianna. Pesquisa e desenvolvimento de um simulador
+      computacional no contexto de vida artificial e ciência cognitiva. 2011.
+      Trabalho de Conclusão de Curso. (Graduação em Engenharia de Sistemas
+      Eletrônicos) - Escola Politécnica da Usp. Orientador: Marcio Lobo Netto.
+
+
+      6.
+
+      Rhemzo Souza Rodrigues. Biblioteca para Aplicações em Realidade Aumenta.
+      2008. Trabalho de Conclusão de Curso. (Graduação em Engenharia de Sistemas
+      Eletrônicos) - Escola Politécnica da Usp. Orientador: Marcio Lobo Netto.
+
+
+      7.
+
+      Theo Satoshi Tanaka. Modelos de Comportamento em GPUs. 2007. Trabalho de
+      Conclusão de Curso. (Graduação em Engenharia de Sistemas Eletrônicos) -
+      Escola Politécnica da Usp. Orientador: Marcio Lobo Netto.
+
+
+      8.
+
+      Daniel Couto Tavares. Humanóide Virtual. 2005. Trabalho de Conclusão de
+      Curso. (Graduação em Engenharia de Sistemas Eletrônicos) - Escola
+      Politécnica da Usp. Orientador: Marcio Lobo Netto.
+
+
+      9.
+
+      Eduardo Pimenta Neves Caraver. Humanóide Virtual. 2005. Trabalho de
+      Conclusão de Curso. (Graduação em Engenharia de Sistemas Eletrônicos) -
+      Escola Politécnica da Usp. Orientador: Marcio Lobo Netto.
+
+
+      10.
+
+      Pedro Di Pierro Celestino. TraffiCommunity - Agentes Colaborativos como
+      Controladores de Sinais de Trânsito. 2003. Trabalho de Conclusão de Curso.
+      (Graduação em Engenharia de Sistemas Eletrônicos) - Escola Politécnica da
+      Usp. Orientador: Marcio Lobo Netto.
+
 books:
   - description: >+
       GRINDEL, T. ; ANDERL, R. ; BATHE, K. J. ; FU, J. ; KAMINSKI, P. C. ;
