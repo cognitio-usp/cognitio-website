@@ -47,6 +47,90 @@ thesis:
       - name: pdf
         url: >-
           https://www.researchgate.net/publication/242107563_ALIVE_Vida_Artificial_em_Ambientes_Virtuais_Uma_plataforma_experimental_em_realidade_virtual_para_estudos_dos_seres_vivos_e_da_dinamica_da_vida
-books: []
+books:
+  - description: >+
+      GRINDEL, T. ; ANDERL, R. ; BATHE, K. J. ; FU, J. ; KAMINSKI, P. C. ;
+      KIMURA, F. ; KONG, K. ; LIU, N. C. ; Liu, S. X. ; NETTO, M. L. ; LOHMANN,
+      J. R. ; PLATTNER, B. ; WIDDIG, B. . Final Report of the Global Engineering
+      Excellence Initiative ? Educating the Next Generation of Engineers for the
+      Global Workplace. Hannover: , 2007. v. 1. 108p .
+
+  - description: >+
+      GRINDEL, T. ; ANDERL, R. ; BATHE, K. J. ; FU, J. ; KAMINSKI, P. C. ;
+      KIMURA, F. ; KONG, K. ; Liu, S. X. ; LIU, N. C. ; NETTO, M. L. ; LOHMANN,
+      J. R. ; PERASKA, S. E. ; WIDDIG, B. (2006) In Search of Global Engineering
+      Excellence. 1. ed. Hanover: Münstermann GmbH. v. 5000. 84p .
+
+  - description: >-
+      NETTO, M. L. (1998) Development Of High Performance Parallel Graphical
+      Applications With Efficient Parallel Processing And Adaptive Techniques.
+      Aachen: Shaker Verlag. 282p.
+  - description: >-
+      <PROCEEDINGS EDITOR>           
+
+      FIGUEIREDO, L. H. (Org.) ; NETTO, M. L. (Org.) (1997) X Brazilian
+      Symposium of Computer Graphics and Image Processing. 10. ed. Los Alamitos,
+      CA, USA: IEEE Computer Society. v. 500. 235p.
+  - description: >-
+      [BOOK CHAPTER]
+
+      RIBEIRO, J. H. R. ; HERNANDEZ, E. M. ; NETTO, M. L. (2017) How complex
+      behavior emerges from spikes. In: Adams, F; Pessoa Jr, O; Kogler Jr, J E.
+      (Org.). Cognitive Science - Recent Advances and Recurring Problems. 1ed.:
+      Vernon Press, v. , p. 195-215.
+  - description: >+
+      [BOOK CHAPTER]
+
+      LOULA, A. ; NETTO, M. L. ; MUNOZ, M. E. S. ; GUDWIN, R. (2017) Advances
+      and perspectives in cognitive architectures. In: Adams, F.; Pessoa Jr, O.;
+      Kogler Jr., J. E.. (Org.). Cognitive Science - Recent Advances and
+      Recurring Problems. 1ed., v. , p. 279-292.
+
+  - description: >+
+      [BOOK CHAPTER]
+
+      KOFUJI, S. T. ; NETTO, M. L. (2012) Proposta de um Elenco de Disciplinas
+      de Pós-Graduação para Formação 147. In: Carlos Augusto Paiva da Silva
+      Martins; Philippe Olivier Alexandre Navaux; Rodolfo Jardim de Azevedo;
+      Sérgio Takeo Kofuji. (Org.). Arquitetura de Computadores:educação, ensino
+      e aprendizado. 1ed.: Sociedade Brasileira de Computação - SBC, v. , p.
+      147-164.
+
+  - description: >+
+      [BOOK CHAPTER]
+
+      Lima do Rego Monteiro, Julio ; Kogler, Joao Eduardo ; Ribeiro, Joao
+      Henrique Ranhel ; Netto, Marcio Lobo (2010) On Building a Memory Evolutive
+      System for Application to Learning and Cognition Modeling. In: Hussain,
+      A.; Aleksander, I.; Smith, L.S.; Barros, A.K.; Chrisley, R.; Cutsuridis,
+      V. (Org.). Advances in Experimental Medicine and Biology. 1ed.: Springer
+      New York, v. , p. 19-39.
+
+  - description: >+
+      [BOOK CHAPTER]
+
+      RINALDI, L. C. A. ; PAIVA, D. C. ; NETTO, M. L. (2009) Uso de Realidade
+      Virtual em Vida Artificial. In: SBC - SVR. (Org.). SVR - Curso de
+      Realidade Virtual. 1ed., v. , p. 31-52.
+
+  - description: >+
+      [BOOK CHAPTER]
+
+      RODRIGUES, L. C. R. ; CAVALHIERI, M. A. ; ASSIS, G. A. ; NETTO, M. L.
+      (2006) Uso de Realidade Virtual na Vida Artificial. In: Romero Tori,
+      Claudio Kirner e Robson Siscoutto. (Org.). Fundamentos e Tecnologia de
+      Realidade Virtual e Aumentada. v. , p. -.
+
+  - description: |+
+      [BOOK CHAPTER]
+       NETTO, M. L.; DEL NERO, H. S. ; RANIERI, C. (2004) Evolutionary Learning Strategies for Artificial Life Characters. In: Tan, K. C.; Lim, M. H.; Yao, X.; Wang, L.. (Org.). Recent Advances in Simulated Evolution and Learning. v. , p. -.
+
+  - description: >-
+      [BOOK CHAPTER]
+
+      NETTO, M. L.; LANGE, B. ; HORNUNG, C. (1995) Assisting The Design and
+      Optimization of High Quality Parallel Renderers. In: Cheng, M.. (Org.).
+      Proceedings of International Workshop on High Performance Computing for
+      Computer Graphics and Visualization. 1ed.: Springer Verlag, v. 1, p. -.
 ---
 
