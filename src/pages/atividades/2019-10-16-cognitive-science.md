@@ -9,6 +9,7 @@ activitieLocation: Electrical Engineering Building
 activitieType: Seminar
 featured: not
 activitieLink:
-  label: Inscrições
+  label: Facebook Group
+  url: 'https://www.facebook.com/groups/336681073015745/'
 ---
 Study Group on Cognitive Sciences
