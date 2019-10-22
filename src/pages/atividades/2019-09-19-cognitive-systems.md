@@ -14,7 +14,7 @@ activitieLink:
 ---
 **PSI3560 - Cognitive Systems (2018 - 2019)     1st semester   (English)**
 
-**[**_Facebook Group_**](https://www.facebook.com/groups/399437180504975/)**   **_https://www.facebook.com/groups/399437180504975/_**
+**[**_Facebook Group_**](https://www.facebook.com/groups/399437180504975/)**
 
 - - -
 
