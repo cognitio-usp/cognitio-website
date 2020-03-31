@@ -12,9 +12,9 @@ activitieLink:
   label: Lectures
   url: 'https://edisciplinas.usp.br/course/view.php?id=67270'
 ---
-**PSI3560 - Cognitive Systems (2018 - 2019)     1st semester   (English)**
+**PSI3560 - Cognitive Systems (2018 - 2020)     1st semester   (English)**
 
-**__**[**_Facebook Group_**](https://www.facebook.com/groups/399437180504975/)
+**__**[_**Facebook Group**_](https://www.facebook.com/groups/399437180504975/)
 
 - - -
 
