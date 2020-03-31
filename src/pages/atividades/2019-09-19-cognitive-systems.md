@@ -3,7 +3,7 @@ id: 1568936486315-7G6csgZuJ
 templateKey: activitie-post
 activitieTitle: Cognitive Systems
 date: 2018-01-05T09:30:00.000Z
-dateEnd: 2019-06-30T23:21:15.066Z
+dateEnd: 2020-07-01T23:21:00.000Z
 dateFormat: 4
 activitieLocation: Electrical Engineering Building
 activitieType: Undergrad Course
