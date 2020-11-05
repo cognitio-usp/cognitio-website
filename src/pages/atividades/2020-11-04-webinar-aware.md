@@ -7,12 +7,15 @@ dateEnd: ''
 dateFormat: 1
 activitieLocation: Remote (Webinar)
 activitieType: Evento
+notListed: false
 featured: '2'
 relatedProjects:
   - Projeto Mobility
 activitieLink:
   label: Inscrições
 ---
+<p class="youtube"><iframe src="https://www.youtube.com/embed/yzZSx2RWkW8" frameborder="0" allowfullscreen></iframe></p>
+
 Autonomous Driving with Cognitive Agents 
 
 Dream or Reality?
