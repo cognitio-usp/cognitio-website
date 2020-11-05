@@ -12,7 +12,7 @@ featured: '2'
 relatedProjects:
   - Projeto Mobility
 activitieLink:
-  label: Inscrições
+  label: ''
 ---
 <p class="youtube"><iframe src="https://www.youtube.com/embed/yzZSx2RWkW8" frameborder="0" allowfullscreen></iframe></p>
 
