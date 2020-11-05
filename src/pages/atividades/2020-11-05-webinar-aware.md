@@ -7,11 +7,11 @@ dateEnd: ''
 dateFormat: 1
 activitieLocation: Remote (Webinar)
 activitieType: Evento
-featured: not
+featured: '1'
 relatedProjects:
   - Projeto Mobility
 activitieLink:
-  label: Inscrições
+  label: youtube session
   url: 'https://www.youtube.com/watch?v=yzZSx2RWkW8&t=2131s'
 ---
 Autonomous Driving with Cognitive Agents 
