@@ -19,6 +19,8 @@ projectFormerMembers:
 ---
 ![](/img/screen-shot-2020-11-06-at-10.24.17.png)
 
+![](/img/screen-shot-2020-11-06-at-10.27.13.png)
+
 Mobility (Phase 2)
 
 In this second phase of the EPUSP - BMW project cooperation some inference tools using machine learning technologies have been developed and assessed in the Sao Paulo Metropolitan area.
