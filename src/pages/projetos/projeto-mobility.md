@@ -17,7 +17,7 @@ projectFormerMembers:
   - Lucas Oliveira Santos
   - Prof. Dr. Marcio Lobo Netto
 ---
-![](/img/screen-shot-2020-11-06-at-10.24.17.png)
+![](/img/screen-shot-2020-11-06-at-10.24.17.png "Driving Assistance")
 
 ![](/img/screen-shot-2020-11-06-at-10.27.13.png)
 
